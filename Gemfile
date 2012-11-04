@@ -10,6 +10,9 @@ gem 'thin'
 gem 'haml'
 gem "formtastic"
 gem "twitter-bootstrap-rails"
+gem 'backbone-on-rails'
+
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,6 +34,9 @@ group :test do
   gem "sqlite3"
   gem 'poltergeist'
   gem 'cucumber-rails'
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
