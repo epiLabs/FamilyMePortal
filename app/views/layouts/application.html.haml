@@ -15,11 +15,9 @@
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
-    #main{:role => "main"}
-      .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
+    #main.container{:role => "main"}
+      .row
+        .span12= render 'layouts/messages'
+      .container-fluid
+        = yield
+  %footer

@@ -3,3 +3,5 @@
 #= require bootstrap
 #= require_tree .
 
+$ ->
+  console.log 'ready'
