@@ -18,6 +18,7 @@ development:
   encoding: unicode
   database: familyMe_development
   pool: 5
+  min_messages: WARNING
 
 production:
   host: localhost
