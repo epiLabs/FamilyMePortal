@@ -9,7 +9,6 @@ gem 'pg'
 gem 'thin'
 gem 'haml'
 gem "formtastic"
-gem "twitter-bootstrap-rails", "2.1.4"
 gem 'backbone-on-rails'
 
 gem 'devise'
@@ -20,16 +19,18 @@ group :assets do
   gem 'coffee-rails'
 
   gem 'sass-rails'
-  gem 'bootstrap-sass'
+  gem 'less-rails' # Required by the twitter-bootstrap-rails....
+
+  gem "twitter-bootstrap-rails"
+  # gem 'bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
 
 group :test do
   gem "sqlite3"
