@@ -9,7 +9,7 @@ gem 'pg'
 gem 'thin'
 gem 'haml'
 gem "formtastic"
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", "2.1.4"
 gem 'backbone-on-rails'
 
 gem 'devise'
@@ -29,6 +29,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'therubyracer'
 
 group :test do
   gem "sqlite3"
