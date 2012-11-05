@@ -10,6 +10,9 @@ gem 'thin'
 gem 'haml'
 gem "formtastic"
 gem "twitter-bootstrap-rails"
+gem 'backbone-on-rails'
+
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,8 +32,23 @@ gem 'jquery-rails'
 
 group :test do
   gem "sqlite3"
+
+  # various drivers
+  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'poltergeist'
+
   gem 'cucumber-rails'
+
+  # Recommended for use with cucumber
+  gem 'database_cleaner'
+  gem 'factory_girl'
+
+  #debugger
+  gem 'pry'
+
+  # Just in case...
+  gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password

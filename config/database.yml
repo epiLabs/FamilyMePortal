@@ -13,12 +13,15 @@
 # gem 'pg'
 #
 development:
+  host: localhost
   adapter: postgresql
   encoding: unicode
   database: familyMe_development
   pool: 5
+  min_messages: WARNING
 
 production:
+  host: localhost
   adapter: postgresql
   encoding: unicode
   database: familyMe_production
