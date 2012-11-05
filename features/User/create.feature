@@ -14,10 +14,17 @@ Feature: Create user features
     And I press "Sign up"
     Then I should be signed in
 
-  @wip
   Scenario: A user can sign in
     Given a registered user "toto42@toto.fr"
     And I'm on the login page
     And I fill in the log in form with correct informations
     And I press "Sign in"
     Then I should be signed in
+
+  Scenario: A user cannot sign in with bad informations
+    Given a registered user "toto42@toto.fr"
+    And I'm on the login page
+    And I fill in the log in form with wrong informations
+    And I press "Sign in"
+    Then I see an invalid login message
+    And I should be signed out

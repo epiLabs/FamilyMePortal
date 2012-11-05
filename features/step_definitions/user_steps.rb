@@ -39,13 +39,14 @@ Given /^I'm on the login page$/ do
   visit new_user_session_path
 end
 
-Given /^I fill in the log in form with correct informations$/ do
+Given /^I fill in the log in form with (correct|wrong) informations$/ do |correct|
   step %(I fill in "user_email" with "#{@visitor[:email]}")
-  step %(I fill in "user_password" with "#{@visitor[:password]}")
-end
 
-Then /^I should be logged in$/ do
-  pending # express the regexp above with the code you wish you had
+  if correct == "correct"
+    step %(I fill in "user_password" with "#{@visitor[:password]}")
+  else
+    step %(I fill in "user_password" with "A_WRONG_PASSWORD")
+  end
 end
 
 ### THEN ###

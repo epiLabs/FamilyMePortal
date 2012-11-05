@@ -34,8 +34,7 @@ group :test do
   gem "sqlite3"
 
   # various drivers
-  gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'poltergeist'
 
   gem 'cucumber-rails'
