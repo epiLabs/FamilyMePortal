@@ -1,4 +1,4 @@
-Feature: User features
+Feature: Create user features
   In order to let people access to my application
   As a user oriented application
   They should be able to have an account
@@ -14,4 +14,10 @@ Feature: User features
     And I press "Sign up"
     Then I should be signed in
 
+  @wip
   Scenario: A user can sign in
+    Given a registered user "toto42@toto.fr"
+    And I'm on the login page
+    And I fill in the log in form with correct informations
+    And I press "Sign in"
+    Then I should be signed in

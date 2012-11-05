@@ -1,8 +1,11 @@
 ### UTILITY METHODS ###
 
-def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
-    :password => "please", :password_confirmation => "please" }
+def create_visitor(email = "example@example.com")
+  @email = email
+  @password = "please"
+  @name = "Testy McUserton"
+  @visitor ||= { :name => @name, :email => @email,
+    :password => @password, :password_confirmation => @password }
 end
 
 def find_user
@@ -24,6 +27,25 @@ end
 
 When /^I create a user with the following informations:$/ do |table|
   User.create!(table.hashes)
+end
+
+Given /^a registered user "(.*?)"$/ do |email|
+  create_visitor(email)
+  
+  User.create!(@visitor)
+end
+
+Given /^I'm on the login page$/ do
+  visit new_user_session_path
+end
+
+Given /^I fill in the log in form with correct informations$/ do
+  step %(I fill in "user_email" with "#{@visitor[:email]}")
+  step %(I fill in "user_password" with "#{@visitor[:password]}")
+end
+
+Then /^I should be logged in$/ do
+  pending # express the regexp above with the code you wish you had
 end
 
 ### THEN ###
