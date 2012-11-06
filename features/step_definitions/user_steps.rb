@@ -31,6 +31,10 @@ Then /^I should see the backend$/ do
   end
 end
 
+Then /^I should see a form to create my family$/ do
+  page.should have_content('create a family')
+end
+
 ### WHEN ###
 When /^I sign out$/ do
   visit '/users/sign_out'
