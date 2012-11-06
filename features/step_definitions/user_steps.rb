@@ -12,6 +12,26 @@ def find_user
   @user ||= User.where(:email => @visitor[:email]).first
 end
 
+Given /^I'm a logged in user$/ do
+  step %(a registered user "toto@el.loco")
+
+  visit new_user_session_path
+
+  step "I fill in the log in form with correct informations"
+
+  step %(I press "Sign in")
+end
+
+When /^I visit the homepage$/ do
+  visit root_path
+end
+
+Then /^I should see the backend$/ do
+  within ('.container') do
+    page.should have_content("Backend")
+  end
+end
+
 ### WHEN ###
 When /^I sign out$/ do
   visit '/users/sign_out'
