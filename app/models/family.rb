@@ -4,4 +4,5 @@ class Family < ActiveRecord::Base
   validate :name, presence: true
 
   has_many :users
+
 end

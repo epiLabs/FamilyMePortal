@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
-  has_one :family
+  belongs_to :family
 
+  def assign_family!(family)
+    self.family = family
+    save!
+  end
 end

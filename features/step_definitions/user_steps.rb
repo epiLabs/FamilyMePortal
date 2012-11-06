@@ -3,8 +3,7 @@
 def create_visitor(email = "example@example.com")
   @email = email
   @password = "please"
-  @name = "Testy McUserton"
-  @visitor ||= { :name => @name, :email => @email,
+  @visitor ||= { :email => @email,
     :password => @password, :password_confirmation => @password }
 end
 
@@ -120,9 +119,4 @@ end
 
 Then /^I should see an account edited message$/ do
   page.should have_content "You updated your account successfully."
-end
-
-Then /^I should see my name$/ do
-  create_user
-  page.should have_content @user[:name]
 end

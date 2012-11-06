@@ -6,16 +6,24 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+
 gem 'thin'
-gem 'haml'
-gem "formtastic"
+
 gem 'backbone-on-rails'
 
+# Authentication
 gem 'devise'
+
+#debugger
+gem 'pry'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'haml'
+  gem "formtastic"
+
   gem 'coffee-rails'
 
   gem 'sass-rails'
@@ -45,10 +53,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
 
-  #debugger
-  gem 'pry'
-
-  # Just in case...
+  # Needed for should matchers
   gem 'rspec-rails'
 end
 

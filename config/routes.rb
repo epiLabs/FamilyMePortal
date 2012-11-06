@@ -1,7 +1,7 @@
 FamilyMe::Application.routes.draw do
   devise_for :users
 
-  resources :family
+  resource :family
   resources :news, only: [:index]
 
   # The priority is based upon order of creation:
@@ -53,7 +53,7 @@ FamilyMe::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'families#index'
+  root :to => 'families#show'
 
   # See how all your routes lay out with "rake routes"
 
