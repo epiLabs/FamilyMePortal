@@ -10,7 +10,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
-  %body
+  %body{"data-spy" => "scroll", "data-target" => ".nav"}
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
         .container

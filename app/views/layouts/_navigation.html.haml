@@ -1,5 +1,20 @@
 = link_to "Home", root_path, :class => 'brand'
-%ul.nav
+- if @displayHomepageTitles
+  %ul.nav#homenavbar
+    %li
+      %a{href: "#title1"} Title 1
+    %li
+      %a{href: "#title2"} Title 2
+    %li
+      %a{href: "#title3"} Title 3
+    %li
+      %a{href: "#title4"} Title 4
+    %li
+      %a{href: "#title5"} Title 5
+    %li
+      %a{href: "#title6"} Title 6
+
+%ul.nav.pull-right
   %li
   - if user_signed_in?
     %li
