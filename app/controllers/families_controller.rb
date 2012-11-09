@@ -24,9 +24,9 @@ class FamiliesController < ApplicationController
 
     if @family.save
       current_user.assign_family! @family
-      redirect_to 'show'
+      redirect_to @family, notice: "Your family has been created successfuly!"
     else
-      redirect_to 'new'
+      render 'new'
     end
   end
 
