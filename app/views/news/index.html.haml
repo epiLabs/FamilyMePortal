@@ -1,20 +1,23 @@
 .row-fluid
-  #presentation
+  .offset2.span8#presentation
     .lead
+      %h1 FamilyMe
       FamilyMe - The place where you can manage your family blabla
       .join-button
-        .btn.btn-large.btn-success.pull-right= link_to 'JOIN NOW', new_user_registration_path
-    .infoboxes
-      .infobox
+        .btn.btn-large.btn-success= link_to 'JOIN NOW', new_user_registration_path
+
+    .infoboxes.row-fluid
+      %hr
+      .span4.infobox
         %h3 Easy to use
         .text
           bla bla bla bla bla bla
           bla bla bla bla bla bla
-      .row-fluid.infobox
+      .span3.infobox
         %h3 Mobiles apps
         .text
           You got free mobiles apps to manage the back-end blablabla
-      .infobox
+      .span4.infobox
         %h3 Free
         .text
           We have a free plan, only extra options have to be purchased

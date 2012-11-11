@@ -20,32 +20,28 @@ h1 {
 }
 
 #presentation {
-  margin: 0 auto;
-  width: 768px;
   // border: 1px solid red;
 
   .lead {
-    text-align: right;
-    width: 90%;
-    margin-top: 100px;
+    text-align: center;
     // border: 1px solid black;
+    margin: 50px auto;
 
     .join-button {
-      margin-top: 20px;
-      margin-bottom: 50px;
+      margin: 50px auto;
     }
   }
 
   .infoboxes {
-    float: clear;
-    margin-top: 200px;
+    // float: clear;
+    // margin-top: 100px;
     // border: 1px solid blue;
 
     .infobox {
       // border: 1px solid green;
-      width: 250px;
-      margin: 0;
-      display: inline-block;
+      // width: 250px;
+      // margin: 0;
+      // display: inline-block;
 
       h3 {
         text-align: center;

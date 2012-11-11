@@ -8,7 +8,7 @@ class FamiliesController < ApplicationController
 
   def show
     unless user_signed_in?
-      redirect_to controller: 'news', action: 'index'
+      redirect_to news_index_path, notice: "You should be logged in"
       return
     end
     
@@ -24,8 +24,9 @@ class FamiliesController < ApplicationController
 
     if @family.save
       current_user.assign_family! @family
-      redirect_to @family, notice: "Your family has been created successfuly!"
+      redirect_to family_path, notice: "Your family has been created successfuly!"
     else
+      flash[:error] = @family.errors.full_messages.to_sentence
       render 'new'
     end
   end
