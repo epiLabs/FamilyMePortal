@@ -10,7 +10,7 @@ Then /^It should create a family "(.*?)"$/ do |name|
   Family.where(name: name).last.should_not be_nil
 end
 
-Then /^I should be redirected to my family index$/ do
+Then /^I should be on my family index$/ do
   current_url.should == family_url
 end
 
@@ -20,4 +20,20 @@ end
 
 Then /^I should be on the new family page$/ do
   current_url.should == family_url
+end
+
+Given /^I'm part of a family$/ do
+  @user ||= User.last
+
+  @family = Family.create(name: "FamilyMe")
+
+  @user.assign_family!(@family)
+end
+
+When /^I'm on the index page of my family$/ do
+  visit family_url
+end
+
+Then /^I should see myself on the family's user listing$/ do
+  page.should have_content(@user.email)
 end

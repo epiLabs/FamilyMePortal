@@ -12,7 +12,7 @@ Scenario: I can create a family when I'm logged in
   When I fill in "family_name" with "Hellomoto"
   And I press "Create Family"
   Then It should create a family "Hellomoto"
-  And I should be redirected to my family index
+  And I should be on my family index
 
 Scenario Outline: Creating family with wrong informations
   When I fill in "family_name" with <name>
