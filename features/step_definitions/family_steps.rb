@@ -27,7 +27,7 @@ Given /^I'm part of a family$/ do
 
   @family = Family.create(name: "FamilyMe")
 
-  @user.assign_family!(!@family)
+  @user.assign_family!(@family)
 end
 
 When /^I'm on the index page of my family$/ do

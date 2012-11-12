@@ -1,4 +1,3 @@
-@wip
 Feature: Interact with family
   In order to have my users into groups
   I should be able to interact with my family
