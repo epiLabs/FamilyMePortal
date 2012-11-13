@@ -13,6 +13,7 @@ gem 'backbone-on-rails'
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable'
 
 #debugger
 gem 'pry'
