@@ -1,4 +1,3 @@
-@wip
 Feature: Invite members
   In order to increase the number of users
   I should be able to invite my family

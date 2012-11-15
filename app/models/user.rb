@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
 
   belongs_to :family
 
+  after_invitation_accepted :join_invitor_family
+
+  def join_invitor_family
+    self.family = invited_by.family
+  end
+
   def assign_family!(family)
     self.family = family
     save!

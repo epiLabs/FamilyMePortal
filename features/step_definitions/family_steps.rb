@@ -43,5 +43,5 @@ Given /^the name of my family is "(.*?)"$/ do |name|
 end
 
 Then /^the family "(.*?)" should have (\d+) members$/ do |name, nb|
-  Family.find(name: name).users.count.should == nb.to_i
+  Family.where(name: name).first.users.count.should == nb.to_i
 end
