@@ -41,3 +41,7 @@ end
 Given /^the name of my family is "(.*?)"$/ do |name|
   @family.update_attributes(name: name)
 end
+
+Then /^the family "(.*?)" should have (\d+) members$/ do |name, nb|
+  Family.find(name: name).users.count.should == nb.to_i
+end
