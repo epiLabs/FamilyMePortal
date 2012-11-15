@@ -2,10 +2,10 @@
 
 %table
   %tr
-    %td email
-    %td name
+    %th email
+    %th name
 
-- @family.users.each do |user|
-  %tr
-    %td= user.email
-    %td= user.first_name
+  - @family.users.each do |user|
+    %tr
+      %td= user.email
+      %td= user.first_name

@@ -37,3 +37,11 @@ end
 Then /^I should see myself on the family's user listing$/ do
   page.should have_content(@user.email)
 end
+
+Given /^the name of my family is "(.*?)"$/ do |name|
+  @family.update_attributes(name: name)
+end
+
+Then /^the family "(.*?)" should have (\d+) members$/ do |name, nb|
+  Family.where(name: name).first.users.count.should == nb.to_i
+end

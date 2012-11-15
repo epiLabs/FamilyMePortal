@@ -13,6 +13,7 @@ gem 'backbone-on-rails'
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable'
 
 #debugger
 gem 'pry'
@@ -56,6 +57,8 @@ group :test do
 
   # Needed for should matchers
   gem 'rspec-rails'
+
+  gem 'email_spec'
 end
 
 # To use ActiveModel has_secure_password

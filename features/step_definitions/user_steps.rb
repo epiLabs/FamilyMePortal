@@ -11,6 +11,12 @@ def find_user
   @user ||= User.where(:email => @visitor[:email]).first
 end
 
+Given /^I'm logged out$/ do
+  @visitor = nil
+  @user = nil
+  click_link "Logout"
+end
+
 Given /^I'm a logged in user$/ do
   step %(a registered user "toto@el.loco")
 
