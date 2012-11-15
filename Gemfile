@@ -57,6 +57,8 @@ group :test do
 
   # Needed for should matchers
   gem 'rspec-rails'
+
+  gem 'email_spec'
 end
 
 # To use ActiveModel has_secure_password

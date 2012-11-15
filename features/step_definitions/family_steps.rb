@@ -37,3 +37,7 @@ end
 Then /^I should see myself on the family's user listing$/ do
   page.should have_content(@user.email)
 end
+
+Given /^the name of my family is "(.*?)"$/ do |name|
+  @family.update_attributes(name: name)
+end

@@ -82,6 +82,9 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     ejs (1.1.1)
+    email_spec (1.2.1)
+      mail (~> 2.2)
+      rspec (~> 2.0)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -224,6 +227,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise_invitable
+  email_spec
   factory_girl
   formtastic
   haml

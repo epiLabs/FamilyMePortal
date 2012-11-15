@@ -6,7 +6,9 @@ Feature: Interact with family
   Background:
     Given I'm a logged in user
     And I'm part of a family
+    When I'm on the index page of my family
 
   Scenario: I list the members of my family
-    When I'm on the index page of my family
     Then I should see myself on the family's user listing
+    
+  # Scenario: Sending a message to another member
