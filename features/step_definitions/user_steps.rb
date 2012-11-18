@@ -17,6 +17,12 @@ Given /^I'm logged out$/ do
   click_link "Logout"
 end
 
+Given /^A registered user "(.*?)"$/ do |email|
+  password = "staive"
+
+  User.create!(email: email, password: password, password_confirmation: password)
+end
+
 Given /^I'm a logged in user$/ do
   step %(a registered user "toto@el.loco")
 
