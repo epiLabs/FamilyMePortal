@@ -3,13 +3,48 @@
 def create_visitor(email = "example@example.com")
   @email = email
   @password = "please"
-  @name = "Testy McUserton"
-  @visitor ||= { :name => @name, :email => @email,
+  @visitor ||= { :email => @email,
     :password => @password, :password_confirmation => @password }
 end
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
+end
+
+Given /^I'm logged out$/ do
+  @visitor = nil
+  @user = nil
+  click_link "Logout"
+end
+
+Given /^A registered user "(.*?)"$/ do |email|
+  password = "staive"
+
+  User.create!(email: email, password: password, password_confirmation: password)
+end
+
+Given /^I'm a logged in user$/ do
+  step %(a registered user "toto@el.loco")
+
+  visit new_user_session_path
+
+  step "I fill in the log in form with correct informations"
+
+  step %(I press "Sign in")
+end
+
+When /^I visit the homepage$/ do
+  visit root_path
+end
+
+Then /^I should see the backend$/ do
+  within ('.container') do
+    page.should have_content("Backend")
+  end
+end
+
+Then /^I should see a form to create my family$/ do
+  page.should have_content('create a family')
 end
 
 ### WHEN ###
@@ -39,13 +74,14 @@ Given /^I'm on the login page$/ do
   visit new_user_session_path
 end
 
-Given /^I fill in the log in form with correct informations$/ do
+Given /^I fill in the log in form with (correct|wrong) informations$/ do |correct|
   step %(I fill in "user_email" with "#{@visitor[:email]}")
-  step %(I fill in "user_password" with "#{@visitor[:password]}")
-end
 
-Then /^I should be logged in$/ do
-  pending # express the regexp above with the code you wish you had
+  if correct == "correct"
+    step %(I fill in "user_password" with "#{@visitor[:password]}")
+  else
+    step %(I fill in "user_password" with "A_WRONG_PASSWORD")
+  end
 end
 
 ### THEN ###
@@ -99,9 +135,4 @@ end
 
 Then /^I should see an account edited message$/ do
   page.should have_content "You updated your account successfully."
-end
-
-Then /^I should see my name$/ do
-  create_user
-  page.should have_content @user[:name]
 end

@@ -12,12 +12,40 @@
  *= require_tree .
  */
 
-@import "bootstrap";
-@import "bootstrap-responsive";
-
 body { padding-top: 60px; }
 
 h1 {
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+#presentation {
+  // border: 1px solid red;
+
+  .lead {
+    text-align: center;
+    // border: 1px solid black;
+    margin: 50px auto;
+
+    .join-button {
+      margin: 50px auto;
+    }
+  }
+
+  .infoboxes {
+    // float: clear;
+    // margin-top: 100px;
+    // border: 1px solid blue;
+
+    .infobox {
+      // border: 1px solid green;
+      // width: 250px;
+      // margin: 0;
+      // display: inline-block;
+
+      h3 {
+        text-align: center;
+      }
+    }
+  }
 }

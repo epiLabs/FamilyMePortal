@@ -1,0 +1,11 @@
+%h3 Members listing
+
+%table
+  %tr
+    %th email
+    %th name
+
+  - @family.users.each do |user|
+    %tr
+      %td= user.email
+      %td= user.first_name

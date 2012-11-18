@@ -6,24 +6,36 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+
 gem 'thin'
-gem 'haml'
-gem "formtastic"
-gem "twitter-bootstrap-rails"
+
 gem 'backbone-on-rails'
 
+# Authentication
 gem 'devise'
+gem 'devise_invitable'
+
+#debugger
+gem 'pry'
+
+gem 'pry-rails', :group => :development
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'haml'
+  gem "formtastic"
+
   gem 'coffee-rails'
 
   gem 'sass-rails'
-  gem 'bootstrap-sass'
+  gem 'less-rails' # Required by the twitter-bootstrap-rails....
+
+  gem "twitter-bootstrap-rails"
+  # gem 'bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -34,8 +46,7 @@ group :test do
   gem "sqlite3"
 
   # various drivers
-  gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'poltergeist'
 
   gem 'cucumber-rails'
@@ -44,11 +55,10 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
 
-  #debugger
-  gem 'pry'
-
-  # Just in case...
+  # Needed for should matchers
   gem 'rspec-rails'
+
+  gem 'email_spec'
 end
 
 # To use ActiveModel has_secure_password
