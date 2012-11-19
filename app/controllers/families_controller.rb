@@ -13,7 +13,7 @@ class FamiliesController < ApplicationController
     end
     
     @family = current_user.family
-
+    
     unless @family.present?
       redirect_to new_family_path, notice: "You should create a family first!"
     end
