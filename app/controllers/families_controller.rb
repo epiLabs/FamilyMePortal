@@ -8,12 +8,12 @@ class FamiliesController < ApplicationController
 
   def show
     unless user_signed_in?
-      redirect_to news_index_path, notice: "You should be logged in"
+      redirect_to news_index_path
       return
     end
     
     @family = current_user.family
-
+    
     unless @family.present?
       redirect_to new_family_path, notice: "You should create a family first!"
     end

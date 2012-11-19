@@ -1,11 +1,15 @@
 %h3 Members listing
 
-%table
+%table.table.table-bordered.table-hover
   %tr
     %th email
-    %th name
+    %th first name
+    %th last name
+    %th Last seen
 
   - @family.users.each do |user|
     %tr
       %td= user.email
       %td= user.first_name
+      %td= user.last_name
+      %td= user.last_sign_in_at

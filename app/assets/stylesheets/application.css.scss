@@ -20,11 +20,9 @@ h1 {
 }
 
 #presentation {
-  // border: 1px solid red;
 
   .lead {
     text-align: center;
-    // border: 1px solid black;
     margin: 50px auto;
 
     .join-button {
@@ -33,19 +31,21 @@ h1 {
   }
 
   .infoboxes {
-    // float: clear;
-    // margin-top: 100px;
-    // border: 1px solid blue;
 
     .infobox {
-      // border: 1px solid green;
-      // width: 250px;
-      // margin: 0;
-      // display: inline-block;
 
       h3 {
         text-align: center;
       }
     }
+  }
+}
+
+.devise_links, .invite_members {
+  text-align: right;
+  
+  a {
+    display: inline-block;
+    font-size: 0.8em;
   }
 }
