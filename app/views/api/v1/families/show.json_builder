@@ -5,4 +5,10 @@ users @family.users do |user|
   last_name user.last_name
   nickname user.nickname
   last_sign_in user.last_sign_in_date_formated
+  
+  last_position user.positions.last do |position|
+    latitude position.try(:latitude)
+    longitude position.try(:longitude)
+    address position.try(:address)
+  end
 end

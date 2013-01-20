@@ -18,6 +18,8 @@ gem 'pry'
 
 gem 'json_builder'
 
+gem 'geocoder'
+
 group :development do
   gem "better_errors"
   gem 'pry-rails'

@@ -7,6 +7,7 @@ FamilyMe::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :family, only: :show
+      resources :positions, only: [:create, :index]
     end
   end
   # The priority is based upon order of creation:
