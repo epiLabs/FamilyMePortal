@@ -3,8 +3,9 @@
     .lead
       %h1 FamilyMe
       FamilyMe - The place where you can manage your family blabla
-      .join-button
-        .btn.btn-large.btn-success= link_to 'JOIN NOW', new_user_registration_path
+      - unless current_user.present?
+        .join-button
+          = link_to 'JOIN NOW', new_user_registration_path, class: 'btn btn-primary btn-large'
 
     .infoboxes.row-fluid
       %hr
