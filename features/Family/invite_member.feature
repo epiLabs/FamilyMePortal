@@ -1,4 +1,3 @@
-@wip
 Feature: Invite members
   In order to increase the number of users
   I should be able to invite my family
@@ -22,5 +21,4 @@ Feature: Invite members
       | user_password | toto42        |
       | user_password_confirmation | toto42 |
     When I press "Set my password"
-    Then I shoud see "You should create a family or wait to be invited"
-    And my family should have 2 members
+    Then my family should have 2 members
