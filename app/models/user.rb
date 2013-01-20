@@ -10,12 +10,11 @@ class User < ActiveRecord::Base
   attr_accessible :nickname, :email, :password, :password_confirmation, :remember_me,
   :first_name, :last_name
 
+  has_many :positions
   belongs_to :family
 
   before_save :ensure_authentication_token
-
-  #Reset authentication token in certain circumstances
-  #before_save :reset_authentication_token
+  #before_save :reset_authentication_token # Reset authentication token in certain circumstances
 
   after_invitation_accepted :join_invitor_family
 
