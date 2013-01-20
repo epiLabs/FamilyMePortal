@@ -1,7 +1,4 @@
-class Api::V1::FamiliesController < ApplicationController
-  respond_to :json
-  before_filter :authenticate_user!
-  
+class Api::V1::FamiliesController < ApiController
   def show
     @family = current_user.family
 
