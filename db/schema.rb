@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121115211130) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.integer  "family_id"
     t.string   "first_name",                           :default => ""
     t.string   "last_name",                            :default => ""
