@@ -18,10 +18,6 @@ def find_user
   @user ||= User.where(:email => @visitor[:email]).first
 end
 
-Given /^I accept JSON$/ do
-  header 'Accept', 'application/json'
-end
-
 Given /^I'm logged out$/ do
   @visitor = nil
   @user = nil

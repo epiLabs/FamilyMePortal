@@ -49,17 +49,6 @@ When /^I select a photo from my disk for "([^"]*)"$/ do |image_label|
   attach_file(image_label, "#{Rails.root}/app/assets/images/rails.png")
 end
 
-Then /^the last reponse shouldn't contain any error$/ do 
-  ActiveSupport::JSON.decode(last_response.body)["error"].should_not be_present
-end
-
-When /^I post the following to authenticate through the API:$/ do |table|
-  params = {}
-  table.rows.each {|el| params = {el.first => el.last}.merge(params)}
-
-  send 'post', '/users/sign_in', params
-end
-
 When /^I fill in the following fields:$/ do |table|
   table.rows.each do |el|
     fill_in el.first, :with => el.last

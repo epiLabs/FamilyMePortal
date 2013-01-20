@@ -1,3 +1,7 @@
+Given /^A family with the following members:$/ do |table|
+  binding.pry
+end
+
 When /^I visit my family page$/ do
   visit family_path
 end
