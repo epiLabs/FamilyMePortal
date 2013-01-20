@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20121115211130) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nickname"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
     t.string   "email",                                :default => "", :null => false
@@ -31,9 +34,8 @@ ActiveRecord::Schema.define(:version => 20121115211130) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.integer  "family_id"
-    t.string   "first_name",                           :default => ""
-    t.string   "last_name",                            :default => ""
     t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"

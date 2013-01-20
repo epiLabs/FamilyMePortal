@@ -31,11 +31,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Token authenticatable
-      # t.string :authentication_token
-
-
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps
+      t.string :authentication_token
     end
 
     add_index :users, :email,                :unique => true

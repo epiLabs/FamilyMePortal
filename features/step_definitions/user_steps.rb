@@ -1,10 +1,17 @@
 ### UTILITY METHODS ###
-
-def create_visitor(email = "example@example.com")
+def create_user email, password="toto42"
+  @password = password
   @email = email
-  @password = "please"
-  @visitor ||= { :email => @email,
-    :password => @password, :password_confirmation => @password }
+
+  @user = User.create(email: email, password: password, password_confirmation: password)
+  
+  @user
+end
+
+def create_visitor(email = "toto42@toto.fr")
+  @email = email
+  @password = "toto42"
+  @visitor ||= { :email => @email, :password => @password, :password_confirmation => @password }
 end
 
 def find_user
@@ -18,9 +25,14 @@ Given /^I'm logged out$/ do
 end
 
 Given /^A registered user "(.*?)"$/ do |email|
-  password = "staive"
+  create_user email
+end
 
-  User.create!(email: email, password: password, password_confirmation: password)
+Given /^I'm a registered user "(.*?)" who's part of this family$/ do |email|
+  create_user email
+
+  @user.family = Family.last
+  @user.save
 end
 
 Given /^I'm a logged in user$/ do
@@ -69,7 +81,7 @@ end
 Given /^a registered user "(.*?)"$/ do |email|
   create_visitor(email)
   
-  User.create!(@visitor)
+  create_user email, @visitor[:password]
 end
 
 Given /^I'm on the login page$/ do
