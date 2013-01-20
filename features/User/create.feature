@@ -21,6 +21,15 @@ Feature: Create user features
     And I press "Sign in"
     Then I should be signed in
 
+  Scenario: A user can sign in through the API
+    Given I accept JSON
+    Given a registered user "toto42@toto.fr"
+    When I post the following to authenticate through the API:
+      | field          | value |
+      | user[email]    | toto42@toto.fr |
+      | user[password] | toto42 |
+    Then the last reponse shouldn't contain any error
+
   Scenario: A user cannot sign in with bad informations
     Given a registered user "toto42@toto.fr"
     And I'm on the login page

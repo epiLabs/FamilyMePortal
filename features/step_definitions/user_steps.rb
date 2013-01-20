@@ -1,14 +1,25 @@
 ### UTILITY METHODS ###
-
-def create_visitor(email = "example@example.com")
+def create_user email, password
+  @password = password
   @email = email
-  @password = "please"
-  @visitor ||= { :email => @email,
-    :password => @password, :password_confirmation => @password }
+
+  @user = User.create(email: email, password: password, password_confirmation: password)
+  
+  @user
+end
+
+def create_visitor(email = "toto42@toto.fr")
+  @email = email
+  @password = "toto42"
+  @visitor ||= { :email => @email, :password => @password, :password_confirmation => @password }
 end
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
+end
+
+Given /^I accept JSON$/ do
+  header 'Accept', 'application/json'
 end
 
 Given /^I'm logged out$/ do
@@ -18,9 +29,7 @@ Given /^I'm logged out$/ do
 end
 
 Given /^A registered user "(.*?)"$/ do |email|
-  password = "staive"
-
-  User.create!(email: email, password: password, password_confirmation: password)
+  create_user email
 end
 
 Given /^I'm a logged in user$/ do
@@ -69,7 +78,7 @@ end
 Given /^a registered user "(.*?)"$/ do |email|
   create_visitor(email)
   
-  User.create!(@visitor)
+  create_user email, @visitor[:password]
 end
 
 Given /^I'm on the login page$/ do
