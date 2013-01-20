@@ -6,8 +6,8 @@ Then /^I should see a notice$/ do
   page.find("#flash_notice").should be_visible
 end
 
-Then /^It should create a family "(.*?)"$/ do |name|
-  Family.where(name: name).last.should_not be_nil
+Then /^It should create a family$/ do
+  Family.last.should_not be_nil
 end
 
 Then /^I should be on my family index$/ do
@@ -23,11 +23,11 @@ Then /^I should be on the new family page$/ do
 end
 
 Given /^I'm part of a family$/ do
-  @user ||= User.last
+  visit family_path
+  
+  step "I follow \"Create your family now\""
 
-  @family = Family.create(name: "FamilyMe")
-
-  @user.assign_family!(@family)
+  @family = Family.last
 end
 
 When /^I'm on the index page of my family$/ do
@@ -42,6 +42,6 @@ Given /^the name of my family is "(.*?)"$/ do |name|
   @family.update_attributes(name: name)
 end
 
-Then /^the family "(.*?)" should have (\d+) members$/ do |name, nb|
-  Family.where(name: name).first.users.count.should == nb.to_i
+Then /^my family should have (\d+) members?$/ do |nb|
+  @family.users.count.should == nb.to_i
 end

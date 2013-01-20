@@ -17,9 +17,4 @@ class User < ActiveRecord::Base
   def join_invitor_family
     self.family = invited_by.family
   end
-
-  def assign_family!(family)
-    self.family = family
-    save!
-  end
 end

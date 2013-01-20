@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
   before_filter :authenticate_user!, except: :show
-  before_filter :go_to_family_homepage, except: [:show, :update, :edit], if: lambda {current_user.family.present?}
 
   def go_to_family_homepage
     redirect_to 'show'
@@ -13,31 +12,14 @@ class FamiliesController < ApplicationController
     end
     
     @family = current_user.family
-    
-    unless @family.present?
-      redirect_to new_family_path, notice: "You should create a family first!"
-    end
   end
 
   def create
-    @family = Family.new(params[:family])
+    @family = Family.generate_new_including_user current_user
 
-    if @family.save
-      current_user.assign_family! @family
-      redirect_to family_path, notice: "Your family has been created successfuly!"
-    else
-      flash[:error] = @family.errors.full_messages.to_sentence
-      render 'new'
-    end
+    render :show
   end
 
   def update
-  end
-
-  def edit
-  end
-
-  def new
-    @family = Family.new
   end
 end

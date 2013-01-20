@@ -7,7 +7,6 @@ World(WithinHelpers)
 
 When /^debug$/ do
   binding.pry
-  puts 'toto'
 end
 
 When /^I wait for "(.*?)" seconds$/ do |nb_seconds|
@@ -27,7 +26,7 @@ When /^I press "([^"]*)"$/ do |label|
 end
 
 When /^I choose "([^"]*)"$/ do |label|
-  choose(label)
+  choose label
 end
 
 Then /^show me the page/ do

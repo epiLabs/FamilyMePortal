@@ -1,7 +1,7 @@
 FamilyMe::Application.routes.draw do
   devise_for :users
 
-  resource :family
+  resource :family, only: [:show, :create, :update]
   resources :news, only: [:index]
 
   # The priority is based upon order of creation:

@@ -31,6 +31,8 @@ Given /^I'm a logged in user$/ do
   step "I fill in the log in form with correct informations"
 
   step %(I press "Sign in")
+
+  @user = User.last
 end
 
 When /^I visit the homepage$/ do
