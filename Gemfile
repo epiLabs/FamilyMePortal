@@ -16,7 +16,7 @@ gem "simple_form"
 #debugger
 gem 'pry'
 
-gem 'rabl'
+gem 'json_builder'
 
 group :development do
   gem "better_errors"

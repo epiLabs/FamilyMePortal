@@ -11,7 +11,6 @@ Feature: I can list the members of my family
       | elisa@orange.fr | toto42 | elisa | goin | pink_lady |
       | marco@free.fr | toto42 | marco | fion | razzor64 |
 
-  @wip
   Scenario: I list the members of my family
     Given I'm a registered user "jose@free.fr" who's part of this family
     And I sign in through the api

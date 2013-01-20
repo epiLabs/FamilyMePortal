@@ -22,4 +22,10 @@ class User < ActiveRecord::Base
   def join_invitor_family
     self.family = invited_by.family
   end
+
+  def last_sign_in_date_formated
+    if last_sign_in_at.present?
+      last_sign_in_at.strftime("%d %b %y %H:%M")
+    end
+  end
 end
