@@ -16,6 +16,8 @@ gem "simple_form"
 #debugger
 gem 'pry'
 
+gem 'rabl'
+
 group :development do
   gem "better_errors"
   gem 'pry-rails'

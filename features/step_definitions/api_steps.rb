@@ -2,6 +2,10 @@ Then /^the last reponse shouldn't contain any error$/ do
   ActiveSupport::JSON.decode(last_response.body)["error"].should_not be_present
 end
 
+Then /^the page response code should be (\d+)$/ do |number|
+  page.status_code.should == number.to_i
+end
+
 When /^I post the following to authenticate through the API:$/ do |table|
   params = {}
   table.rows.each {|el| params = {el.first => el.last}.merge(params)}
