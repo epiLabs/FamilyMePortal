@@ -1,5 +1,11 @@
-Given /^A family with the following members:$/ do |table|
-  binding.pry
+Given /^a family with the following members:$/ do |table|
+  @family ||= Family.create()
+
+  table.hashes.each do |informations|
+    user = User.new informations
+    user.family = @family
+    user.save!
+  end
 end
 
 When /^I visit my family page$/ do

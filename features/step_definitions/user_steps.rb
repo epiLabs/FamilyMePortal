@@ -1,5 +1,5 @@
 ### UTILITY METHODS ###
-def create_user email, password
+def create_user email, password="toto42"
   @password = password
   @email = email
 
@@ -26,6 +26,13 @@ end
 
 Given /^A registered user "(.*?)"$/ do |email|
   create_user email
+end
+
+Given /^I'm a registered user "(.*?)" who's part of this family$/ do |email|
+  create_user email
+
+  @user.family = Family.last
+  @user.save
 end
 
 Given /^I'm a logged in user$/ do
