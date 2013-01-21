@@ -2,6 +2,11 @@ Then /^the last reponse shouldn't contain any error$/ do
   ActiveSupport::JSON.decode(last_response.body)["error"].should_not be_present
 end
 
+Then /^the last reponse should contain an error$/ do
+  ActiveSupport::JSON.decode(last_response.body)["error"].should be_present
+end
+
+
 Then /^the page response code should be (\d+)$/ do |number|
   page.status_code.should == number.to_i
 end
