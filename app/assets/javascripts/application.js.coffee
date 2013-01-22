@@ -1,12 +1,17 @@
 #= require jquery
 #= require jquery_ujs
 #= require twitter/bootstrap
-#= require_tree .
+#= require underscore
+#= require backbone
+#= require family_me
+#= require_tree ../templates
+#= require_tree ./models
+#= require_tree ./collections
+#= require_tree ./views
+#= require_tree ./routers
 
 $ ->
-  # Usefull if we use tooltips or popovers
-  # $("a[rel=popover]").popover()
-  # $(".tooltip").tooltip()
-  # $("a[rel=tooltip]").tooltip()
+  FamilyMe.applicationRouter = new FamilyMe.Routers.ApplicationRouter()
 
-  console.log 'ready'
+  # Initialize state
+  Backbone.history.start(pushState: true)

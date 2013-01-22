@@ -13,15 +13,14 @@ gem 'devise_invitable'
 
 gem "simple_form"
 
-#debugger
-gem 'pry'
-
 gem 'json_builder'
 
 gem 'geocoder'
 
 group :development do
   gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'pry'
   gem 'pry-rails'
 end
 
@@ -35,6 +34,9 @@ group :assets do
   gem "twitter-bootstrap-rails"
   # gem 'bootstrap-sass'
 
+  gem 'haml_coffee_assets'
+  gem 'execjs'
+  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
