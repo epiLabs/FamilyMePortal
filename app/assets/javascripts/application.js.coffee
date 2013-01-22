@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require twitter/bootstrap
 #= require underscore
+#= require hamlcoffee
 #= require backbone
 #= require family_me
 #= require_tree ../templates
