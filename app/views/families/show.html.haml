@@ -1,13 +1,14 @@
 %h2 Welcome
 
 
-- if current_user.family.present?
+- if @family.present?
   This is your family's homepage !
 
   = render 'users'
 
   .invite_members
     = link_to 'Invite your family', new_user_invitation_path, class: 'btn btn-primary btn-small'
+
 - else
   You should create a family or wait to be invited into one!
 
