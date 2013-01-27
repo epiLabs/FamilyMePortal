@@ -10,5 +10,3 @@ Feature: Interact with family
 
   Scenario: I list the members of my family
     Then I should see myself on the family's user listing
-    
-  # Scenario: Sending a message to another member

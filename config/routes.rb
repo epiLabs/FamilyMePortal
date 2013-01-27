@@ -1,9 +1,15 @@
 FamilyMe::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => 'sessions'}
 
-  resource :family
+  resource :family, only: [:show, :create, :update]
   resources :news, only: [:index]
 
+  namespace :api do
+    namespace :v1 do
+      resource :family, only: :show
+      resources :positions, only: [:create, :index]
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

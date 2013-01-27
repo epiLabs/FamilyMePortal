@@ -7,7 +7,6 @@ Feature: Invite members
     Given I'm a logged in user
     And I'm part of a family
     And I'm on the index page of my family
-    And the name of my family is "LesChaudsLapins"
     When I follow "Invite your family"
     And I fill in "user_email" with "toto@le.loco"
     And I press "Send an invitation"
@@ -22,5 +21,4 @@ Feature: Invite members
       | user_password | toto42        |
       | user_password_confirmation | toto42 |
     When I press "Set my password"
-    Then I should see "LesChaudsLapins"
-    And the family "LesChaudsLapins" should have 2 members
+    Then my family should have 2 members

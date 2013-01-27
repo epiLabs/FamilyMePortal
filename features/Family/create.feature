@@ -8,21 +8,7 @@ Background:
   When I visit my family page
 
 Scenario: I can create a family when I'm logged in
-  Then I should see a notice
-  When I fill in "family_name" with "Hellomoto"
-  And I press "Create Family"
-  Then It should create a family "Hellomoto"
+  Then I should see "You should create a family or wait to be invited into one!"
+  And I follow "Create your family now"
+  Then It should create a family
   And I should be on my family index
-
-Scenario Outline: Creating family with wrong informations
-  When I fill in "family_name" with <name>
-  And I press "Create Family"
-  Then I should see an error
-  And I should be on the new family page
-
-Examples:
-  |  name           |
-  |  ""             |
-  |  "2323"         |
-  |  "a"            |
-  |  "bad name ^"   |

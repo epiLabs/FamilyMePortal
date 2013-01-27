@@ -1,37 +1,37 @@
 source 'https://rubygems.org'
 
 gem 'rails'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
-
 gem 'thin'
 
+gem 'jquery-rails'
 gem 'backbone-on-rails'
 
 # Authentication
-gem 'devise'
+gem 'devise', '~> 2.1.2'
 gem 'devise_invitable'
+
+gem "simple_form"
 
 #debugger
 gem 'pry'
 
-gem 'pry-rails', :group => :development
+gem 'json_builder'
 
-gem "simple_form"
+gem 'geocoder'
+
+group :development do
+  gem "better_errors"
+  gem 'pry-rails'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'haml'
-
   gem 'coffee-rails'
-
   gem 'sass-rails'
   gem 'less-rails' # Required by the twitter-bootstrap-rails....
-
   gem "twitter-bootstrap-rails"
   # gem 'bootstrap-sass'
 
@@ -41,38 +41,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
 group :test do
   gem "sqlite3"
-
-  # various drivers
-  # gem 'capybara-webkit'
   gem 'poltergeist'
-
   gem 'cucumber-rails'
-
-  # Recommended for use with cucumber
   gem 'database_cleaner'
   gem 'factory_girl'
-
-  # Needed for should matchers
   gem 'rspec-rails'
-
   gem 'email_spec'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
