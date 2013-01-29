@@ -32,9 +32,10 @@ class FamilyMe.Views.UsersView extends Backbone.View
   render: ->
     @$el.html(@template())
 
-    @googleMapObject()
-
     @collection.forEach (model, idx)=>
-      @placeMapMarker model.getLatitude(), model.getLongitude(), model.getTitle()
+      if $('#positions_container').data('user-id') == model.get('id')
+        model.selectAsCurrentUser()
+      view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
+      view.render()
 
     @
