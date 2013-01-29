@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_filter :authenticate_user!, except: :show
+  before_filter :authenticate_user!, except: [:show, :welcome]
 
   def show
     unless user_signed_in?
@@ -17,5 +17,9 @@ class FamiliesController < ApplicationController
   end
 
   def update
+  end
+
+  def welcome
+    redirect_to action: :show
   end
 end
