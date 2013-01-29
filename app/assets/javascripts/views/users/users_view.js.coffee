@@ -1,15 +1,13 @@
-class FamilyMe.Views.PositionsView extends Backbone.View
-  template: JST['positions/show']
+class FamilyMe.Views.UsersView extends Backbone.View
+  template: JST['users/index']
   el: '#positions_container'
 
   initialize: (options)->
     super options
 
-    @collection ||= new FamilyMe.Collections.Positions()
-
     self = @
     @collection.fetch
-      success: (position, response, options)->
+      success: (user, response, options)->
         self.render()
 
   getMapOptions: ->

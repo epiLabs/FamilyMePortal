@@ -3,4 +3,4 @@ class FamilyMe.Routers.ApplicationRouter extends Backbone.Router
     'family' : 'displayApplication'
 
   displayApplication: ->
-    @positionsView ||= new FamilyMe.Views.PositionsView()
+    @usersView ||= new FamilyMe.Views.UsersView(collection: new FamilyMe.Collections.Users())
