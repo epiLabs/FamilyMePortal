@@ -14,7 +14,7 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.generate_new_including_user current_user
 
-    render :show
+    redirect_to action: :show
   end
 
   def update

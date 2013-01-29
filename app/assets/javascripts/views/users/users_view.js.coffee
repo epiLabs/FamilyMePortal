@@ -6,15 +6,17 @@ class FamilyMe.Views.UsersView extends Backbone.View
     super options
 
     self = @
-    @collection.fetch
-      success: (user, response, options)->
-        self.render()
+    @latitude = $('#positions_container').data('center-latitude')
+    @longitude = $('#positions_container').data('center-longitude')
+
+    if @latitude? && @longitude?
+      @collection.fetch
+        success: (user, response, options)->
+          self.render()
 
   getMapOptions: ->
-    latitude = $('#positions_container').data('center-latitude')
-    longitude = $('#positions_container').data('center-longitude')
     mapOptions =
-      center: new google.maps.LatLng(latitude, longitude)
+      center: new google.maps.LatLng(@latitude, @longitude)
       zoom: 5
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
