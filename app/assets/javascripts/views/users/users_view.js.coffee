@@ -18,14 +18,6 @@ class FamilyMe.Views.UsersView extends Backbone.View
       zoom: 5
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
-  placeMapMarker: (latitude, longitude, title)->
-    latlng = new google.maps.LatLng(latitude, longitude);
-
-    marker = new google.maps.Marker
-      position: latlng
-      map: @googleMapObject()
-      title: 'tamenere'
-
   googleMapObject: ->
     @_map ||= new google.maps.Map(@$('#google_map')[0], @getMapOptions())
 
@@ -35,6 +27,7 @@ class FamilyMe.Views.UsersView extends Backbone.View
     @collection.forEach (model, idx)=>
       if $('#positions_container').data('user-id') == model.get('id')
         model.selectAsCurrentUser()
+
       view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
       view.render()
 

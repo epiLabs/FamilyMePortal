@@ -7,13 +7,17 @@ class FamilyMe.Models.User extends Backbone.Model
 
   selectAsCurrentUser:->
     @_isCurrentUser = true
+  isCurrentUser:->
+    @_isCurrentUser?
 
   getFirstName:->
-    @get 'first_name'
+    @get('first_name') || "John"
   getLastName:->
-    @get 'last_name'
+    @get('last_name') || "Doe"
   getNickName:->
-    @get 'nickname'
+    @get('nickname') || "NicknameLess"
+  getLastConnection:->
+    @get 'last_sign_in'
 
   getTitle: ->
     title = ""
@@ -21,13 +25,4 @@ class FamilyMe.Models.User extends Backbone.Model
     if @_isCurrentUser
       return "It's you !"
 
-    if @getFirstName()
-      title += @getFirstName() + " "
-
-    if @getLastName()
-      title += @getLastName() + " "
-
-    if @getNickName()
-      title += "(#{@getNickName()})"
-
-    title || "Some member of your family"
+    "#{@getFirstName()} #{@getLastName()} (#{@getNickName()})"
