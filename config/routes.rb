@@ -3,6 +3,9 @@ FamilyMe::Application.routes.draw do
 
   resource :family, only: [:show, :create, :update]
   resources :news, only: [:index]
+  resources :users, only: [:index]
+
+  resources :positions, only: [:index]
 
   namespace :api do
     namespace :v1 do
@@ -59,7 +62,7 @@ FamilyMe::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'families#show'
+  root :to => 'families#welcome'
 
   # See how all your routes lay out with "rake routes"
 

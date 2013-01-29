@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
     self.family = invited_by.family
   end
 
+  def latitude
+    positions.last.try(:latitude)
+  end
+
+  def longitude
+    positions.last.try(:longitude)
+  end
+
   def last_sign_in_date_formated
     if last_sign_in_at.present?
       last_sign_in_at.strftime("%d %b %y %H:%M")
