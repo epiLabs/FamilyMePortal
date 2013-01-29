@@ -10,4 +10,8 @@ class Position < ActiveRecord::Base
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
+
+  def date
+    updated_at.strftime("%d %b %y %H:%M")
+  end
 end

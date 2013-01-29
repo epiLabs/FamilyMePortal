@@ -3,6 +3,7 @@ FamilyMe::Application.routes.draw do
 
   resource :family, only: [:show, :create, :update]
   resources :news, only: [:index]
+  resources :users, only: [:index]
 
   resources :positions, only: [:index]
 
