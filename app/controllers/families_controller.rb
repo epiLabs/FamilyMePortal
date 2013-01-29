@@ -7,6 +7,7 @@ class FamiliesController < ApplicationController
       return
     end
 
+    @user = current_user
     @family = current_user.family
   end
 

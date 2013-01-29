@@ -14,6 +14,7 @@ gem 'devise_invitable'
 gem "simple_form"
 
 gem 'json_builder'
+gem 'jbuilder'
 
 gem 'geocoder'
 

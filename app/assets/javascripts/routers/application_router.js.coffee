@@ -4,5 +4,3 @@ class FamilyMe.Routers.ApplicationRouter extends Backbone.Router
 
   displayApplication: ->
     @positionsView ||= new FamilyMe.Views.PositionsView()
-
-    @positionsView.render()
