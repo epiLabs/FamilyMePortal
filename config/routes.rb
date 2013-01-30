@@ -1,7 +1,9 @@
 FamilyMe::Application.routes.draw do
   devise_for :users, :controllers => {:sessions => 'sessions'}
 
-  resource :family, only: [:show, :create, :update]
+  resource :family, only: [:show, :create, :update] do
+    resources :posts, only: [:create, :destroy, :index]
+  end
   resources :news, only: [:index]
   resources :users, only: [:index]
 
