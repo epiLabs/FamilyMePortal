@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   :first_name, :last_name
 
   has_many :positions
+  has_many :posts, :foreign_key => 'author_id'
   belongs_to :family
 
   before_save :ensure_authentication_token
