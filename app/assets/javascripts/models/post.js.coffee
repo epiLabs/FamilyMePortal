@@ -5,3 +5,12 @@ class FamilyMe.Models.Post extends Backbone.Model
 
     if @get 'user'
       @user = new FamilyMe.Models.User(@get 'user')
+
+  getAuthor:->
+    if @user
+      @user.getTitle()
+    else
+      'No author'
+
+  getMessage:->
+    @get 'message'

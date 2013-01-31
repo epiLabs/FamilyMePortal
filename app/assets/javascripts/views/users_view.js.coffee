@@ -27,9 +27,6 @@ class FamilyMe.Views.UsersView extends Backbone.View
     @$el.html(@template())
 
     @collection.forEach (model, idx)=>
-      if $('#positions_container').data('user-id') == model.get('id')
-        model.selectAsCurrentUser()
-
       view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
       view.render()
 

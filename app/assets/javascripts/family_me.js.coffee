@@ -4,5 +4,7 @@ window.FamilyMe =
   Views: {}
   Routers: {}
 
+  CurrentUser: {}
+
 # Convenient alias
 window.FMe = FamilyMe

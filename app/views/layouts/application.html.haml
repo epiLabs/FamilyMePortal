@@ -17,6 +17,8 @@
         .container
           = render 'layouts/navigation'
     #main.container-narrow{:role => "main"}
+      - if user_signed_in?
+        #current-user-informations{'data-id' => current_user.id}
       .container-fluid
         = render 'layouts/messages'
         = yield

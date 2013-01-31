@@ -3,10 +3,12 @@ class FamilyMe.Models.User extends Backbone.Model
   initialize: (model, options)->
     super model, options
 
-    @position = new FamilyMe.Models.Position(@get 'position')
+    if @get 'position'
+      @position = new FamilyMe.Models.Position(@get 'position')
 
-  selectAsCurrentUser:->
-    @_isCurrentUser = true
+    if FamilyMe.CurrentUser.id == @get 'id'
+      @_isCurrentUser = true  
+
   isCurrentUser:->
     @_isCurrentUser?
 
