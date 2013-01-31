@@ -6,9 +6,16 @@ class FamilyMe.Models.Post extends Backbone.Model
     if @get 'user'
       @user = new FamilyMe.Models.User(@get 'user')
 
+  canBeDeleted:->
+    if @user
+      @user.isCurrentUser()
+
   getAuthor:->
     if @user
-      @user.getTitle()
+      if @user.isCurrentUser()
+        'You'
+      else
+        @user.getTitle()
     else
       'No author'
 

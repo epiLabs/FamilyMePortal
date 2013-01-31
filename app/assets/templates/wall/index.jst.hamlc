@@ -1,4 +1,9 @@
-.new_post
-  NEW FORM
-.posts_list
-  HERE IS THE LIST
+.display-form-button.btn.btn-info
+  Post a message
+.new-post
+  %form
+    %label
+      Post a message
+      %textarea{placeholder: "What do you want to say?", name: 'message'}
+    %input.btn.btn-success{type: 'submit', value: 'Post!'}
+.posts-list

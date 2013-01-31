@@ -4,7 +4,7 @@ array @posts do |post|
   date_posted post.date_posted
 
   user post.author do |user|
-    user_id user.id
+    id user.id
     first_name user.first_name
     last_name user.last_name
     nickname user.nickname
