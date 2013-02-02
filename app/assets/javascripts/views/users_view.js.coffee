@@ -5,12 +5,8 @@ class FamilyMe.Views.UsersView extends Backbone.View
   initialize: (options)->
     super options
 
-    self = @
     @latitude = $('#members-positions-container').data('center-latitude')
     @longitude = $('#members-positions-container').data('center-longitude')
-
-    if @latitude? && @longitude?
-      @render()
 
   getMapOptions: ->
     mapOptions =
@@ -24,8 +20,9 @@ class FamilyMe.Views.UsersView extends Backbone.View
   render: ->
     @$el.html(@template())
 
-    @collection.forEach (model, idx)=>
-      view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
-      view.render()
+    if @latitude? && @longitude?
+      @collection.forEach (model, idx)=>
+        view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
+        view.render()
 
     @

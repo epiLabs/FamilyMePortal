@@ -18,7 +18,7 @@ class FamilyMe.Views.ApplicationView extends Backbone.View
     @_usersView ||= new FamilyMe.Views.UsersView(collection: FamilyMe.UsersList)
 
   render: ->
-    @usersView()
+    @usersView().render()
 
     @wallView().render().$el.hide()
 

@@ -18,7 +18,7 @@ class FamilyMe.Views.WallView extends Backbone.View
     message = @$('.new-post textarea').val()
 
     if message.length
-      @collection.create {message: message}, {wait: true}
+      @collection.create {message: message, user_id: FamilyMe.CurrentUser.id}, {wait: true}
 
     false
 
