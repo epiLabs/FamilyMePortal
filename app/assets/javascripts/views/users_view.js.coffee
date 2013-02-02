@@ -1,13 +1,13 @@
 class FamilyMe.Views.UsersView extends Backbone.View
   template: JST['users/index']
-  el: '#positions_container'
+  el: '#members-positions-container'
 
   initialize: (options)->
     super options
 
     self = @
-    @latitude = $('#positions_container').data('center-latitude')
-    @longitude = $('#positions_container').data('center-longitude')
+    @latitude = $('#members-positions-container').data('center-latitude')
+    @longitude = $('#members-positions-container').data('center-longitude')
 
     if @latitude? && @longitude?
       @collection.fetch

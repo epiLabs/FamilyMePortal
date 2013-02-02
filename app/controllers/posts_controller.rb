@@ -1,11 +1,6 @@
-class PostsController < ApplicationController
-  before_filter :authenticate_user!
-  respond_to :json
-  respond_to :html, :only => :index
-
+class PostsController < ApiController
   def index
-    @user = current_user
-    @posts = @user.family.posts
+    @posts = current_user.family.posts
     respond_with @posts
   end
 
