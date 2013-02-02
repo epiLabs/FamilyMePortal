@@ -10,9 +10,7 @@ class FamilyMe.Views.UsersView extends Backbone.View
     @longitude = $('#members-positions-container').data('center-longitude')
 
     if @latitude? && @longitude?
-      @collection.fetch
-        success: (user, response, options)->
-          self.render()
+      @render()
 
   getMapOptions: ->
     mapOptions =
