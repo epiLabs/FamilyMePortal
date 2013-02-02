@@ -9,7 +9,8 @@ class Position < ActiveRecord::Base
   attr_accessible :latitude, :longitude
 
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+
+  # after_validation :reverse_geocode # Not needed since we don't need the adresses for the moment
 
   def date
     updated_at.strftime("%d %b %y %H:%M")
