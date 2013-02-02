@@ -5,6 +5,3 @@ window.FamilyMe =
   Routers: {}
 
   CurrentUser: {}
-
-# Convenient alias
-window.FMe = FamilyMe

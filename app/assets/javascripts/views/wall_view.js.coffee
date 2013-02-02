@@ -10,7 +10,7 @@ class FamilyMe.Views.WallView extends Backbone.View
 
     @collection.bind 'add', (model)=>
       postView = new FamilyMe.Views.PostView(model: model)
-      @$('.posts-list').append postView.render().el
+      @$('.posts-list').prepend postView.render().el
 
     @collection.fetch update: true
 
