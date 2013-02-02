@@ -1,5 +1,4 @@
-.display-form-button.btn.btn-info
-  Post a message
+%a.display-form-button.btn.btn-info{href: 'javascript:void(0)'} Post a message
 .new-post
   %form
     %label

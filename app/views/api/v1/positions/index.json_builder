@@ -1,0 +1,8 @@
+array @positions do |position|
+  id position.id
+  user_id position.user_id
+  address position.address
+  latitude position.latitude
+  longitude position.longitude
+  created_at position.created_at
+end

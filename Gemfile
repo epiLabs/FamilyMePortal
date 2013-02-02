@@ -21,8 +21,11 @@ gem 'geocoder'
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
-  gem 'pry'
   gem 'pry-rails'
+end
+
+group :development, :test do
+  gem 'pry'
 end
 
 # Gems used only for assets and not required
