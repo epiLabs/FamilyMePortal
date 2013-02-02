@@ -2,17 +2,14 @@ FamilyMe::Application.routes.draw do
   devise_for :users, :controllers => {:sessions => 'sessions'}
 
   resource :family, only: [:show, :create, :update]
-  resources :posts, only: [:create, :destroy, :index]
 
   resources :news, only: [:index]
-  resources :users, only: [:index]
-
-  resources :positions, only: [:index]
 
   namespace :api do
     namespace :v1 do
       resource :family, only: :show
       resources :positions, only: [:create, :index]
+      resources :posts, only: [:create, :destroy, :index]
     end
   end
   # The priority is based upon order of creation:

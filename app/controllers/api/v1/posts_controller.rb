@@ -1,6 +1,7 @@
-class PostsController < ApiController
+class Api::V1::PostsController < ApiController
   def index
     @posts = current_user.family.posts
+
     respond_with @posts
   end
 
@@ -12,9 +13,7 @@ class PostsController < ApiController
     @post = current_user.posts.new(params[:post])
     @post.family = current_user.family
     
-    if @post.save
-      render 'show'
-    else
+    unless @post.save
       render json: {error: @post.errors}, status: 400
     end
   end
