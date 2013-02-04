@@ -1,8 +1,6 @@
 class Api::V1::PositionsController < ApiController
   def index
     @positions = current_user.positions
-
-    render json: {positions: @positions}, status: 200
   end
 
   def create

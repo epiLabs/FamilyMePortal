@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   :first_name, :last_name
 
   has_many :positions
+  has_many :posts, :foreign_key => 'author_id'
   belongs_to :family
 
   before_save :ensure_authentication_token
@@ -20,6 +21,14 @@ class User < ActiveRecord::Base
 
   def join_invitor_family
     self.family = invited_by.family
+  end
+
+  def latitude
+    positions.last.try(:latitude)
+  end
+
+  def longitude
+    positions.last.try(:longitude)
   end
 
   def last_sign_in_date_formated

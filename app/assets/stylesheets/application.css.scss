@@ -41,11 +41,18 @@ h1 {
   }
 }
 
-.devise_links, .invite_members {
+.devise_links {
   text-align: right;
   
   a {
     display: inline-block;
     font-size: 0.8em;
+  }
+}
+
+// Theres an issue with imgs in google map because of a reset.css
+#google_map {
+  img {
+    max-width: inherit;
   }
 }

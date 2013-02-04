@@ -1,13 +1,21 @@
 %h2 Welcome
 
+- if @family.present?
+  %p This is your family's homepage !
+  %ul.nav.nav-tabs
+    %li.active{'data-target' => '.members-list'}
+      %a{href: 'javascript:void(0)'} Members list
+    %li{'data-target' => '#members-positions-container'}
+      %a{href: 'javascript:void(0)'} Map
+    %li{'data-target' => '#posts'}
+      %a{href: 'javascript:void(0)'} Wall
 
-- if current_user.family.present?
-  This is your family's homepage !
+  .application
+    .members-list
+      = render 'users'
+    #members-positions-container{data: {'center-latitude' => @user.latitude, 'center-longitude' => @user.longitude, 'user-id' => @user.id}}
+    #posts{data: {'user-id' => @user.id}}
 
-  = render 'users'
-
-  .invite_members
-    = link_to 'Invite your family', new_user_invitation_path, class: 'btn btn-primary btn-small'
 - else
   You should create a family or wait to be invited into one!
 

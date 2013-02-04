@@ -7,6 +7,7 @@
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAE_FKae6SYVvdyddYHWdwUPs-8mMJmqqs&sensor=false"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
@@ -16,6 +17,8 @@
         .container
           = render 'layouts/navigation'
     #main.container-narrow{:role => "main"}
+      - if user_signed_in?
+        #current-user-informations{'data-id' => current_user.id}
       .container-fluid
         = render 'layouts/messages'
         = yield

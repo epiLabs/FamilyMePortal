@@ -1,0 +1,5 @@
+.post
+  - if @model.canBeDeleted()
+    %a.delete-post.close.pull-right{href: 'javascript:void(0)'} &times;
+  .author= @model.getAuthor()
+  .message= @model.getMessage()

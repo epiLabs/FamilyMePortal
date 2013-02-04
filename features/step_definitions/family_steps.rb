@@ -8,6 +8,12 @@ Given /^a family with the following members:$/ do |table|
   end
 end
 
+When /^I click on the "(.*?)" tab$/ do |tabname|
+  within '#main .nav-tabs' do
+    click_link tabname
+  end
+end
+
 When /^I visit my family page$/ do
   visit family_path
 end
@@ -41,7 +47,7 @@ Given /^I'm part of a family$/ do
 end
 
 When /^I'm on the index page of my family$/ do
-  visit family_url
+  visit family_path
 end
 
 Then /^I should see myself on the family's user listing$/ do

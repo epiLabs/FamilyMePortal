@@ -17,9 +17,9 @@ Feature: I checkout my position and retrieve other member's
       | position[latitude]  | 42.989283 | 
       | position[longitude] | -1.35309 | 
     When I list my positions on the api
-    Then I should see "31640 Burguete, Navarra, Spain"
+    Then I should see "42.989283"
     When I'm on the page of family through the api
-    Then I should see "31640 Burguete, Navarra, Spain"
+    Then I should see "42.989283"
 
   Scenario Outline: I post invalid coordinates
     When I post the following to checkout my position:
