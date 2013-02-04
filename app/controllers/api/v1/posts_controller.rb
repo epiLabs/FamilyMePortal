@@ -1,8 +1,12 @@
 class Api::V1::PostsController < ApiController
   def index
-    @posts = current_user.family.posts
+    if current_user.family
+      @posts = current_user.family.posts
 
-    respond_with @posts
+      respond_with @posts
+    else
+      render json: {error: "You are not part of a family"}, status: 400
+    end
   end
 
   def destroy
