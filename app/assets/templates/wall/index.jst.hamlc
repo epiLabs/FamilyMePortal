@@ -1,8 +1,8 @@
-%a.display-form-button.btn.btn-info{href: 'javascript:void(0)'} Post a message
-.new-post
-  %form
-    %label
-      Post a message
+.posts-list-header.row
+  %a.display-form-button.btn.btn-info{href: 'javascript:void(0)'} Post a message
+  .new-post
+    %form
       %textarea{placeholder: "What do you want to say?", name: 'message'}
-    %input.btn.btn-success{type: 'submit', value: 'Post!'}
+      %br
+      %input.btn.btn-success{type: 'submit', value: 'Post!'}
 .posts-list

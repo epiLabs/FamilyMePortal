@@ -19,6 +19,8 @@ class FamilyMe.Views.WallView extends Backbone.View
 
     if message.length
       @collection.create {message: message, user_id: FamilyMe.CurrentUser.id}, {wait: true}
+      @$('.new-post textarea').val('')
+      @hideNewPostForm()
 
     false
 
@@ -28,6 +30,7 @@ class FamilyMe.Views.WallView extends Backbone.View
 
   hideNewPostForm: (event)->
     @$('.new-post').hide()
+    @$('.display-form-button').show()
 
   render: ->
     @$el.html(@template())

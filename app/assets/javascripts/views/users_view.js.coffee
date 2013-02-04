@@ -8,14 +8,23 @@ class FamilyMe.Views.UsersView extends Backbone.View
     @latitude = $('#members-positions-container').data('center-latitude')
     @longitude = $('#members-positions-container').data('center-longitude')
 
+    @firstDisplay = true
+
   getMapOptions: ->
+    @mapCenter = new google.maps.LatLng(@latitude, @longitude)
     mapOptions =
-      center: new google.maps.LatLng(@latitude, @longitude)
+      center: @mapCenter
       zoom: 5
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
   googleMapObject: ->
     @_map ||= new google.maps.Map(@$('#google_map')[0], @getMapOptions())
+
+  refreshMap:->
+    google.maps.event.trigger(@googleMapObject(), 'resize')
+    if @firstDisplay
+      @googleMapObject().setCenter(@mapCenter)
+      @firstDisplay = false
 
   render: ->
     @$el.html(@template())
