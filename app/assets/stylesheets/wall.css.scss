@@ -1,0 +1,10 @@
+#posts {
+  .post {
+      border: 1px solid blue;
+
+      .delete-post {
+        color: red;
+        font-size: 1.8em;
+      }
+  }
+}

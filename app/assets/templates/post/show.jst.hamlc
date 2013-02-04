@@ -1,5 +1,5 @@
-.post{style: 'border:1px solid black;'}
+.post
+  - if @model.canBeDeleted()
+    %a.delete-post.close.pull-right{href: 'javascript:void(0)'} &times;
   %h3= @model.getAuthor()
   .post-message= @model.getMessage()
-  - if @model.canBeDeleted()
-    %a.delete-post.btn.btn-danger.pull-right{href: 'javascript:void(0)'} Delete this post
