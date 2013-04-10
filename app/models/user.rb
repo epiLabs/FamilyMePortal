@@ -19,6 +19,28 @@ class User < ActiveRecord::Base
   include Gravtastic
   gravtastic default: 'mm'
 
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.find_by_email(auth.info.email)
+
+      unless user
+        password = Devise.friendly_token[0,10]
+        user = User.new(email: auth.info.email, password: password, password_confirmation: password)
+      end
+
+      # Fill new user informations or update current one
+      user.first_name = auth.info.first_name unless user.first_name.present?
+      user.last_name = auth.info.last_name unless user.last_name.present?
+      user.nickname = auth.info.nickname unless user.nickname.present?
+      user.uid = auth.uid
+      user.provider = auth.provider
+
+      user.save
+    end
+    user
+  end
+
   def join_invitor_family
     self.family = invited_by.family
   end
