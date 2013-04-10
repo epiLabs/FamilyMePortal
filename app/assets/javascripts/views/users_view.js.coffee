@@ -5,10 +5,10 @@ class FamilyMe.Views.UsersView extends Backbone.View
   initialize: (options)->
     super options
 
+    @collection = FamilyMe.UsersList
+    
     @latitude = $('#members-positions-container').data('center-latitude') || 0
     @longitude = $('#members-positions-container').data('center-longitude') || 0
-
-    @firstDisplay = true
 
   getMapOptions: ->
     @mapCenter = new google.maps.LatLng(@latitude, @longitude)
@@ -22,9 +22,7 @@ class FamilyMe.Views.UsersView extends Backbone.View
 
   refreshMap:->
     google.maps.event.trigger(@googleMapObject(), 'resize')
-    if @firstDisplay
-      @googleMapObject().setCenter(@mapCenter)
-      @firstDisplay = false
+    @googleMapObject().setCenter(@mapCenter)
 
   render: ->
     @$el.html(@template())

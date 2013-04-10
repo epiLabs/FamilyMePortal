@@ -1,4 +1,4 @@
-- if current_user.family
+- if current_user && current_user.family
   %ul.nav.nav-tabs
     %li.member-list= link_to 'Members', users_path
     %li.position-list= link_to 'Positions', positions_path

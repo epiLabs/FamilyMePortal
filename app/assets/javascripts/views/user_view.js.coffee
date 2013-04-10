@@ -3,6 +3,7 @@ class FamilyMe.Views.UserView extends Backbone.View
   initialize: (options)->
     super options
     
+    @collection = FamilyMe.UsersList
     @map = options.map
 
   placeMapMarker:->

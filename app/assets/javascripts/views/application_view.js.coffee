@@ -3,12 +3,13 @@ class FamilyMe.Views.ApplicationView extends Backbone.View
   initialize: (options, viewType)->
     super options
 
-    obj = {WallView: FamilyMe.Views.WallView}
+    obj =
+      WallView: FamilyMe.Views.WallView
+      UsersView: FamilyMe.Views.UsersView
 
     @collection.fetch
       success: (user, response, options)=>
         @view = new obj[viewType]()
-        # @view = new FamilyMe.Views.WallView(collection: new FamilyMe.Collections.Posts())
         @render()
       error:->
         alert 'Error loading application... Try to reload this page!'
