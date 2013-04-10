@@ -1,21 +1,18 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable,
-  # :lockable, :timeoutable and :omniauthable,
-  # :rememberable
+  # :confirmable, :lockable, :timeoutable, :rememberable
   devise :token_authenticatable, :invitable, :database_authenticatable, :registerable,
-         :recoverable, :trackable, :validatable
+         :recoverable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :nickname, :email, :password, :password_confirmation, :remember_me,
-  :first_name, :last_name
+  :first_name, :last_name, :provider, :uid
 
   has_many :positions
   has_many :posts, :foreign_key => 'author_id'
   belongs_to :family
 
   before_save :ensure_authentication_token
-  #before_save :reset_authentication_token # Reset authentication token in certain circumstances
 
   after_invitation_accepted :join_invitor_family
 

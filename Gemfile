@@ -20,6 +20,9 @@ gem 'geocoder'
 
 gem 'gravtastic'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'forgery'
 
 group :development do
