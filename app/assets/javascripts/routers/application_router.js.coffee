@@ -13,7 +13,7 @@ class FamilyMe.Routers.ApplicationRouter extends Backbone.Router
 
   displayFamilyMembersMap:->
     $('li.position-list').addClass('active')
-    @displayForThisView('UsersView')
+    @displayForThisView('UsersPositionsView')
 
   displayForThisView: (viewType)->
     FamilyMe.CurrentUser.id = $('#current-user-informations').data('id')

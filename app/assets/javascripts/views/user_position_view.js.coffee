@@ -1,4 +1,4 @@
-class FamilyMe.Views.UserView extends Backbone.View
+class FamilyMe.Views.UserPositionView extends Backbone.View
 
   initialize: (options)->
     super options

@@ -1,4 +1,4 @@
-class FamilyMe.Views.UsersView extends Backbone.View
+class FamilyMe.Views.UsersPositionsView extends Backbone.View
   template: JST['users/index']
   el: '#members-positions-container'
 
@@ -29,6 +29,6 @@ class FamilyMe.Views.UsersView extends Backbone.View
 
     if @latitude? && @longitude?
       @collection.forEach (model, idx)=>
-        view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
+        view = new FamilyMe.Views.UserPositionView(model: model, map: @googleMapObject())
         view.render()
     @

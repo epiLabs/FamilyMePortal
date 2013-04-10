@@ -5,7 +5,7 @@ class FamilyMe.Views.ApplicationView extends Backbone.View
 
     obj =
       WallView: FamilyMe.Views.WallView
-      UsersView: FamilyMe.Views.UsersView
+      UsersPositionsView: FamilyMe.Views.UsersPositionsView
 
     @collection.fetch
       success: (user, response, options)=>
