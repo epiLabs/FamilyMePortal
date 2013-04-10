@@ -26,8 +26,8 @@ Then /^It should create a family$/ do
   Family.last.should_not be_nil
 end
 
-Then /^I should be on my family index$/ do
-  current_url.should == family_url
+Then /^I should be on my member listing index$/ do
+  current_url.should == users_url
 end
 
 Then /^I should see an error$/ do
