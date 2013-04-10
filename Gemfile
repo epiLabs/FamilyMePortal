@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'backbone-on-rails'
 
 # Authentication
-gem 'devise', '~> 2.1.2'
+gem 'devise'
 gem 'devise_invitable'
 
 gem "simple_form"
