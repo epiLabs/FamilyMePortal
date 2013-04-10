@@ -1,24 +1,7 @@
 %h2 Welcome
 
-- if @family.present?
-  %p This is your family's homepage !
-  %ul.nav.nav-tabs
-    %li.active{'data-target' => '.members-list'}
-      %a{href: 'javascript:void(0)'} Members list
-    %li{'data-target' => '#members-positions-container'}
-      %a{href: 'javascript:void(0)'} Map
-    %li{'data-target' => '#posts'}
-      %a{href: 'javascript:void(0)'} Wall
+#not-in-family
+  You should create a family or wait to be invited into one!
 
-  .application
-    .members-list
-      = render 'users'
-    #members-positions-container{data: {'center-latitude' => @user.latitude, 'center-longitude' => @user.longitude, 'user-id' => @user.id}}
-    #posts{data: {'user-id' => @user.id}}
-
-- else
-  #not-in-family
-    You should create a family or wait to be invited into one!
-
-  .clear{style: "margin-top: 100px"}
-    = link_to "Create your family now", family_path, method: :post, class: 'btn btn-primary btn-large'
+.clear{style: "margin-top: 100px"}
+  = link_to "Create your family now", family_path, method: :post, class: 'btn btn-primary btn-large'

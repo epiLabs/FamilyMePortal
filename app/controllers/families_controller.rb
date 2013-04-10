@@ -1,14 +1,12 @@
 class FamiliesController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :welcome]
+  before_filter :ensure_user_is_authenticated, except: [:welcome]
 
   def show
-    unless user_signed_in?
-      redirect_to news_index_path
-      return
+    if current_user.family
+      redirect_to users_path
     end
-
-    @user = current_user
-    @family = current_user.family
+    # @user = current_user
+    # @family = current_user.family
   end
 
   def create
@@ -21,5 +19,12 @@ class FamiliesController < ApplicationController
   end
 
   def welcome
+    if current_user
+      if current_user.family
+        redirect_to users_path
+      else
+       render :show
+     end
+    end
   end
 end
