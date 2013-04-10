@@ -1,5 +1,5 @@
 class FamilyMe.Views.UsersPositionsView extends Backbone.View
-  template: JST['users/index']
+  template: JST['positions/index']
   el: '#members-positions-container'
 
   initialize: (options)->

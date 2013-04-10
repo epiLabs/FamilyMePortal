@@ -14,7 +14,7 @@ class FamilyMe.Views.UserPositionView extends Backbone.View
       title: @model.getTitle()
 
   createInfoWindow:->
-    @infowindow = new google.maps.InfoWindow(content: JST['users/show'](model: @model))
+    @infowindow = new google.maps.InfoWindow(content: JST['positions/show'](model: @model))
 
     google.maps.event.addListener @marker, 'click', =>
       @infowindow.open(@map, @marker)
