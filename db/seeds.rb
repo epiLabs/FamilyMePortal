@@ -12,32 +12,32 @@ password = 'toto42'
 
 # Create Members
 
-@dimitri = User.new(nickname: 'keny', first_name: 'Dimitri', last_name: 'Jorge', email: 'dimitri@yopmail.fr', password: password, password_confirmation: password)
+@dimitri = User.new(nickname: 'keny', first_name: 'Dimitri', last_name: 'Jorge', email: 'jorge.dimitri@gmail.com', password: password, password_confirmation: password)
 @dimitri.family = @family
 @dimitri.last_sign_in_at = Time.now
 @dimitri.save!
 
-@jose = User.new(nickname: 'rodrig_d', first_name: 'Jose', last_name: 'Rodrigues', email: 'jose@yopmail.fr', password: password, password_confirmation: password)
+@jose = User.new(nickname: 'rodrig_d', first_name: 'Jose', last_name: 'Rodrigues', email: 'contact.jrodrigues@gmail.com', password: password, password_confirmation: password)
 @jose.family = @family
 @jose.last_sign_in_at = 2.days.ago
 @jose.save!
 
-@julien = User.new(nickname: 'lifely', first_name: 'Julien', last_name: 'Di-marco', email: 'julien@yopmail.fr', password: password, password_confirmation: password)
+@julien = User.new(nickname: 'lifely', first_name: 'Julien', last_name: 'Di-marco', email: 'juliendimarco@gmail.com', password: password, password_confirmation: password)
 @julien.family = @family
 @julien.last_sign_in_at = 2.hours.ago
 @julien.save!
 
-@charles = User.new(nickname: 'furyfeuille', first_name: 'Charles', last_name: 'Circlaeys', email: 'charles@yopmail.fr', password: password, password_confirmation: password)
+@charles = User.new(nickname: 'furyfeuille', first_name: 'Charles', last_name: 'Circlaeys', email: 'c.circlaeys@gmail.com', password: password, password_confirmation: password)
 @charles.family = @family
 @charles.last_sign_in_at = 1.week.ago
 @charles.save!
 
-@younes = User.new(nickname: 'yoones', first_name: 'Younes', last_name: 'Serraj', email: 'younes@yopmail.fr', password: password, password_confirmation: password)
+@younes = User.new(nickname: 'yoones', first_name: 'Younes', last_name: 'Serraj', email: 'younes.serraj@gmail.com', password: password, password_confirmation: password)
 @younes.family = @family
 @younes.last_sign_in_at = 1.year.ago
 @younes.save!
 
-@nicolas = User.new(nickname: 'berhau_n', first_name: 'Nicolas', last_name: 'Berhault', email: 'nicolas@yopmail.fr', password: password, password_confirmation: password)
+@nicolas = User.new(nickname: 'berhau_n', first_name: 'Nicolas', last_name: 'Berhault', email: 'gurki.epitech@gmail.com', password: password, password_confirmation: password)
 @nicolas.family = @family
 @nicolas.last_sign_in_at = 1.minute.ago
 @nicolas.save!
@@ -64,3 +64,22 @@ password = 'toto42'
 @nicolas.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
 @nicolas.positions << Position.create(latitude: 33.138521, longitude: -117.153397) # San marcos
 
+post = @family.posts.new(message: "Pensez a commit sur develop hein!")
+post.author = @dimitri
+post.save
+
+post = @family.posts.new(message: "Coucou les copains!")
+post.author = @charles
+post.save
+
+post = @family.posts.new(message: "Ma maman s'appelle Gisele")
+post.author = @jose
+post.save
+
+post = @family.posts.new(message: "Le nouveau Game of Thrones dechire")
+post.author = @julien
+post.save
+
+post = @family.posts.new(message: "Je pars en charter")
+post.author = @younes
+post.save
