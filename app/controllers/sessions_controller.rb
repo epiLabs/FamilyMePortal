@@ -12,8 +12,9 @@ class SessionsController < Devise::SessionsController
         # Do something here to log that we are on loggin from mobile app
         render json: {:response => 'ok',
                       :nickname => current_user.nickname,
-                      :first_name => current_user.first_name, 
+                      :first_name => current_user.first_name,
                       :last_name => current_user.last_name,
+                      :email => current_user.email,
                       :auth_token => current_user.authentication_token
                     }.to_json, :status => :ok
       end
