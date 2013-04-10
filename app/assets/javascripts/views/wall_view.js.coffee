@@ -18,7 +18,7 @@ class FamilyMe.Views.WallView extends Backbone.View
       @registerPostView(postView)
       @postViews().push(postView)
 
-      @render()
+      @$('.posts-list').prepend postView.render().el
 
     @collection.fetch update: true
 
@@ -61,10 +61,8 @@ class FamilyMe.Views.WallView extends Backbone.View
 
   render: ->
     @$el.html(@template())
+    @hideNewPostForm()
 
     for view in @postViews()
       @$('.posts-list').prepend view.render().el
-
-    @hideNewPostForm()
-
     @

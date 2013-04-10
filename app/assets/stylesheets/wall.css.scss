@@ -12,26 +12,38 @@
 
   .posts-list {
     .post {
+
         border-radius: 10px;
         padding: 5px;
 
-        .author {
-          font-weight: bold;
-          font-size: 1.2em;
+        .avatar {
+          margin: 5px;
+          border-radius: 25px;
         }
+        .post-content {
+          .author {
+            font-weight: bold;
+            font-size: 1.2em;
+          }
 
-        .message {
-          font-style: italic;
+          .message {
+            font-style: italic;
+          }
         }
-        // border: 1px solid blue;
 
         &:hover {
           background-color: #f4f4f4;
         }
+
         .delete-post {
+          display: none;
           border-right: 20px;
           color: red;
           font-size: 1.8em;
+        }
+
+        &:hover .delete-post {
+          display: block;
         }
     }
   }

@@ -18,5 +18,9 @@ class FamilyMe.Models.Post extends Backbone.Model
     else
       'No author'
 
+  getAuthorAvatarUrl:->
+    if @user
+      @user.getAvatarUrl()
+
   getMessage:->
     @get 'message'

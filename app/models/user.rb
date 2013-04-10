@@ -58,4 +58,8 @@ class User < ActiveRecord::Base
       last_sign_in_at.strftime("%d %b %y %H:%M")
     end
   end
+
+  def gravatar(size = 40)
+    gravatar_url(size: size)
+  end
 end

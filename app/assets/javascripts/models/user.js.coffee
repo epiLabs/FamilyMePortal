@@ -21,6 +21,9 @@ class FamilyMe.Models.User extends Backbone.Model
   getLastConnection:->
     @get 'last_sign_in'
 
+  getAvatarUrl:->
+    @get 'avatar_url'
+
   getTitle: ->
     title = ""
 
