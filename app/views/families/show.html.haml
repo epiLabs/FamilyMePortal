@@ -17,7 +17,8 @@
     #posts{data: {'user-id' => @user.id}}
 
 - else
-  You should create a family or wait to be invited into one!
+  #not-in-family
+    You should create a family or wait to be invited into one!
 
   .clear{style: "margin-top: 100px"}
     = link_to "Create your family now", family_path, method: :post, class: 'btn btn-primary btn-large'

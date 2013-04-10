@@ -33,5 +33,4 @@ class FamilyMe.Views.UsersView extends Backbone.View
       @collection.forEach (model, idx)=>
         view = new FamilyMe.Views.UserView(model: model, map: @googleMapObject())
         view.render()
-
     @

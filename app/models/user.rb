@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 
   after_invitation_accepted :join_invitor_family
 
+  include Gravtastic
+  gravtastic
+
   def join_invitor_family
     self.family = invited_by.family
   end
