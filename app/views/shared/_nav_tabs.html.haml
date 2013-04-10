@@ -1,5 +1,5 @@
 - if current_user.family
   %ul.nav.nav-tabs
-    %li= link_to 'Members', users_path
-    %li= link_to 'Positions', positions_path
-    %li= link_to 'Wall', posts_path
+    %li.member-list= link_to 'Members', users_path
+    %li.position-list= link_to 'Positions', positions_path
+    %li.wall-list= link_to 'Wall', posts_path

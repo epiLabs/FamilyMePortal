@@ -1,14 +1,12 @@
 class FamilyMe.Routers.ApplicationRouter extends Backbone.Router
   routes:
-    'family'  : 'displayApplication'
+    'posts'     : 'displayWall'
+    'positions' : 'displayFamilyMembersMap'
 
-  displayApplication:->
-    @applicationView ||= new FamilyMe.Views.ApplicationView()
+  displayWall:->
+    FamilyMe.CurrentUser.id = $('#current-user-informations').data('id')
+
+    $('li.wall-list').addClass('active')
 
     FamilyMe.UsersList = @collection = new FamilyMe.Collections.Users()
-
-    @collection.fetch
-        success: (user, response, options)=>
-          @applicationView.render()
-        error:->
-          alert 'Error loading application... Try to reload this page!'
+    @applicationView ||= new FamilyMe.Views.ApplicationView(collection:@collection, 'WallView')

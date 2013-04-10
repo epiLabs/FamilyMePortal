@@ -8,9 +8,17 @@ class FamilyMe.Views.WallView extends Backbone.View
   initialize: (options)->
     super options
 
+    @collection = new FamilyMe.Collections.Posts()
+
+    # Keep this line to build the postViews array before binding the collection
+    @postViews()
+
     @collection.bind 'add', (model)=>
       postView = new FamilyMe.Views.PostView(model: model)
-      @$('.posts-list').prepend postView.render().el
+      @registerPostView(postView)
+      @postViews().push(postView)
+
+      @render()
 
     @collection.fetch update: true
 
@@ -24,6 +32,25 @@ class FamilyMe.Views.WallView extends Backbone.View
 
     false
 
+  removePost: (post)=>
+    postView = null
+    @_postViews = _.reject @_postViews, (item)->
+      if item.model == post
+        postView = item
+    postView.remove()
+    @render()
+
+  registerPostView: (postView)->
+    postView.model.bind "destroy", @removePost
+  postViews:->
+    unless @_postViews
+      @_postViews = _.map @collection.models, (post)=>
+        postView = new FamilyMe.Views.PostView(model: post)
+        @registerPostView(postView)
+        postView
+
+    @_postViews
+
   showNewPostForm: (event)->
     @$('.new-post').show()
     @$('.display-form-button').hide()
@@ -34,6 +61,9 @@ class FamilyMe.Views.WallView extends Backbone.View
 
   render: ->
     @$el.html(@template())
+
+    for view in @postViews()
+      @$('.posts-list').prepend view.render().el
 
     @hideNewPostForm()
 
