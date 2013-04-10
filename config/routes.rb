@@ -3,8 +3,6 @@ FamilyMe::Application.routes.draw do
 
   resource :family, only: [:show, :create, :update]
 
-  resources :news, only: [:index]
-
   namespace :api do
     namespace :v1 do
       resource :family, only: :show

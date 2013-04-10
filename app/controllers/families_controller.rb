@@ -21,6 +21,5 @@ class FamiliesController < ApplicationController
   end
 
   def welcome
-    redirect_to action: :show
   end
 end
