@@ -5,8 +5,8 @@ class FamilyMe.Views.UsersView extends Backbone.View
   initialize: (options)->
     super options
 
-    @latitude = $('#members-positions-container').data('center-latitude')
-    @longitude = $('#members-positions-container').data('center-longitude')
+    @latitude = $('#members-positions-container').data('center-latitude') || 0
+    @longitude = $('#members-positions-container').data('center-longitude') || 0
 
     @firstDisplay = true
 
