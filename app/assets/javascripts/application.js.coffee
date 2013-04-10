@@ -4,6 +4,7 @@
 #= require underscore
 #= require hamlcoffee
 #= require backbone
+#= require gravtastic
 #= require family_me
 #= require_tree ../templates
 #= require_tree ./models

@@ -1,5 +1,6 @@
 %table.table.table-bordered.table-hover
   %tr
+    %th Avatar
     %th email
     %th first name
     %th last name
@@ -7,6 +8,7 @@
 
   - @family.users.each do |user|
     %tr
+      %td= image_tag user.gravatar_url(size: 100)
       %td= user.email
       %td= user.first_name
       %td= user.last_name
