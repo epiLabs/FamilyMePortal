@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :nickname, :email, :password, :password_confirmation, :remember_me,
   :first_name, :last_name, :provider, :uid
 
-  has_many :positions
+  has_many :positions, dependent: :destroy
   has_many :posts, :foreign_key => 'author_id'
   belongs_to :family
 

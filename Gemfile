@@ -32,6 +32,8 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec-rails'
+  gem 'factory_girl'
 end
 
 # Gems used only for assets and not required
@@ -56,9 +58,7 @@ end
 group :test do
   gem "sqlite3"
   gem 'poltergeist'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'factory_girl'
-  gem 'rspec-rails'
   gem 'email_spec'
 end
