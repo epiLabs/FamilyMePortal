@@ -3,6 +3,7 @@ Feature: Invite members
   I should be able to invite my family
   So I can have all the real members in my group
 
+  @wip
   Scenario: I'm invited on an existing family
     Given I'm a logged in user
     And I'm part of a family

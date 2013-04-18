@@ -24,8 +24,8 @@ describe Invitation do
         @user1 = FactoryGirl.create :user, :in_new_family
         @user2 = FactoryGirl.create :user, :in_new_family
 
-        @first_invitation = FactoryGirl.build :invitation, user: @user1, family: @user1.family
-        @second_invitation = FactoryGirl.build :invitation, email: @first_invitation.email, user: @user2, family: @user2.family
+        @first_invitation = FactoryGirl.build :invitation, user: @user1, family_id: @user1.family_id
+        @second_invitation = FactoryGirl.build :invitation, email: @first_invitation.email, user: @user2, family_id: @user2.family_id
       end
 
       it "should allow the two different emails to exist" do
