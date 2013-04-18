@@ -24,11 +24,14 @@ Then /^I shouldn't see a post containing "(.*?)"$/ do |arg1|
 end
 
 When /^I click on the cross to delete my post$/ do
-  step 'I mouseover the post'
+  # TODO : Had an issue with page.first('.delete-post').click
+  # so I used the following.
+  # Try to fix it on the future and use driver instead of JS
+  page.execute_script <<-JS
+    $('.delete-post').first().click()
+  JS
 
-  within '.posts-list' do
-    page.all('.delete-post').first.click
-  end
+  page.should_not have_selector('.delete-post', visible: false)
 end
 
 Then /^there should be (\d+) posts?$/ do |nb|
@@ -45,17 +48,15 @@ Given /^another member of my family has created a post$/ do
   @post.save
 end
 
-When /^I mouseover the post$/ do
+When /^I mouseover the first post$/ do
   within '.posts-list' do
-    page.find('.post').trigger(:mouseover)
+    page.first('.post').trigger(:mouseover)
   end
 end
 
-Then /^I should see a hidden cross within the post$/ do
+Then /^I should see one hidden cross within the post$/ do
   within '.posts-list' do
-    page.should have_selector('.delete-post')
-
-    page.find('.delete-post').should_not be_visible
+    page.should have_selector('.delete-post', visible: false, count: 1)
   end
 end
 

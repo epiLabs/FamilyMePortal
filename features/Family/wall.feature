@@ -15,9 +15,8 @@ Feature: Post and read messages
     When I create a new post "THIS IS SPARTAAAAAAA!"
     Then I should a post containing "THIS IS SPARTAAAAAAA!"
     And there should be 2 posts
-    And I should see a hidden cross within the post
-    When I mouseover the post
-    And I click on the cross to delete my post
+    And I should see one hidden cross within the post
+    When I click on the cross to delete my post
     And there should be 1 post
     And I shouldn't see a post containing "THIS IS SPARTAAAAAAA!"
 
