@@ -22,7 +22,7 @@ When /^I post the following to checkout my position:$/ do |table|
   params = {}
   table.rows.each {|el| params = {el.first => el.last}.merge(params)}
 
-  send 'post', "/api/#{@api_version}/positions?auth_token=#{@auth_token}", params
+  send 'post', "/api/#{@api_version}/positions.json?auth_token=#{@auth_token}", params
 end
 
 Given /^I accept JSON$/ do
@@ -50,9 +50,9 @@ Then /^I should have received an authentication token$/ do
 end
 
 When /^I list my positions on the api$/ do
-  visit "/api/#{@api_version}/positions?auth_token=#{@auth_token}"
+  visit "/api/#{@api_version}/positions.json?auth_token=#{@auth_token}"
 end
 
 When /^I'm on the page of family through the api$/ do
-  visit "/api/#{@api_version}/family?auth_token=#{@auth_token}"
+  visit "/api/#{@api_version}/family.json?auth_token=#{@auth_token}"
 end

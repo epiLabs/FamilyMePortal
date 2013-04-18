@@ -9,11 +9,17 @@ FamilyMe::Application.routes.draw do
   resources :positions, only: [:index]
   resources :posts, only: [:index]
 
-  namespace :api do
+  namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
       resource :family, only: :show
       resources :positions, only: [:create, :index]
       resources :posts, only: [:create, :destroy, :index]
+
+      resources :invitations, only: [:create, :index] do
+        collection do
+          get 'received'
+        end
+      end
     end
   end
   # The priority is based upon order of creation:
