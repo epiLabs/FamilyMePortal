@@ -24,6 +24,8 @@ gem 'omniauth-facebook'
 
 gem 'forgery'
 
+gem 'factory_girl_rails'
+
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
@@ -33,7 +35,6 @@ end
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
-  gem 'factory_girl'
 end
 
 # Gems used only for assets and not required
