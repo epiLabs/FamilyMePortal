@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   before_filter :ensure_user_is_authenticated
 
-  def new
+  def index
   end
 
   def accept

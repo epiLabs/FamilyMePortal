@@ -8,7 +8,7 @@ FamilyMe::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :positions, only: [:index]
   resources :posts, only: [:index]
-  resources :invitations, only: [:new, :create] do
+  resources :invitations, only: [:index] do
     member do
       get 'accept'
       get 'reject'
