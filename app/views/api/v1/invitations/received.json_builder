@@ -1,0 +1,15 @@
+array @invitations do |invitation|
+  id invitation.id
+  
+  inviter invitation.user do |user|
+    id user.id
+    avatar_url user.gravatar
+    first_name user.first_name
+    last_name user.last_name
+    nickname user.nickname
+  end
+
+  family invitation.family do |family|
+    members_count family.users.count
+  end
+end

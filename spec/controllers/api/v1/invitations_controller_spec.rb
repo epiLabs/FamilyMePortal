@@ -35,7 +35,7 @@ describe Api::V1::InvitationsController do
   describe "POST #create" do
     describe 'when the email has not been invited yet' do
       before :each do
-        post :create, invitation: {email: 'lolilol@lol.fr'}
+        post :create, email: 'lolilol@lol.fr'
       end
 
       it "responds successfully with an HTTP 200 status code" do
@@ -52,13 +52,13 @@ describe Api::V1::InvitationsController do
 
     describe 'when the email has already been invited by this family' do
       before :each do
-        @invitation = Invitation.create :invitation, family: @user.family, user: @user
+        @invitation = FactoryGirl.create :invitation, family: @user.family, user: @user
 
         post :create, invitation: {email: @invitation.email}
       end
 
-      it "responds successfully with an HTTP 404 status code" do
-        expect(response.status).to eq(404)
+      it "responds successfully with an HTTP 400 status code" do
+        expect(response.status).to eq(400)
       end
     end
   end
@@ -66,8 +66,7 @@ describe Api::V1::InvitationsController do
   describe "GET #received" do
     describe "when I was invited into a family" do
       before :each do
-        # create an invitation from my actual family
-        @invitation = FactoryGirl.create :invitation, user_id: 1, family: @user.family
+        @invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 1, family: @user.family
       end
 
       it "shows me the invitation" do
@@ -78,7 +77,7 @@ describe Api::V1::InvitationsController do
 
       describe "when someone else invites me in his family" do
         it "lists the two invitations" do
-          @second_invitation = FactoryGirl.create :invitation, user_id: 982, family_id: (@user.family_id - 1)
+          @second_invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 3, family_id: (@user.family_id - 1)
 
           get :received
 
