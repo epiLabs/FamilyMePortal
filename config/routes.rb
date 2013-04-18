@@ -8,6 +8,7 @@ FamilyMe::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :positions, only: [:index]
   resources :posts, only: [:index]
+  resources :invitations, only: [:new, :create]
 
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do

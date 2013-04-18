@@ -15,11 +15,7 @@ Feature: Invite members
     Given I'm logged out
     When I open the email
     Then I should see "Hello toto@le.loco!" in the email body
-    When I follow "Accept invitation" in the email
-    Then I should see "Set your password"
-    And I fill in the following fields:
-      | field | value |
-      | user_password | toto42        |
-      | user_password_confirmation | toto42 |
-    When I press "Set my password"
+    When I sign up using "toto@le.loco" as email
+    Then I should have an invitation pending
+    When I accept this invitation
     Then my family should have 2 members

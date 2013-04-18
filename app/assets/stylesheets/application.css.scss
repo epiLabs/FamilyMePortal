@@ -20,6 +20,16 @@ h1 {
   margin-bottom: 30px;
 }
 
+.btn a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
 #presentation {
 
   .lead {

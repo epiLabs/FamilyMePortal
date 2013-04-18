@@ -5,8 +5,6 @@ class FamiliesController < ApplicationController
     if current_user.family
       redirect_to users_path
     end
-    # @user = current_user
-    # @family = current_user.family
   end
 
   def create

@@ -1,7 +1,22 @@
-%h2 Welcome
+#welcome-screen
+  %h2 Welcome
 
-#not-in-family
-  You should create a family or wait to be invited into one!
+  #not-in-family
+    - if current_user.invitations
+      .alert.alert-notice You have pending invitation.
 
-.clear{style: "margin-top: 100px"}
-  = link_to "Create your family now", family_path, method: :post, class: 'btn btn-primary btn-large'
+      - current_user.invitations.each do |invitation|
+        .invitation
+          %p.invitation-description
+            .pull-right
+              .btn.btn-success.btn-small= link_to 'Accept'
+              .btn.btn-danger.btn-small= link_to 'Reject'
+            = image_tag invitation.user.gravatar, title: "#{invitation.user.first_name} #{invitation.user.last_name}"
+            You were invited by
+            = "#{invitation.user.first_name} #{invitation.user.last_name}"
+            to join his family.
+        .clear
+    - else
+      You should create a family or wait to be invited into one!
+
+  .btn.btn-primary.btn-large= link_to "Create your family now", family_path, method: :post

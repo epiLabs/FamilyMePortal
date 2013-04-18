@@ -56,4 +56,8 @@ class User < ActiveRecord::Base
   def gravatar(size = 40)
     gravatar_url(size: size)
   end
+
+  def invitations
+    Invitation.where(email: email) 
+  end
 end
