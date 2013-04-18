@@ -9,7 +9,6 @@ gem 'backbone-on-rails'
 
 # Authentication
 gem 'devise'
-gem 'devise_invitable'
 
 gem "simple_form"
 

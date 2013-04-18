@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :rememberable
-  devise :token_authenticatable, :invitable, :database_authenticatable, :registerable,
+  devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
   belongs_to :family
 
   before_save :ensure_authentication_token
-
-  after_invitation_accepted :join_invitor_family
 
   include Gravtastic
   gravtastic default: 'mm'
@@ -39,10 +37,6 @@ class User < ActiveRecord::Base
       user.save
     end
     user
-  end
-
-  def join_invitor_family
-    self.family = invited_by.family
   end
 
   def latitude

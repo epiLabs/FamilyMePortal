@@ -3,7 +3,8 @@
 - if user_signed_in? && current_user.family
   %ul.nav
     %li
-      =link_to 'Invite your family', new_user_invitation_path
+      / =link_to 'Invite your family', new_user_invitation_path
+      =link_to 'Invite your family'
 %ul.nav.pull-right
   - if user_signed_in?
     %li= link_to image_tag(current_user_avatar), edit_user_registration_path, title: "Edit your account"
