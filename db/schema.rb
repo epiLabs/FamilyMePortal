@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130155536) do
+ActiveRecord::Schema.define(:version => 20130418154353) do
 
   create_table "families", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.string   "email",      :default => "",        :null => false
+    t.integer  "family_id"
+    t.integer  "user_id"
+    t.string   "status",     :default => "pending"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "positions", :force => true do |t|

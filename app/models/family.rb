@@ -1,6 +1,7 @@
 class Family < ActiveRecord::Base
   has_many :users
-  has_many :posts
+  has_many :posts, :dependent => :destroy
+  has_many :invitations, :dependent => :destroy
 
   def self.generate_new_including_user user
     unless user.family.present?
