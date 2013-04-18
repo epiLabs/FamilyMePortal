@@ -1,0 +1,10 @@
+%h3 Hi !
+
+%p
+  = "#{@user.try(:first_name)} #{@user.try(:last_name)}"
+  has just invited you in his family on familyMe!
+
+  You can sign up following 
+  = link_to 'this adress', new_user_registration_url
+
+  See you soon!

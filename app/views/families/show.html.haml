@@ -2,21 +2,21 @@
   %h2 Welcome
 
   #not-in-family
-    - if current_user.invitations
+    - unless current_user.invitations.empty?
       .alert.alert-notice You have pending invitation.
 
       - current_user.invitations.each do |invitation|
         .invitation
           %p.invitation-description
             .pull-right
-              .btn.btn-success.btn-small= link_to 'Accept'
-              .btn.btn-danger.btn-small= link_to 'Reject'
+              .btn.btn-success.btn-small= link_to 'Accept', accept_invitation_path(invitation)
+              .btn.btn-danger.btn-small= link_to 'Reject', reject_invitation_path(invitation)
             = image_tag invitation.user.gravatar, title: "#{invitation.user.first_name} #{invitation.user.last_name}"
             You were invited by
             = "#{invitation.user.first_name} #{invitation.user.last_name}"
             to join his family.
         .clear
     - else
-      You should create a family or wait to be invited into one!
+      %p You should create a family or wait to be invited into one!
 
   .btn.btn-primary.btn-large= link_to "Create your family now", family_path, method: :post

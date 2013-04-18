@@ -58,6 +58,6 @@ class User < ActiveRecord::Base
   end
 
   def invitations
-    Invitation.where(email: email) 
+    Invitation.where(email: email, status: 'pending') 
   end
 end

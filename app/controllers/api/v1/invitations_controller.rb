@@ -19,6 +19,6 @@ class Api::V1::InvitationsController < ApiController
   end
 
   def received
-    @invitations = Invitation.where(email: current_user.email)
+    @invitations = Invitation.where(email: current_user.email, status: 'pending')
   end
 end
