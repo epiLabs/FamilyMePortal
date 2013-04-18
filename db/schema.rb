@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20130418154353) do
   end
 
   create_table "invitations", :force => true do |t|
-    t.string   "email",      :default => "",        :null => false
+    t.string   "email"
     t.integer  "family_id"
     t.integer  "user_id"
     t.string   "status",     :default => "pending"
