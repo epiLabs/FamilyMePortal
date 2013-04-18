@@ -1,0 +1,5 @@
+%tr{class: @model.getRowClass()}
+  %td= @model.getEmail()
+  %td= @model.getAuthor()
+  %td= @model.getStatus()
+

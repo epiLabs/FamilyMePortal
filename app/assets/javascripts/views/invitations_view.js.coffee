@@ -4,6 +4,16 @@ class FamilyMe.Views.InvitationsView extends Backbone.View
   events:
    'click .display-form-button' : 'showNewInvitationForm'
 
+  initialize: (options)->
+    super options
+
+    @collection = new FamilyMe.Collections.Invitations()
+
+    @collection.fetch
+      success: =>
+        @render()
+      error: -> alert 'Error in InvitationsView'
+
   showNewInvitationForm: (event)->
     @$('.new-invitation').show()
     @$('.display-form-button').hide()
@@ -12,11 +22,11 @@ class FamilyMe.Views.InvitationsView extends Backbone.View
     @$('.new-invitation').hide()
     @$('.display-form-button').show()
 
-
   render: ->
     @$el.html(@template())
     @hideNewInvitationForm()
 
-    # for view in @postViews()
-    #   @$('.posts-list').prepend view.render().el
+    for model in @collection.models
+      @$('.invitations-list').append JST['invitations/show'](model: model)
+
     @

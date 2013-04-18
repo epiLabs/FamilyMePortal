@@ -7,4 +7,9 @@
         %input{type: 'email', placeholder: 'type email here', name: 'email'}
       .btn.btn-success Send invitation !
 
-.invitations-list
+%table.table.table-bordered.table-hover.invitations-list
+  %tr
+    %th email
+    %th sent_by
+    %th status
+
