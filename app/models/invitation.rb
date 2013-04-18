@@ -4,7 +4,10 @@ class Invitation < ActiveRecord::Base
   belongs_to :family
   belongs_to :user
 
-  validates :email, :uniqueness => {:scope => :family_id}, format: {with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, message: "Bad email format"}
+  validates :email,
+    presence:true,
+    :uniqueness => {:scope => :family_id, message: 'Invitation already exists'},
+    format: {with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, message: "Bad email format"}
   validates :family_id, presence: true
   validates :user_id, presence: true
 

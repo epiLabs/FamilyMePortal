@@ -35,8 +35,8 @@ Given /^I'm a registered user "(.*?)" who's part of this family$/ do |email|
   @user.save
 end
 
-Given /^I'm a logged in user$/ do
-  step %(a registered user "toto@el.loco")
+When(/^I sign up using "(.*?)" as email$/) do |email|
+  step %(a registered user "#{email}")
 
   visit new_user_session_path
 
@@ -45,6 +45,11 @@ Given /^I'm a logged in user$/ do
   step %(I press "Sign in")
 
   @user = User.last
+end
+
+
+Given /^I'm a logged in user$/ do
+  step "I sign up using \"toto@el.loco\" as email"
 end
 
 When /^I visit the homepage$/ do

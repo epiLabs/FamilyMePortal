@@ -3,10 +3,8 @@ class FamilyMe.Models.Invitation extends Backbone.Model
   initialize: (model, options)->
     super model, options
 
-    @user = FamilyMe.UsersList.get(@get('inviter').id)
-
   getAuthor:->
-    @user.getTitle()
+    "#{@get('inviter').first_name} #{@get('inviter').last_name}"
   getEmail:->
     @get 'email'
   getStatus:->

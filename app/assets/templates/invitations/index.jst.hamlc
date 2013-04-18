@@ -1,11 +1,13 @@
+.alert-error
+.alert-success
 .invitations-list-header.row
-  %a.display-form-button.btn.btn-info{href: 'javascript:void(0)'} Send a new invitation
+  %a.display-form-button.btn.btn-info{href: 'javascript:void(0)', 'Send a new invitation'} Send a new invitation
   .new-invitation
     %form
       %label
         Invite a new user
         %input{type: 'email', placeholder: 'type email here', name: 'email'}
-      .btn.btn-success Send invitation !
+      %input.btn.btn-success{type: 'submit', value: 'Send invitation'}
 
 %table.table.table-bordered.table-hover.invitations-list
   %tr

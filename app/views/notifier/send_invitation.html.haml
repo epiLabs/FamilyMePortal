@@ -1,4 +1,4 @@
-%h3 Hi !
+%h3= "Hello #{@email}!" 
 
 %p
   = "#{@user.try(:first_name)} #{@user.try(:last_name)}"

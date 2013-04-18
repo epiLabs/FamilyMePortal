@@ -66,6 +66,9 @@ require 'email_spec/cucumber'
 # Possible values : [:webkit, :poltergeist]
 Capybara.javascript_driver = :poltergeist
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {js_errors: false})
+end
 # Capybara.configure do |config|
 #   config.match = :one
 #   config.exact_options = true
