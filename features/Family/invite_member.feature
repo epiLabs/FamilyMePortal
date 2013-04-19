@@ -10,13 +10,14 @@ Feature: Invite members
     And I'm on the index page of my family
     When I follow "Invitations"
     And I display the new invitation form
-    And I fill in "email" with "toto@le.loco"
+    And I fill in "email" with "someone@invited.now"
     And I press "Send invitation"
-    Then "toto@le.loco" should receive an email
+    And I wait for "0.3" seconds
+    Then "someone@invited.now" should receive an email
     Given I'm logged out
     When I open the email
-    Then I should see "Hello toto@le.loco!" in the email body
-    When I sign up using "toto@le.loco" as email
+    Then I should see "Hello someone@invited.now!" in the email body
+    When I sign up using "someone@invited.now" as email
     Then I should have an invitation pending
     When I accept this invitation
     Then my family should have 2 members

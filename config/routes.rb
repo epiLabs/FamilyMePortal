@@ -1,6 +1,7 @@
 FamilyMe::Application.routes.draw do
   devise_for :users, :controllers => {
     :sessions => 'sessions',
+    :registrations => 'registrations',
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
