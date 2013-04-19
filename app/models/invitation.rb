@@ -15,6 +15,15 @@ class Invitation < ActiveRecord::Base
 
   after_create :send_email
 
+  before_validation :check_that_user_has_no_family, :on => :create
+
+  def check_that_user_has_no_family
+    user = User.find_by_email email
+    if user && user.family.present?
+      errors.add :email, 'This user is already in a family!'
+    end
+  end
+
   def send_email
     Notifier.send_invitation(self).deliver
   end
@@ -27,8 +36,14 @@ class Invitation < ActiveRecord::Base
       self.status = "accepted"
       save!
 
+      self.class.reject_all!(user)
+
       true
     end
+  end
+
+  def self.reject_all!(user)
+    where(email: user.email, status: 'pending').update_all(status: 'rejected')
   end
 
   def reject!(user)
