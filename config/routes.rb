@@ -26,6 +26,10 @@ FamilyMe::Application.routes.draw do
         collection do
           get 'received'
         end
+        member do
+          get 'accept'
+          get 'reject'
+        end
       end
     end
   end

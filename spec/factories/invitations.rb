@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :invitation do
     family_id 1
     user_id 1
-    sequence(:email) {|n| "person#{n}@example.com" }
+    sequence(:email) {|n| "inviteThisOne#{n}@example.com" }
   end
 end

@@ -30,7 +30,7 @@ class Invitation < ActiveRecord::Base
 
   def accept!(user)
     if !user.family && user.email == email
-      user.family = family
+      user.family_id = family_id
       user.save!
 
       self.status = "accepted"

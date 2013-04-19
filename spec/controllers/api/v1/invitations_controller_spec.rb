@@ -96,4 +96,54 @@ describe Api::V1::InvitationsController do
       expect(response).to render_template("received")
     end
   end
+
+
+  describe 'when I receive two invitations' do
+    before :each do
+      @first_invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 1, family_id: 26
+      @second_invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 3, family_id: 27
+    end
+
+    describe 'GET accept' do
+      describe 'when I accept the first invitation' do
+        before :each do
+          get :accept, id: @first_invitation.id
+        end
+
+        it "responds successfully with an HTTP 200 status code" do
+          expect(response).to be_success
+          expect(response.status).to eq(200)
+        end
+
+        it 'should add me to the family' do
+          User.find(@user.id).family_id.should eq @first_invitation.family_id
+        end
+
+        it 'should change the second invitation status to rejected' do
+          @second_invitation.reload
+          
+          @second_invitation.status.should == 'rejected'
+        end
+      end
+    end
+
+    describe 'GET reject' do
+      describe 'when I reject the first invitation' do
+        before :each do
+          get :reject, id: @first_invitation.id
+        end
+
+        it "responds successfully with an HTTP 200 status code" do
+          expect(response).to be_success
+          expect(response.status).to eq(200)
+        end
+
+        it 'should change the status of the invitation to rejected' do
+          @first_invitation.reload
+
+          @first_invitation.status.should == 'rejected'
+        end
+      end
+    end
+  end
 end

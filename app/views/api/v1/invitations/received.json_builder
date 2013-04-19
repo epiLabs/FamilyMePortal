@@ -10,6 +10,6 @@ array @invitations do |invitation|
   end
 
   family invitation.family do |family|
-    members_count family.users.count
+    members_count family.try(:users).try(:count)
   end
 end
