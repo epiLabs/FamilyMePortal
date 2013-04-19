@@ -4,38 +4,18 @@ describe Api::V1::InvitationsController do
 
   before :each do
     @user = FactoryGirl.create :user
-    Family.generate_new_including_user(@user)
 
     sign_in :user, @user
   end
 
-  describe "GET #index" do
+  describe "I'm on a family" do
     before :each do
-      get :index
+      Family.generate_new_including_user(@user)
     end
 
-    it "responds successfully with an HTTP 200 status code" do
-      expect(response).to be_success
-      expect(response.status).to eq(200)
-    end
-
-    it "renders the index template" do
-      expect(response).to render_template("index")
-    end
-
-    it "loads all of the invitations sent into @invitations" do
-      invitation_1 = FactoryGirl.create :invitation, user: @user, family: @user.family
-      invitation_2 = FactoryGirl.create :invitation, user: @user, family: @user.family
-      invitation_3 = FactoryGirl.create :invitation, user: @user, family: @user.family
-
-      expect(assigns(:invitations)).to match_array([invitation_1, invitation_2, invitation_3])
-    end
-  end
-
-  describe "POST #create" do
-    describe 'when the email has not been invited yet' do
+    describe "GET #index" do
       before :each do
-        post :create, email: 'lolilol@lol.fr'
+        get :index
       end
 
       it "responds successfully with an HTTP 200 status code" do
@@ -43,22 +23,47 @@ describe Api::V1::InvitationsController do
         expect(response.status).to eq(200)
       end
 
-      it "creates the invitation for the user's family" do
-        invitation = Invitation.where(email: 'lolilol@lol.fr').first
-        expect(invitation.family).to eq @user.family
-        expect(invitation.user).to eq @user
+      it "renders the index template" do
+        expect(response).to render_template("index")
+      end
+
+      it "loads all of the invitations sent into @invitations" do
+        invitation_1 = FactoryGirl.create :invitation, user: @user, family: @user.family
+        invitation_2 = FactoryGirl.create :invitation, user: @user, family: @user.family
+        invitation_3 = FactoryGirl.create :invitation, user: @user, family: @user.family
+
+        expect(assigns(:invitations)).to match_array([invitation_1, invitation_2, invitation_3])
       end
     end
 
-    describe 'when the email has already been invited by this family' do
-      before :each do
-        @invitation = FactoryGirl.create :invitation, family: @user.family, user: @user
+    describe "POST #create" do
+      describe 'when the email has not been invited yet' do
+        before :each do
+          post :create, email: 'lolilol@lol.fr'
+        end
 
-        post :create, invitation: {email: @invitation.email}
+        it "responds successfully with an HTTP 200 status code" do
+          expect(response).to be_success
+          expect(response.status).to eq(200)
+        end
+
+        it "creates the invitation for the user's family" do
+          invitation = Invitation.where(email: 'lolilol@lol.fr').first
+          expect(invitation.family).to eq @user.family
+          expect(invitation.user).to eq @user
+        end
       end
 
-      it "responds successfully with an HTTP 400 status code" do
-        expect(response.status).to eq(400)
+      describe 'when the email has already been invited by this family' do
+        before :each do
+          @invitation = FactoryGirl.create :invitation, family: @user.family, user: @user
+
+          post :create, invitation: {email: @invitation.email}
+        end
+
+        it "responds successfully with an HTTP 400 status code" do
+          expect(response.status).to eq(400)
+        end
       end
     end
   end
@@ -66,7 +71,7 @@ describe Api::V1::InvitationsController do
   describe "GET #received" do
     describe "when I was invited into a family" do
       before :each do
-        @invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 1, family: @user.family
+        @invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 1, family_id: 26
       end
 
       it "shows me the invitation" do
@@ -77,7 +82,7 @@ describe Api::V1::InvitationsController do
 
       describe "when someone else invites me in his family" do
         it "lists the two invitations" do
-          @second_invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 3, family_id: (@user.family_id - 1)
+          @second_invitation = FactoryGirl.create :invitation, email: @user.email, user_id: 3, family_id: 27
 
           get :received
 
@@ -86,7 +91,7 @@ describe Api::V1::InvitationsController do
       end
     end
 
-    it "renders the index template" do
+    it "renders the 'received' template" do
       get :received
       expect(response).to render_template("received")
     end

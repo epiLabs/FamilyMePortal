@@ -18,13 +18,6 @@ When /^I post the following to authenticate through the API:$/ do |table|
   send 'post', '/users/sign_in', params
 end
 
-When /^I post the following to checkout my position:$/ do |table|
-  params = {}
-  table.rows.each {|el| params = {el.first => el.last}.merge(params)}
-
-  send 'post', "/api/#{@api_version}/positions.json?auth_token=#{@auth_token}", params
-end
-
 Given /^I accept JSON$/ do
   header 'Accept', 'application/json'
 end
@@ -47,10 +40,6 @@ end
 
 Then /^I should have received an authentication token$/ do
   ActiveSupport::JSON.decode(last_response.body)["auth_token"].should be_present
-end
-
-When /^I list my positions on the api$/ do
-  visit "/api/#{@api_version}/positions.json?auth_token=#{@auth_token}"
 end
 
 When /^I'm on the page of family through the api$/ do
