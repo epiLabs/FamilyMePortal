@@ -42,11 +42,9 @@ end
 # in production environments by default.
 group :assets do
   gem 'haml'
-  gem 'coffee-rails'
   gem 'sass-rails'
-  gem 'less-rails' # Required by the twitter-bootstrap-rails....
+  gem 'less-rails' # Required by the twitter-bootstrap-rails...
   gem "twitter-bootstrap-rails"
-  # gem 'bootstrap-sass'
 
   gem 'haml_coffee_assets'
   gem 'execjs'
@@ -56,6 +54,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+# We need this outstide of the asset group, see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
+gem 'coffee-rails' 
 
 group :test do
   gem "sqlite3"
