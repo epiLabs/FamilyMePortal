@@ -9,8 +9,8 @@ class SessionsController < Devise::SessionsController
         respond_with @resource, :location => after_sign_in_path_for(@resource)
       end
       format.json do
-        # Do something here to log that we are on loggin from mobile app
         render json: {:response => 'ok',
+                      :id => current_user.id,
                       :nickname => current_user.nickname,
                       :first_name => current_user.first_name,
                       :last_name => current_user.last_name,
