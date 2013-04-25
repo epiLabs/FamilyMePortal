@@ -58,5 +58,8 @@ module FamilyMe
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # TODO: Drop this when we switch to rails 4, see https://devcenter.heroku.com/articles/rails-asset-pipeline#troubleshooting
+    config.assets.initialize_on_precompile = false
   end
 end
