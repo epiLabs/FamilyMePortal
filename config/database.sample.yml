@@ -1,17 +1,8 @@
-# PostgreSQL. Versions 8.2 and up are supported.
-#
-# Install the pg driver:
-#   gem install pg
-# On Mac OS X with macports:
-#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
-# On Windows:
-#   gem install pg
-#       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
-#
-# Configure Using Gemfile
-# gem 'pg'
-#
+# Adapt this sample to your database configuration
+# and then rename it into database.yml
+# See http://stackoverflow.com/questions/2856996/git-and-rails-ignore-database-yml
+
+# If you want to use Postgres:
 development:
   host: localhost
   adapter: postgresql
@@ -19,6 +10,16 @@ development:
   database: familyMe_development
   pool: 5
   min_messages: WARNING
+
+# If you want to use Mysql
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: my_db_name
+#   username: root
+#   password: my_password
+#   host: 127.0.0.1
+#   port: 3306
 
 production:
   host: localhost
