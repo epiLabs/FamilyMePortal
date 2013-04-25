@@ -41,7 +41,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'haml'
   gem 'sass-rails'
   gem 'less-rails' # Required by the twitter-bootstrap-rails...
   gem "twitter-bootstrap-rails"
@@ -55,8 +54,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-# We need this outstide of the asset group, see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
+# We need this outstide of the asset group
+# see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
 gem 'coffee-rails' 
+gem 'haml'
 
 group :test do
   gem "sqlite3"
