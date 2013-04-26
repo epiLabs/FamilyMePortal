@@ -21,12 +21,42 @@ development:
 #   host: 127.0.0.1
 #   port: 3306
 
+#PostgreSQL Developement server - commons/shared
+# development:
+#   host: frlbs.net
+#   adapter: postgresql
+#   encoding: unicode
+#   username: familyme
+#   password: 7JJueRnxrxsNYtWN
+#   database: familymedev
+#   pool: 5
+
 production:
   host: localhost
   adapter: postgresql
   encoding: unicode
   database: familyMe_production
   pool: 5
+
+# MySQL Production server
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: familyMe
+#   username: familyMe
+#   password: 7JJueRnxrxsNYtWN
+#   host: frlbs.net
+#   port: 3306
+
+# PostgreSQL Production server
+# production:
+#   host: frlbs.net
+#   adapter: postgresql
+#   encoding: unicode
+#   username: familyme
+#   password: 7JJueRnxrxsNYtWN
+#   database: familyme
+#   pool: 5
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
