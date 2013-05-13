@@ -16,7 +16,7 @@ describe Task do
       expect(@task.save).to eq false
     end
 
-    describe "with a title containing blank characters" do
+    describe "when containing blank characters" do
       describe "and an invalid title" do
         it "should fail" do
           ["      ", "  abc ", "ab   "].each do |title|
@@ -35,6 +35,20 @@ describe Task do
           end
         end
       end
+    end
+  end
+
+  describe 'validate the task_list field' do
+    it "should be present" do
+      @task.task_list = nil
+      expect(@task.save).to eq false
+    end
+
+    it "should be accessible" do
+      list = FactoryGirl.create :task_list
+      @task.task_list = list
+      expect(@task.save).to eq true
+      expect(@task.task_list).to eq list
     end
   end
 
@@ -75,7 +89,7 @@ describe Task do
 
     it 'should be able to turn the finished boolean to false with a parameter' do
       @task.finish! false
-      expect(@task.finished).to eq false
+      expect(@task.finished).to eq true
     end
   end
 end

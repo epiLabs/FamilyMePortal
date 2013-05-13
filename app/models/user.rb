@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   has_many :positions, dependent: :destroy
   has_many :posts, :foreign_key => 'author_id'
+  
+  has_many :tasks, dependent: :nullify
+
   belongs_to :family
 
   before_save :ensure_authentication_token

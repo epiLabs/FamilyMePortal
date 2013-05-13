@@ -5,7 +5,7 @@ FactoryGirl.define do
 
     trait :valid do
       title "Some random name"
-      user_id 1
+      task_list_id 1
       finished false
     end
   end
