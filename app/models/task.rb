@@ -20,4 +20,8 @@ class Task < ActiveRecord::Base
     self.finished = !cancel
     save!
   end
+
+  def self.finished
+    where(finished: true)
+  end
 end

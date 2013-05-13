@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :posts, :foreign_key => 'author_id'
   
   has_many :tasks, dependent: :nullify
+  has_many :task_lists, :foreign_key => 'author_id', dependent: :nullify
 
   belongs_to :family
 

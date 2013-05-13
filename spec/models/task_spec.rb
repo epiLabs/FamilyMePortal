@@ -5,7 +5,7 @@ describe Task do
     @task = FactoryGirl.build :task, :valid
   end
 
-  describe "validate the title field" do
+  describe "the title field" do
     it "needs to be present" do
       @task.title = nil
       expect(@task.save).to eq false
@@ -38,7 +38,7 @@ describe Task do
     end
   end
 
-  describe 'validate the task_list field' do
+  describe 'the task_list field' do
     it "should be present" do
       @task.task_list = nil
       expect(@task.save).to eq false
@@ -75,7 +75,7 @@ describe Task do
     end
   end
 
-  describe "validate the finished field" do
+  describe "the finished field" do
     it 'should be false by default' do
       expect(@task.finished).to eq false
     end
@@ -91,5 +91,12 @@ describe Task do
       @task.finish! false
       expect(@task.finished).to eq true
     end
+  end
+
+  it "should have a uniq title within the task list" do
+    @task2 = FactoryGirl.create :task, :valid, title: "Uniq title"
+
+    @task.title = @task2.title
+    expect(@task.save).to be false
   end
 end
