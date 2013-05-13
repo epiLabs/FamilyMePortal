@@ -64,4 +64,14 @@ class User < ActiveRecord::Base
   def invitations
     Invitation.where(email: email, status: 'pending') 
   end
+
+  def visible_name
+    if nickname.present?
+      nickname
+    elsif first_name.present? || last_name.present?
+      "#{first_name} #{last_name}"
+    else
+      'Unknown user'
+    end
+  end
 end

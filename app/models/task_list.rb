@@ -22,7 +22,9 @@ class TaskList < ActiveRecord::Base
   end
 
   def status
-    if completed?
+    if tasks.empty?
+      "empty"
+    elsif completed?
       "completed"
     else
       "open"

@@ -15,6 +15,7 @@ FamilyMe::Application.routes.draw do
       get 'reject'
     end
   end
+  resources :task_lists
 
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
