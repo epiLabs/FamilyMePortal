@@ -17,9 +17,13 @@ class TaskList < ActiveRecord::Base
     self.description = description.strip if description.present?
   end
 
+  def completed?
+    tasks.finished.count == tasks.count
+  end
+
   def status
-    if tasks.finished.count == tasks.count
-      "finished"
+    if completed?
+      "completed"
     else
       "open"
     end

@@ -125,8 +125,8 @@ describe TaskList do
         end
 
         describe '#status' do
-          it "should return a status 'finished'" do
-            expect(@list.status).to eq "finished"
+          it "should return a status 'completed'" do
+            expect(@list.status).to eq "completed"
           end
         end
       end      
