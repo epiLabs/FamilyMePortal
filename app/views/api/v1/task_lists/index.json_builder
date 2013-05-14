@@ -1,0 +1,19 @@
+array @task_lists do |task_list|
+  id task_list.id
+  title task_list.title
+  description task_list.description
+  family_id task_list.family_id
+  author task_list.author do |user|
+    id user.id
+    avatar_url user.gravatar
+    first_name user.first_name
+    last_name user.last_name
+    nickname user.nickname
+    visible_name user.visible_name
+  end
+  tasks do
+    total_tasks_count task_list.tasks_count
+    finished_tasks_count task_list.finished_tasks_count
+    status task_list.status
+  end
+end

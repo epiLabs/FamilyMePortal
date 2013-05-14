@@ -32,6 +32,14 @@ FamilyMe::Application.routes.draw do
           get 'reject'
         end
       end
+
+      resources :task_lists, only: [:create, :update, :destroy, :show, :index] do
+        resources :tasks, only: [:create, :update, :destroy, :show] do
+          member do
+            get 'finish'
+          end
+        end
+      end
     end
   end
   # The priority is based upon order of creation:

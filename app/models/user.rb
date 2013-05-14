@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
     elsif first_name.present? || last_name.present?
       "#{first_name} #{last_name}"
     else
-      'Unknown user'
+      'Unknown user name'
     end
   end
 end

@@ -3,7 +3,7 @@ class TaskList < ActiveRecord::Base
 
   belongs_to :family
   belongs_to :author, class_name: "User", :foreign_key => 'author_id'
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   validates :family_id, presence: true
   validates :title,
@@ -17,8 +17,16 @@ class TaskList < ActiveRecord::Base
     self.description = description.strip if description.present?
   end
 
+  def tasks_count
+    tasks.count
+  end
+
+  def finished_tasks_count
+    tasks.finished.count
+  end
+
   def completed?
-    tasks.finished.count == tasks.count
+    finished_tasks_count == tasks_count
   end
 
   def status
