@@ -14,7 +14,6 @@ gem 'devise'
 gem "simple_form"
 
 gem 'json_builder'
-gem 'jbuilder' # TODO: Think about removing this shit
 
 gem 'geocoder'
 
