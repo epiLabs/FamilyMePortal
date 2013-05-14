@@ -34,7 +34,7 @@ FamilyMe::Application.routes.draw do
       end
 
       resources :task_lists, only: [:create, :update, :destroy, :show, :index] do
-        resources :tasks, only: [:create, :update, :destroy, :show] do
+        resources :tasks, only: [:create, :update, :destroy, :show, :index] do
           member do
             get 'finish'
           end
