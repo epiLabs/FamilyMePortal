@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   has_many :tasks, dependent: :nullify
   has_many :task_lists, :foreign_key => 'author_id', dependent: :nullify
+  has_many :assigned_tasks, class_name: 'Task'
 
   belongs_to :family
 
@@ -65,7 +66,7 @@ class User < ActiveRecord::Base
     Invitation.where(email: email, status: 'pending') 
   end
 
-  def visible_name
+  def display_name
     if nickname.present?
       nickname
     elsif first_name.present? || last_name.present?

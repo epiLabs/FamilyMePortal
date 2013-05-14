@@ -14,7 +14,7 @@
           %tr
             %td= link_to task_list.title, task_list
             %td= task_list.description
-            %td= task_list.author.try(:visible_name)
+            %td= task_list.author.try(:display_name)
             %td= task_list.tasks.count
             %td= task_list.status
     - else

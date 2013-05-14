@@ -9,7 +9,7 @@ array @task_lists do |task_list|
     first_name user.first_name
     last_name user.last_name
     nickname user.nickname
-    visible_name user.visible_name
+    display_name user.display_name
   end
   tasks do
     total_tasks_count task_list.tasks_count

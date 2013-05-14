@@ -68,7 +68,7 @@ describe Api::V1::TaskListsController do
 
     describe 'when using an invalid title' do
       before :each do
-        post :create, taks_list: {title: "        "}
+        post :create, task_list: {title: "        "}
       end
 
       it "responds successfully with an HTTP 400 status code" do
