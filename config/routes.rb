@@ -40,6 +40,12 @@ FamilyMe::Application.routes.draw do
           end
         end
       end
+
+      resources :events, only: [:create, :destroy, :index, :show, :update] do
+        collection do
+          get 'currents' # list currents and futures
+        end
+      end
     end
   end
   # The priority is based upon order of creation:
