@@ -1,0 +1,11 @@
+id @event.id
+title @event.title
+description @event.description
+family_id @event.family_id
+user @event.author do |user|
+  id user.id
+  avatar_url user.gravatar
+  display_name user.display_name
+end
+start_date @event.start_date
+end_date @event.end_date
