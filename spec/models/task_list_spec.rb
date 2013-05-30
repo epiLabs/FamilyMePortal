@@ -67,6 +67,11 @@ describe TaskList do
         @user = FactoryGirl.create :user
         @list.author = @user
       end
+
+      it "saves correctly" do
+        expect(@list.save).to eq true
+        expect(@list.author).to eq @user
+      end
     end
   end
 
