@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :task_lists, :foreign_key => 'author_id', dependent: :nullify
   has_many :assigned_tasks, class_name: 'Task'
 
+  has_many :events, dependent: :nullify
+
   belongs_to :family
 
   before_save :ensure_authentication_token
