@@ -10,5 +10,77 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    
-  %footer
+    #home.row-fluid
+      .span12
+        .span3.offset2.logo= image_tag('landing/logo.png')
+        .span5.pitch
+          %h1 FamilyMe
+          %p
+            %i Family Management has never been so easy !
+          %p
+            Features include:
+            %ul
+              %li Calendar
+              %li Messages
+              %li Geolocalisation
+              %li And many others
+            Plus, It's
+            %b free
+            !
+          %p Look below for a full list of our features.
+        .row.clear &nbsp;
+        .row-fluid.join-buttons
+          = link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-large span3 offset2'
+          = link_to 'Sign in', new_user_session_path, class: 'btn btn-success btn-large span3 offset2'
+    #features.row-fluid
+      %h1 Features
+      .row.clear &nbsp;
+      .container.row-fluid
+        .span6
+          %h2 Invite your family
+          %p
+            FamilyMe is not a social network. It's just a place for your family, invite your sister, your father etc.
+            Then, you can start to do a lot of stuff using our service!
+
+            = Forgery(:lorem_ipsum).words(50)
+        .span6= image_tag 'landing/features_1.jpg'
+      .row.clear &nbsp;
+      .container.row-fluid
+        .span6
+          .pull-right= image_tag 'landing/features_1.jpg'
+        .span6
+          %h2 Geolocalisation
+          %p
+            FamilyMe Enables you to know where all your family is !
+            Use the mobile apps keep an eye on your family's position, or connect into your browser.
+          %p
+            You can also have an history of the past position of every members, of course the positions needs to be checked out first (using our Mobile apps!).
+      .row.clear &nbsp;
+      .container.row-fluid
+        .span6
+          %h2 Calendar
+          %p
+            Create and retrieve events on your family's calendar !
+            You can also subscribe to this calendar so that you can import it on your google calendar or the iCalendar MacOS application!
+        .span6= image_tag 'landing/features_1.jpg'
+      .row.clear &nbsp;
+      .container.row-fluid
+        .span6
+          .pull-right= image_tag 'landing/features_1.jpg'
+        .span6
+          %h2 Task lists
+          %p
+            Tired or saying all the time to your sister to do the dishes? Create a task using our service, and she will receive a notification on her mobile phone to remind her !
+      .row.clear &nbsp;
+      .much-more
+        %h2 And much more !
+
+    #app-links
+      Available soon in the AppStore & Android Market
+    .footer
+      .row-fluid
+        %span.span4 ©FamilyMe
+        %span.span4 FamilyMe is part of the Epitech Innovating Projects
+        %span.span4
+          = link_to image_tag('landing/twitter_icon.png'), "http://twitter.com/familymeeip", class: 'btn button', target: 'blank'
+          = link_to image_tag('landing/facebook_icon.png'), "http://facebook.com/", class: 'btn button', target: 'blank'

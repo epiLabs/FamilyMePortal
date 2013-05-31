@@ -1,2 +1,109 @@
 @import "bootstrap";
 
+$familyMe-orange: rgb(209, 154, 37); //rgb(209, 147, 37);
+
+body {  
+  font-family: 'quicksand', sans-serif;
+  a {
+    font-weight: bold;
+  }
+
+  .join-buttons {
+    margin: 10px auto;
+  }
+
+}
+
+#home {
+  font-size: 1.2em;
+  margin-bottom: 10%;
+  margin-top: 20%;
+
+  .sign-up-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  background-color: orange;
+  opacity: 0.85;
+  border-radius: 25px;
+
+  padding-top: 10px;
+}
+
+.clear {
+  clear: both;
+  border-bottom: 1px solid #F2F2F2;
+  padding: 10px 0;
+  margin: auto;
+}
+
+.container {
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .span6 {
+    padding: 10px;
+  }
+}
+
+#features {
+  h1 {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: $familyMe-orange;    
+  }
+
+  background-color: white;
+
+    h2 {
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 300;
+    color: $familyMe-orange;
+  }
+
+  .much-more {
+    text-align: center;
+  }
+}
+
+#app-links {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  line-height: 300px;
+  text-align: center;
+}
+
+
+.footer {
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #343b41;
+  text-align: center;
+  border-top: 5px solid #4d5a63;
+
+  .btn {
+    display: inline-block;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 25px;
+    background: $familyMe-orange;
+
+    &:hover {
+      background: #ff8000;
+    }
+
+    img {
+      vertical-align: middle;
+      height: auto;
+      border: 0;
+    }
+  }
+}
