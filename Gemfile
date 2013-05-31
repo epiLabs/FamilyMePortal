@@ -8,6 +8,8 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 
+gem 'backstretch-rails' # For the landing page
+
 # Authentication
 gem 'devise'
 
