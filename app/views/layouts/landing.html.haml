@@ -42,12 +42,12 @@
             FamilyMe is not a social network. It's just a place for your family, invite your sister, your father etc.
             Then, you can start to do a lot of stuff using our service!
 
-            = Forgery(:lorem_ipsum).words(50)
-        .span6= image_tag 'landing/features_1.jpg'
+          %p= Forgery(:lorem_ipsum).words(50)
+        .span6= image_tag 'landing/invite.jpg'
       .row.clear &nbsp;
       .container.row-fluid
         .span6
-          .pull-right= image_tag 'landing/features_1.jpg'
+          .pull-right= image_tag 'landing/geolocalisation.png'
         .span6
           %h2 Geolocalisation
           %p
@@ -62,15 +62,19 @@
           %p
             Create and retrieve events on your family's calendar !
             You can also subscribe to this calendar so that you can import it on your google calendar or the iCalendar MacOS application!
-        .span6= image_tag 'landing/features_1.jpg'
+          %p= Forgery(:lorem_ipsum).words(50)
+
+        .span6= image_tag 'landing/calendar.png'
       .row.clear &nbsp;
       .container.row-fluid
         .span6
-          .pull-right= image_tag 'landing/features_1.jpg'
+          .pull-right= image_tag 'landing/todo.png'
         .span6
           %h2 Task lists
           %p
             Tired or saying all the time to your sister to do the dishes? Create a task using our service, and she will receive a notification on her mobile phone to remind her !
+
+          %p= Forgery(:lorem_ipsum).words(50)
       .row.clear &nbsp;
       .much-more
         %h2 And much more !
