@@ -1,5 +1,6 @@
 class FamiliesController < ApplicationController
   before_filter :ensure_user_is_authenticated, except: [:welcome]
+  layout 'landing', :only => [:welcome]
 
   def show
     if current_user.family

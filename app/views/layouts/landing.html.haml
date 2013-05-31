@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title= content_for?(:title) ? yield(:title) : "FamilyMe - Welcome !"
+    %meta{:content => "FamilyMe is the place where you can manage your family !", :name => "description"}
+    %meta{:content => "Dimitri JORGE", :name => "author"}
+    = stylesheet_link_tag    "landing", :media => "all"
+    = javascript_include_tag "landing"
+    = csrf_meta_tags
+    = yield(:head)
+  %body
+    .lol.pull-right
+      test
+    / #backstretch
+    /   = image_tag('landing/bg.jpg')
+  %footer
