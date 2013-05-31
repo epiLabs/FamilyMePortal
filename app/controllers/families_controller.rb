@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
-  before_filter :ensure_user_is_authenticated, except: [:welcome]
-  layout 'landing', :only => [:welcome]
+  before_filter :ensure_user_is_authenticated, except: [:landing]
 
   def show
     if current_user.family
@@ -17,13 +16,15 @@ class FamiliesController < ApplicationController
   def update
   end
 
-  def welcome
+  def landing
     if current_user
       if current_user.family
         redirect_to users_path
       else
        render :show
      end
+    else
+      render 'layouts/landing', :layout => false
     end
   end
 end

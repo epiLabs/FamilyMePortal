@@ -97,7 +97,7 @@ FamilyMe::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'families#welcome'
+  root :to => 'families#landing'
 
   # See how all your routes lay out with "rake routes"
 
