@@ -2,7 +2,11 @@ class FamiliesController < ApplicationController
   before_filter :ensure_user_is_authenticated, except: [:landing]
 
   def show
-    redirect_to action: :new unless current_user.family
+    @family = current_user.family
+
+    unless @family
+      redirect_to action: :new, notice: "You need to be in a family to access this feature"
+    end
   end
 
   def create
@@ -17,7 +21,7 @@ class FamiliesController < ApplicationController
   def landing
     if current_user
       if current_user.family
-       render :show
+       redirect_to action: :show
       else
        render :new
      end

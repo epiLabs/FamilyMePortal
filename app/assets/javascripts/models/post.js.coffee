@@ -11,12 +11,9 @@ class FamilyMe.Models.Post extends Backbone.Model
 
   getAuthor:->
     if @user
-      if @user.isCurrentUser()
-        'You'
-      else
-        @user.getTitle()
+      @user.getTitle()
     else
-      'No author'
+      'Unknown'
 
   getAuthorAvatarUrl:->
     if @user

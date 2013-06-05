@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   include Gravtastic
   gravtastic default: 'mm'
 
+  def to_json options={}
+    super(:methods => [:display_name])
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user

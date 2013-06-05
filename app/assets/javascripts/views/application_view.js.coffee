@@ -1,21 +1,14 @@
 class FamilyMe.Views.ApplicationView extends Backbone.View
 
-  initialize: (options, viewType)->
+  initialize: (options)->
     super options
 
-    obj =
-      WallView: FamilyMe.Views.WallView
-      UsersPositionsView: FamilyMe.Views.UsersPositionsView
-      InvitationsView: FamilyMe.Views.InvitationsView
+    @wallView()
 
-    @collection.fetch
-      success: (user, response, options)=>
-        @view = new obj[viewType]()
-        @render()
-      error:->
-        alert 'Error loading application... Try to reload this page!'
+  wallView:->
+    @_wallView ||= new FamilyMe.Views.WallView()
 
   render: ->
-    @view.render()
+    @wallView().render()
 
     @

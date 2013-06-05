@@ -16,9 +16,7 @@
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
-    #main.container-narrow{:role => "main"}
-      - if user_signed_in?
-        #current-user-informations{'data-id' => current_user.id}
+    #main.container-fluid{:role => "main"}
       .container-fluid
         = render 'layouts/messages'
 

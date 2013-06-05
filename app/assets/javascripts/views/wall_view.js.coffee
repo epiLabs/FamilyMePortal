@@ -1,9 +1,6 @@
 class FamilyMe.Views.WallView extends Backbone.View
   template: JST['wall/index']
-  el: '#posts'
-  events:
-    'submit .new-post form' : 'submitNewPost'
-    'click .display-form-button' : 'showNewPostForm'
+  el: '#display-wall'
 
   initialize: (options)->
     super options
@@ -51,17 +48,8 @@ class FamilyMe.Views.WallView extends Backbone.View
 
     @_postViews
 
-  showNewPostForm: (event)->
-    @$('.new-post').show()
-    @$('.display-form-button').hide()
-
-  hideNewPostForm: (event)->
-    @$('.new-post').hide()
-    @$('.display-form-button').show()
-
   render: ->
     @$el.html(@template())
-    @hideNewPostForm()
 
     for view in @postViews()
       @$('.posts-list').prepend view.render().el

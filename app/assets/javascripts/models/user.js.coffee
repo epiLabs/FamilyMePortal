@@ -25,9 +25,4 @@ class FamilyMe.Models.User extends Backbone.Model
     @get 'avatar_url'
 
   getTitle: ->
-    title = ""
-
-    if @_isCurrentUser
-      return "It's you !"
-
-    "#{@getFirstName()} #{@getLastName()} (#{@getNickName()})"
+    @get 'display_name'
