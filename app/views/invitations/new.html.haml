@@ -1,0 +1,5 @@
+- p @invitation.errors
+= simple_form_for @invitation do |f|
+  = f.input :email
+
+  = f.button :submit, class: 'btn-success'

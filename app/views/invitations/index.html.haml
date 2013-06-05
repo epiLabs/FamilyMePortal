@@ -1,1 +1,16 @@
-#invitations-tab
+%section#invitations-list
+  %h3 Invitations
+  - if @invitations.any?
+    %table.table.table-bordered.table-hover.invitations-list
+      %tr
+        %th email
+        %th sent_by
+        %th status
+      - @invitations.each do |invitation|
+        %tr
+          %th invitation.email
+          %th invitation.user.display_name
+          %th invitation.status
+  - else
+    %p You haven't sent any invitation yet.
+    = link_to 'Invite someone', new_invitation_path, class: 'btn btn-warning'

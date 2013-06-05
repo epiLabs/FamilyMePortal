@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
   before_filter :ensure_user_is_authenticated
-  before_filter :ensure_user_is_in_a_family, only: [:index, :new]
+  before_filter :ensure_user_is_in_a_family, except: [:accept, :reject]
 
   def index
     @invitations = current_user.family.invitations
@@ -33,6 +33,14 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    
+    @invitation = Invitation.new params[:invitation]
+    @invitation.user = current_user
+    @invitation.family = current_user.family
+
+    if @invitation.save
+      redirect_to action: :index, notice: "Invitation successfully sent!"
+    else
+      render :new
+    end
   end
 end

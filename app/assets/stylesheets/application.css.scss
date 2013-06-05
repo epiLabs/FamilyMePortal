@@ -13,9 +13,14 @@
 
 @import "bootstrap";
 
+$familyMe-orange: rgb(209, 154, 37);
+$familyMe-orange-dark: #ff8000; 
+
 .clear {clear: both}
 
-body {  
+body {
+  color: white;
+  background: url('/assets/classy_fabric.png') repeat left top; 
   font-family: 'quicksand', sans-serif;
   a {
     font-weight: bold;
@@ -28,7 +33,15 @@ body {
   left: -350%;
 }
 
-// Something 1
+// Application
+
+#main-application {
+
+  h3 {
+    color: $familyMe-orange;
+  }
+}
+
 
 // Something 2...
 
