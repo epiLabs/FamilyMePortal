@@ -7,10 +7,10 @@
         %th sent_by
         %th status
       - @invitations.each do |invitation|
-        %tr
-          %th invitation.email
-          %th invitation.user.display_name
-          %th invitation.status
+        %tr{class: invitation.get_table_row_class}
+          %td= invitation.email
+          %td= invitation.user.display_name
+          %td= invitation.status
   - else
     %p You haven't sent any invitation yet.
-    = link_to 'Invite someone', new_invitation_path, class: 'btn btn-warning'
+  = link_to 'Invite someone', new_invitation_path, class: 'btn btn-warning'

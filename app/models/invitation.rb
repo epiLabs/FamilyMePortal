@@ -54,4 +54,17 @@ class Invitation < ActiveRecord::Base
       true
     end
   end
+
+  def get_table_row_class
+    case status
+    when 'pending'
+      'warning'
+    when 'declined'
+      'error'
+    when 'accepted'
+      'success'
+    else
+      raise "THIS IS NOT SUPOSED TO HAPPEN"
+    end
+  end
 end

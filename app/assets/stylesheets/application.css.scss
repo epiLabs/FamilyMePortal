@@ -25,6 +25,21 @@ body {
   a {
     font-weight: bold;
   }
+
+  h1, h2, h3 {
+    color: $familyMe-orange;
+  }
+
+  label { font-weight: bold;}
+
+  table {
+    background-color: white;
+    color: black;
+
+    img {
+      border-radius: 50px;
+    }
+  }
 }
 
 // Topbar stuffs
@@ -37,9 +52,6 @@ body {
 
 #main-application {
 
-  h3 {
-    color: $familyMe-orange;
-  }
 }
 
 
