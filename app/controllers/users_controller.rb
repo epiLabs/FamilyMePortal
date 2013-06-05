@@ -5,7 +5,4 @@ class UsersController < ApplicationController
   def index
     @users = current_user.family.users
   end
-
-  def show
-  end
 end

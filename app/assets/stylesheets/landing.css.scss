@@ -1,17 +1,17 @@
 @import "bootstrap";
 
-$familyMe-orange: rgb(209, 154, 37); //rgb(209, 147, 37);
+$familyMe-orange: rgb(209, 154, 37);
+$familyMe-orange-dark: #ff8000; 
 
 body {  
   font-family: 'quicksand', sans-serif;
   a {
     font-weight: bold;
   }
+}
 
-  .join-buttons {
-    margin: 10px auto;
-  }
-
+.join-buttons {
+  margin: 10px auto;
 }
 
 #home {
@@ -29,6 +29,10 @@ body {
   border-radius: 25px;
 
   padding-top: 10px;
+
+  .clear {
+    border-bottom: 1px solid $familyMe-orange-dark;
+  }
 }
 
 .clear {

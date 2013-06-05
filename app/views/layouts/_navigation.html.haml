@@ -1,13 +1,17 @@
-= link_to "Home", root_path, :class => 'brand'
+= link_to "FamilyMe", root_path, :class => 'brand'
 
 %ul.nav.pull-right
-  - if user_signed_in?
-    %li= link_to image_tag(current_user_avatar), edit_user_registration_path, title: "Edit your account"
-  - else
-    %li= link_to('Sign up', new_user_registration_path)
-
-  - if user_signed_in?
-    %li= link_to('Logout', destroy_user_session_path, :method=>'delete')
-  - else
-    %li= link_to('Login', new_user_session_path)
+  .btn-group
+    %button.btn.btn-warning.btn-small.dropdown-toggle{'data-toggle' => "dropdown"}
+      %i.icon-wrench 
+    %ul.dropdown-menu
+      %li= link_to 'Your account', edit_user_registration_path
+      %li= link_to 'Members', users_path
+      %li.dropdown-submenu.pull-left
+        %a{tabindex: "-1", href: "#"} Invitations
+        %ul.dropdown-menu
+          %li= link_to 'List', invitations_path
+          %li= link_to 'Invite someone', new_invitation_path
+      %li.divider
+      %li= link_to('Logout', destroy_user_session_path, method: 'delete')
 

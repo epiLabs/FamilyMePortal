@@ -2,9 +2,7 @@ class FamiliesController < ApplicationController
   before_filter :ensure_user_is_authenticated, except: [:landing]
 
   def show
-    if current_user.family
-      redirect_to users_path
-    end
+    redirect_to action: :new unless current_user.family
   end
 
   def create
@@ -19,12 +17,15 @@ class FamiliesController < ApplicationController
   def landing
     if current_user
       if current_user.family
-        redirect_to users_path
-      else
        render :show
+      else
+       render :new
      end
     else
       render 'layouts/landing', :layout => false
     end
+  end
+
+  def new
   end
 end

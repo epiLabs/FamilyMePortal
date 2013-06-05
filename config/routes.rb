@@ -5,11 +5,11 @@ FamilyMe::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
-  resource :family, only: [:show, :create, :update]
-  resources :users, only: [:show, :index]
+  resource :family, only: [:show, :create, :update, :new]
+  resources :users, only: [:index]
   resources :positions, only: [:index]
   resources :posts, only: [:index]
-  resources :invitations, only: [:index] do
+  resources :invitations, only: [:index, :new, :create] do
     member do
       get 'accept'
       get 'reject'
