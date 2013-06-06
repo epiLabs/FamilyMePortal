@@ -1,4 +1,11 @@
   #display-wall {
+    #new-post-modal {
+      textarea {
+        resize:none;
+        width: 95%;
+        height: 75px;
+      }
+    }
 
     table {
       background-color: transparent;

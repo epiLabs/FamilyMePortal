@@ -1,10 +1,10 @@
 %section#main-application{data: {users: @family.users.to_json(:methods => [:display_name, :avatar_url]), 'current-id' => current_user.id}}
   .row-fluid
     .span6
-      .row
+      %section.row
         %h3 Incomming events
         #display-events
-      .row
+      %section.row
         %h3 Wall
         #display-wall
     .span6

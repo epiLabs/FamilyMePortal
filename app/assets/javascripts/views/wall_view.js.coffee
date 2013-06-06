@@ -1,6 +1,16 @@
 class FamilyMe.Views.WallView extends Backbone.View
   template: JST['wall/index']
   el: '#display-wall'
+  events:
+    'click .modal-footer .btn-success' : 'postMessage'
+
+  postMessage: (event)->
+    message = @$('.modal-body textarea').val()
+
+    if message.length
+      @collection.create {message: message, user_id: FamilyMe.CurrentUser.id}, {wait: true}
+      @$('.modal-body textarea').val('')
+      $('#new-post-modal').modal('hide')
 
   initialize: (options)->
     super options
