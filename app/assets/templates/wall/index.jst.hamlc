@@ -1,1 +1,4 @@
-.posts-list
+#new-post-modal 
+%table.posts-list
+  %caption
+    %a.btn.btn-success{href: 'javascription:void(0)'} New messages

@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def avatar_url
+    gravatar(80)
+  end
+
   def gravatar(size = 40)
     gravatar_url(size: size)
   end

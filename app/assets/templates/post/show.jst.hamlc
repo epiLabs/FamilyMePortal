@@ -1,10 +1,13 @@
-.post
-  - if @model.canBeDeleted()
-    %a.delete-post.close.pull-right{href: 'javascript:void(0)', title: 'Delete this post'} &times;
+%tr.post.container-fluid
 
-  %img.avatar.pull-left{src: @model.getAuthorAvatarUrl()}
-  .post-content
-    .author= @model.getAuthor()
-    .message= @model.getMessage()
+  %td.avatar
+    %img{src: @model.getAuthorAvatarUrl()}
 
-  .clear &nbsp;
+  %td.popover.right
+    .arrow  
+    %h3.popover-title= @model.getAuthor()
+    .popover-content
+      - if @model.canBeDeleted()
+        %a.delete-post.close.pull-right{href: 'javascript:void(0)', title: 'Delete this post'} &times;
+      %p= @model.getMessage()
+

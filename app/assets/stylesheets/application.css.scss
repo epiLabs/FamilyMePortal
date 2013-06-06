@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require wall.css
  */
 
 @import "bootstrap";
@@ -51,9 +52,18 @@ body {
 // Application
 
 #main-application {
-  
+  h3 {
+    text-align: center;
+  }
+
 }
 
+// Simple form improvments
+
+.form-actions {
+  background-color: transparent;
+  border: none;
+}
 
 // Theres an issue with imgs in google map because of a reset.css
 #google_map {
