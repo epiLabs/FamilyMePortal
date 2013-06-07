@@ -12,6 +12,9 @@
       %label
         End Date
         %input{name: 'end_date', type: 'date'}
+      %label
+        Description
+        %textarea{name: 'description'}
   .modal-footer
     %button.btn{'data-dismiss' => "modal"} Close
     %button.btn.btn-success Post
