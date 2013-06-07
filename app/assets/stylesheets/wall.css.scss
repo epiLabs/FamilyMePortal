@@ -30,6 +30,16 @@
         margin: 20px;
 
         color: black;
+
+        .delete-post {
+          opacity: 0;
+        }
+
+        &:hover {
+          .delete-post {
+            opacity: 1;
+          }
+        }
       }
     }
   }

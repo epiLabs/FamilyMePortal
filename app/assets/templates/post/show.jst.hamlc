@@ -5,9 +5,11 @@
 
   %td.popover.right
     .arrow  
-    %h3.popover-title= @model.getAuthor()
-    .popover-content
+    %h3.popover-title
+      = @model.getAuthor()
       - if @model.canBeDeleted()
-        %a.delete-post.close.pull-right{href: 'javascript:void(0)', title: 'Delete this post'} &times;
+        %button.delete-post.close.pull-right{href: 'javascript:void(0)', title: 'Delete this post'} &times;
+
+    .popover-content
       %p= @model.getMessage()
 
