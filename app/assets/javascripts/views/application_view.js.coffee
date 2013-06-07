@@ -3,12 +3,16 @@ class FamilyMe.Views.ApplicationView extends Backbone.View
   initialize: (options)->
     super options
 
-    @wallView()
+    @WallView()
+    @EventsView()
 
-  wallView:->
+  WallView:->
     @_wallView ||= new FamilyMe.Views.WallView()
+  EventsView:->
+    @_eventsView ||= new FamilyMe.Views.EventsView()
 
   render: ->
-    @wallView().render()
+    @WallView().render()
+    @EventsView().render()
 
     @

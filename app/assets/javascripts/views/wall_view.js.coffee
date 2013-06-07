@@ -29,16 +29,6 @@ class FamilyMe.Views.WallView extends Backbone.View
 
     @collection.fetch update: true
 
-  submitNewPost: (event)->
-    message = @$('.new-post textarea').val()
-
-    if message.length
-      @collection.create {message: message, user_id: FamilyMe.CurrentUser.id}, {wait: true}
-      @$('.new-post textarea').val('')
-      @hideNewPostForm()
-
-    false
-
   removePost: (post)=>
     postView = null
     @_postViews = _.reject @_postViews, (item)->

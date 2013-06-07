@@ -1,0 +1,5 @@
+%h3= @model.getTitle()
+Begins
+= @model.getStartDate()
+And ends the
+= @model.getEndDate()
