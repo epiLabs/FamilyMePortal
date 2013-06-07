@@ -24,15 +24,15 @@ body {
     margin-top: 30px;
   }
 
-  background-color: orange;
-  opacity: 0.85;
-  border-radius: 25px;
+  background-color: rgb(27, 27, 27);
+  background-image: linear-gradient(rgb(34, 34, 34), rgb(17, 17, 17));
+  background-repeat: repeat-x;
+  // background-color: $familyMe-orange;
+  opacity: 0.95;
+  color: $familyMe-orange;
+  // border-radius: 25px;
 
   padding-top: 10px;
-
-  .clear {
-    border-bottom: 1px solid $familyMe-orange-dark;
-  }
 }
 
 .clear {
