@@ -24,8 +24,10 @@ class FamilyMe.Views.PositionsView extends Backbone.View
     @_map ||= new google.maps.Map(@$('#google_map')[0], @getMapOptions())
 
   refreshMap:->
-    google.maps.event.trigger(@googleMapObject(), 'resize')
-    @googleMapObject().setCenter(@mapCenter)
+    unless @called
+      @called = true
+      google.maps.event.trigger(@googleMapObject(), 'resize')
+      @googleMapObject().setCenter(@mapCenter)
 
   render: ->
     @$el.html(@template())
