@@ -50,10 +50,7 @@ class FamilyMe.Views.EventsView extends Backbone.View
     @_eventViews
 
   render: ->
-    @form ||= new Backbone.Form(
-      # model: new FamilyMe.Models.Event(user_id: FamilyMe.CurrentUser.id)
-      model: new FamilyMe.Models.Event()
-    )
+    @form ||= new Backbone.Form(model: new FamilyMe.Models.Event())
 
     @$el.html(@template())
 
