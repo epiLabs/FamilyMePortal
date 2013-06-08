@@ -6,6 +6,10 @@
 #= require backbone
 #= require gravtastic
 #= require family_me
+#= require backbone-forms
+#= require backbone-forms-list
+#= require backbone-forms-bootstrap
+#= require moment
 #= require_tree ../templates
 #= require_tree ./models
 #= require_tree ./collections

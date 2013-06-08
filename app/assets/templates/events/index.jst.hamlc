@@ -2,23 +2,15 @@
   .modal-header
     %h3 Create an event
   .modal-body
-    %form
-      %label
-        Title
-        %input{name: 'title', type: 'text'}
-      %label
-        Start Date
-        %input{name: 'start_date', type: 'date'}
-      %label
-        End Date
-        %input{name: 'end_date', type: 'date'}
-      %label
-        Description
-        %textarea{name: 'description'}
   .modal-footer
     %button.btn{'data-dismiss' => "modal"} Close
-    %button.btn.btn-success Post
+    %button.btn.btn-success Create
 
 %table.events-list
   %caption
     %button.btn.btn-success{'data-toggle'=>"modal", 'data-target'=>"#new-event-modal"} +
+  %tr
+    %th title
+    %th Date begin
+    %th Duration
+    %th Description

@@ -5,7 +5,13 @@ class FamilyMe.Views.EventsView extends Backbone.View
     'click .modal-footer .btn-success' : 'createEvent'
 
   createEvent: (event)->
-    console.log 'DO STUFF'
+    errors = @form.commit()
+    unless errors
+      @collection.create @form.model.attributes, {wait: true}
+      @form.model.clear()
+      $('#new-event-modal').modal('hide')
+
+      @render()
 
   initialize: (options)->
     super options
@@ -20,7 +26,7 @@ class FamilyMe.Views.EventsView extends Backbone.View
       @registereventView(eventView)
       @eventViews().push(eventView)
 
-      @$('.events-list').prepend eventView.render().el
+      @$('.events-list').append eventView.render().el
 
     @collection.fetch update: true
 
@@ -44,8 +50,15 @@ class FamilyMe.Views.EventsView extends Backbone.View
     @_eventViews
 
   render: ->
+    @form ||= new Backbone.Form(
+      # model: new FamilyMe.Models.Event(user_id: FamilyMe.CurrentUser.id)
+      model: new FamilyMe.Models.Event()
+    )
+
     @$el.html(@template())
 
+    @$('.modal-body').append @form.render().el
+
     for view in @eventViews()
-      @$('.events-list').prepend view.render().el
+      @$('.events-list').append view.render().el
     @
