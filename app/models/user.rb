@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
     positions.last.try(:longitude)
   end
 
+  def position
+    positions.last
+  end
+
   def last_sign_in_date_formated
     if last_sign_in_at.present?
       last_sign_in_at.strftime("%d %b %y %H:%M")

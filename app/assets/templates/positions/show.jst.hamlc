@@ -1,16 +1,3 @@
-%h2= @model.getTitle()
+%h4= @model.getTitle()
 
-- unless @model.isCurrentUser()
-  %p
-    %b= @model.getFirstName()
-    was seen for the last time on
-    %i= @model.getLastConnection()
-
-  %p
-    He checked in this position the
-    %i= @model.position.getDate() 
-
-- else
-  %p
-    You checked this position the
-    %i= @model.position.getDate() 
+%p= @model.position.getCountdown()

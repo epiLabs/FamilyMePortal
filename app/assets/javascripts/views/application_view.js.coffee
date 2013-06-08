@@ -10,9 +10,12 @@ class FamilyMe.Views.ApplicationView extends Backbone.View
     @_wallView ||= new FamilyMe.Views.WallView()
   EventsView:->
     @_eventsView ||= new FamilyMe.Views.EventsView()
+  PositionsView:->
+    @_positionsView ||= new FamilyMe.Views.PositionsView()
 
   render: ->
     @WallView().render()
     @EventsView().render()
+    @PositionsView().render()
 
     @

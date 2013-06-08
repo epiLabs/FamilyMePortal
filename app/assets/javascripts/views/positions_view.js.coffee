@@ -1,14 +1,17 @@
-class FamilyMe.Views.UsersPositionsView extends Backbone.View
+class FamilyMe.Views.PositionsView extends Backbone.View
   template: JST['positions/index']
-  el: '#members-positions-container'
+  el: '#display-positions'
+  events:
+    'shown' : 'refreshMap'
 
   initialize: (options)->
     super options
 
+    # TODO : Change to be able to change it into someone's positions
     @collection = FamilyMe.UsersList
     
-    @latitude = $('#members-positions-container').data('center-latitude') || 0
-    @longitude = $('#members-positions-container').data('center-longitude') || 0
+    @latitude = 0
+    @longitude = 0
 
   getMapOptions: ->
     @mapCenter = new google.maps.LatLng(@latitude, @longitude)
@@ -29,6 +32,6 @@ class FamilyMe.Views.UsersPositionsView extends Backbone.View
 
     if @latitude? && @longitude?
       @collection.forEach (model, idx)=>
-        view = new FamilyMe.Views.UserPositionView(model: model, map: @googleMapObject())
+        view = new FamilyMe.Views.PositionView(model: model, map: @googleMapObject())
         view.render()
     @

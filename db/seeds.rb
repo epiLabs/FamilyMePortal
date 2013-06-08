@@ -64,6 +64,8 @@ password = 'toto42'
 @nicolas.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
 @nicolas.positions << Position.create(latitude: 33.138521, longitude: -117.153397) # San marcos
 
+# Add some messages
+
 post = @family.posts.new(message: "Pensez a commit sur develop hein!")
 post.author = @dimitri
 post.save
@@ -83,3 +85,32 @@ post.save
 post = @family.posts.new(message: "Je pars en charter")
 post.author = @younes
 post.save
+
+# Add some events
+
+now = Time.now
+past_event = Event.new(title: 'Past event', start_date: (now - 2.days), end_date: (now - 2.days))
+past_event.family = @family
+past_event.user = @dimitri
+past_event.save!
+
+current_event = Event.new(title: 'Current event', start_date: (now - 1.hour), end_date: (now + 1.hour))
+current_event.family = @family
+current_event.user = @dimitri
+current_event.save!
+
+future_event = Event.new(title: 'Future event', start_date: (now + 1.hours), end_date: (now + 3.hours))
+future_event.family = @family
+future_event.user = @dimitri
+future_event.save!
+
+# Add some Tasks
+
+@backEnd = TaskList.new(title: "Dev backend", description: "Diverses Taches sur le back")
+@backEnd.family = @family
+@backEnd.author = @dimitri
+@backEnd.save!
+
+@backEnd.tasks.create!(title: "Create design", user: @julien)
+@backEnd.tasks.create!(title: "Refactor tests", user: @younes)
+@backEnd.tasks.create!(title: "Improve API", user: @dimitri)

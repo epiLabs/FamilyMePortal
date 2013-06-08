@@ -9,3 +9,5 @@ class FamilyMe.Models.Position extends Backbone.Model
     @get 'longitude'
   getDate:->
     @get 'date'
+  getCountdown:->
+    moment(@getDate()).fromNow()

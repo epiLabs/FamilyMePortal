@@ -1,4 +1,4 @@
-%section#main-application{data: {users: @family.users.to_json(:methods => [:display_name, :avatar_url]), 'current-id' => current_user.id}}
+%section#main-application{data: {users: @family.users.to_json(:methods => [:display_name, :avatar_url, :position]), 'current-id' => current_user.id}}
   .row-fluid
     .span6
       %section.row
@@ -8,6 +8,8 @@
         %h3 Wall
         #display-wall
     .span6
+      %section
+        #display-positions
       #accordion2.accordion
         .accordion-group    
           .accordion-heading
@@ -16,10 +18,3 @@
           #collapseTwo.accordion-body.collapse
             .accordion-inner
               HERE COME THE Task
-        .accordion-group    
-          .accordion-heading
-            %a.accordion-toggle{'data-toggle' => "collapse", 'data-parent' => "#accordion2", href: "#collapseThree"}
-              Position
-          #collapseThree.accordion-body.collapse
-            .accordion-inner
-              HERE COME THE Position

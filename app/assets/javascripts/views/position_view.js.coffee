@@ -1,9 +1,8 @@
-class FamilyMe.Views.UserPositionView extends Backbone.View
+class FamilyMe.Views.PositionView extends Backbone.View
 
   initialize: (options)->
     super options
     
-    @collection = FamilyMe.UsersList
     @map = options.map
 
   placeMapMarker:->
@@ -11,6 +10,7 @@ class FamilyMe.Views.UserPositionView extends Backbone.View
     @marker = new google.maps.Marker
       position: latlng
       map: @map
+      icon: @model.getAvatarUrl()
       title: @model.getTitle()
 
   createInfoWindow:->
