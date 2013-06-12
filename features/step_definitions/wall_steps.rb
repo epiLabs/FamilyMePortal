@@ -1,14 +1,11 @@
 When /^I create a new post "(.*?)"$/ do |message|
-  within '#posts' do
-    click_link 'Post a message'
-  end
+  within '#display-wall' do
+    click_button 'Compose message'
 
-  page.find(".new-post").should be_visible
+    page.find('#new-post-modal').should be_visible
 
-  within '.new-post' do
     fill_in 'message', with: message
-
-    click_button 'Post!'
+    click_button 'Post'
   end
 end
 

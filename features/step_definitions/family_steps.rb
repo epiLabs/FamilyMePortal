@@ -8,12 +8,6 @@ Given /^a family with the following members:$/ do |table|
   end
 end
 
-When /^I click on the "(.*?)" tab$/ do |tabname|
-  within '#main .nav-tabs' do
-    click_link tabname
-  end
-end
-
 When /^I visit my family page$/ do
   visit family_path
 end
@@ -24,10 +18,6 @@ end
 
 Then /^It should create a family$/ do
   Family.last.should_not be_nil
-end
-
-Then /^I should be on my member listing index$/ do
-  current_url.should == users_url
 end
 
 Then /^I should see an error$/ do
@@ -51,6 +41,7 @@ When /^I'm on the index page of my family$/ do
 end
 
 Then /^I should see myself on the family's user listing$/ do
+  visit users_path
   page.should have_content(@user.email)
 end
 

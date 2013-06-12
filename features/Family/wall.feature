@@ -9,7 +9,6 @@ Feature: Post and read messages
     And I'm part of a family
     Given another member of my family has created a post
     When I'm on the index page of my family
-    And I click on the "Wall" tab
 
   Scenario: I create and delete a message
     When I create a new post "THIS IS SPARTAAAAAAA!"

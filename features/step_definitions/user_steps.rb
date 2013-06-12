@@ -21,7 +21,12 @@ end
 Given /^I'm logged out$/ do
   @visitor = nil
   @user = nil
-  click_link "Logout"
+
+  within 'header' do
+    page.find('button[data-toggle=dropdown]').click
+
+    click_link 'Logout'
+  end
 end
 
 Given /^A registered user "(.*?)"$/ do |email|
@@ -111,9 +116,7 @@ Then /^I should be signed in$/ do
 end
 
 Then /^I should be signed out$/ do
-  page.should have_content "Sign up"
-  page.should have_content "Login"
-  page.should_not have_content "Logout"
+  page.should_not have_content 'Your account'
 end
 
 Then /^I see an unconfirmed account message$/ do

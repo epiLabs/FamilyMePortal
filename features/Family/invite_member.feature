@@ -7,12 +7,9 @@ Feature: Invite members
   Scenario: I'm invited on an existing family
     Given I'm a logged in user
     And I'm part of a family
-    And I'm on the index page of my family
-    When I follow "Invitations"
-    And I display the new invitation form
-    And I fill in "email" with "someone@invited.now"
-    And I press "Send invitation"
-    And I wait for "0.3" seconds
+    And I go to the new invitation page
+    And I fill in "Email" with "someone@invited.now"
+    And I press "Create Invitation"
     Then "someone@invited.now" should receive an email
     Given I'm logged out
     When I open the email
