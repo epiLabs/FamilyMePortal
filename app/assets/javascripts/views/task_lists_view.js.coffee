@@ -6,6 +6,7 @@ class FamilyMe.Views.TaskListsView extends Backbone.View
 
   createTaskList: (event)->
     errors = @form.commit()
+
     unless errors
       console.log "SUCCESS"
       # @collection.create @form.model.attributes, {wait: true}
@@ -21,7 +22,7 @@ class FamilyMe.Views.TaskListsView extends Backbone.View
 
     @collection.fetch
       success: ->
-        console.log 'SUCCESS'
+        console.log 'Task list loaded'
       error: ->
         console.log 'An error has occured'
 
