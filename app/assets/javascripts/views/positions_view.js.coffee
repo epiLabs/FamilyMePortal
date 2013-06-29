@@ -34,6 +34,7 @@ class FamilyMe.Views.PositionsView extends Backbone.View
 
     if @latitude? && @longitude?
       @collection.forEach (model, idx)=>
-        view = new FamilyMe.Views.PositionView(model: model, map: @googleMapObject())
-        view.render()
+        if model.position
+          view = new FamilyMe.Views.PositionView(model: model, map: @googleMapObject())
+          view.render()
     @
