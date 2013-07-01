@@ -1,0 +1,9 @@
+<ul>
+  <li ng-repeat="post in posts">
+    Message: {{post.message}} <br/>
+    <a href="/posts/{{post.id}}/edit">Edit</a>
+    <a href="" ng-click="destroy(post.id)">Delete</a>
+  </li>
+</ul>
+
+<a href="/posts/new">Add new post</a>

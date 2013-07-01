@@ -1,16 +1,2 @@
-%section#main-application{data: {users: @family.users.to_json(:methods => [:display_name, :avatar_url, :position]), 'current-id' => current_user.id}}
-  .row-fluid
-    .span6
-      %section.row
-        %h3 Incomming events
-        #display-events
-      %section.row
-        %h3 Wall
-        #display-wall
-    .span6
-      %section
-        %h3 Tasks
-        #display-task-lists
-      %section
-        %h3 Position
-        #display-positions
+%section#main-application{'ui-view' => ""}
+
