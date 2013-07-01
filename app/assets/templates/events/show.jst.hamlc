@@ -1,4 +1,0 @@
-%td= @model.getTitle()
-%td= @model.getBeginCount()
-%td= @model.getDuration()
-%td= @model.getDescription()
