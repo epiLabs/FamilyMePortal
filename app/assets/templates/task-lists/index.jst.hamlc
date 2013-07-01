@@ -9,3 +9,18 @@
 %table.tasks-list
   %caption
     %button.btn.btn-success{'data-toggle'=>"modal", 'data-target'=>"#new-task-list-modal"} New
+  %tr
+    %th Title
+    %th Description
+    %th Author
+    %th Tasks
+    %th Status
+  - for model in @collection.models
+    %tr{'data-id' => model.id, class: model.getRowClass()}
+      %td= model.getTitle()
+      %td= model.getDescription()
+      %td= model.getAuthorName()
+      %td= "#{model.getTotalTasks()} (#{model.getFinishedTasksNumber()} completed)"
+      %td= model.getStatus()
+
+

@@ -8,12 +8,9 @@ class FamilyMe.Views.TaskListsView extends Backbone.View
     errors = @form.commit()
 
     unless errors
-      console.log "SUCCESS"
-      # @collection.create @form.model.attributes, {wait: true}
-      # @form.model.clear()
-      # $('#new-event-modal').modal('hide')
-
-      # @render()
+      @collection.create @form.model.attributes, {wait: true}
+      @form.model.clear()
+      $('#new-task-list-modal').modal('hide')
 
   initialize: (options)->
     super options
@@ -21,18 +18,17 @@ class FamilyMe.Views.TaskListsView extends Backbone.View
     @collection = new FamilyMe.Collections.TaskLists()
 
     @collection.fetch
-      success: ->
-        console.log 'Task list loaded'
-      error: ->
-        console.log 'An error has occured'
+      success: =>
+        @render()
 
+    @collection.bind 'add', (model)=>
+      @render()
 
   render: ->
     @form ||= new Backbone.Form(model: new FamilyMe.Models.TaskList())
 
-    @$el.html(@template())
+    @$el.html(@template(collection: @collection))
 
     @$('.modal-body').append @form.render().el
-
     @
 
