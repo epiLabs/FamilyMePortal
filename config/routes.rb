@@ -23,7 +23,7 @@ FamilyMe::Application.routes.draw do
     namespace :v1 do
       resource :family, only: :show
       resources :positions, only: [:create, :index]
-      resources :posts, only: [:create, :destroy, :index]
+      resources :posts, only: [:create, :destroy, :index, :show, :update]
 
       resources :invitations, only: [:create, :index] do
         collection do

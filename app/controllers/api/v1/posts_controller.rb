@@ -25,4 +25,10 @@ class Api::V1::PostsController < ApiController
       render json: {error: @post.errors}, status: 400
     end
   end
+
+  def show
+    @post = current_user.family.posts.find(params[:id])
+
+    render :create
+  end
 end
