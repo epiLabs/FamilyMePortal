@@ -1,10 +1,11 @@
-app.controller "PostsController", ($scope, $http, $location, $state, $stateParams) ->
+app.controller "PostsController", ($scope, $http, $location, $state, $stateParams, Post) ->
 
   # =========================================================================
   # Initialize
   # =========================================================================
 
   $scope.posts = {}
+  $scope.post = {}
 
   if $state.current.name == 'posts'
     $http.get("/api/v1/posts"
@@ -16,7 +17,6 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
     ), (error) ->
       console.log 'AN ERROR HAS OCCURED'
 
-  $scope.post = {}
   if $state.current.name == 'edit'
     $http.get("/api/v1/posts/#{$stateParams['id']}"
 
@@ -31,17 +31,30 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
   # Create
   # =========================================================================
 
+
   $scope.create = ->
-    $http.post("/api/v1/posts",
+    Post.save(
+      {},
       post:
         message: $scope.post.message
+   
+        # Success
+      , (response) ->
+        $location.path "/posts"
+   
+        # Error
+      , (response) ->
+    )
+    # $http.post("/api/v1/posts",
+    #   post:
+    #     message: $scope.post.message
 
-    # success
-    ).then ((response) ->
-      $location.path "/posts"
+    # # success
+    # ).then ((response) ->
+    #   $location.path "/posts"
 
-    # failure
-    ), (error) ->
+    # # failure
+    # ), (error) ->
 
   # =========================================================================
   # Update

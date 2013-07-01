@@ -16,7 +16,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
           controller: "ApplicationController"
           templateUrl: "/assets/layouts/default.html.erb"
 
-    # Tasks
+    # Posts
     .state "posts",
       parent: "default"
       url: "/posts"
