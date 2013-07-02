@@ -5,7 +5,6 @@ FamilyMe::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
-  match '/' => 'families#show'
   match '/posts' => 'families#show'
   match '/posts/*page' => 'families#show'
 
