@@ -3,35 +3,29 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
   # =========================================================================
   # Initialize
   # =========================================================================
-
   $scope.posts = {}
   $scope.post = {}
 
   if $state.current.name == 'posts'
-    $http.get("/api/v1/posts"
-
-    # success
-    ).then ((response) ->
-      $scope.posts = response.data
-    # failure
-    ), (error) ->
-      console.log 'AN ERROR HAS OCCURED'
+    Post.query(
+      {}
+      , (response) ->
+        $scope.posts = response
+      , (error) ->
+    )
 
   if $state.current.name == 'edit'
-    $http.get("/api/v1/posts/#{$stateParams['id']}"
+    Post.get(
+      id: $stateParams['id']
 
-    # success
-    ).then ((response) ->
-      $scope.post = response.data
-
-    # failure
-    ), (error) ->
+      , (response) ->
+        $scope.post = response
+      , (error) ->
+    )
 
   # =========================================================================
   # Create
   # =========================================================================
-
-
   $scope.create = ->
     Post.save(
       {},
@@ -45,21 +39,10 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
         # Error
       , (response) ->
     )
-    # $http.post("/api/v1/posts",
-    #   post:
-    #     message: $scope.post.message
-
-    # # success
-    # ).then ((response) ->
-    #   $location.path "/posts"
-
-    # # failure
-    # ), (error) ->
 
   # =========================================================================
   # Update
   # =========================================================================
-
   $scope.update = ->
     $http.put("/api/v1/posts/#{$scope.post.id}",
       post:
@@ -75,7 +58,6 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
   # =========================================================================
   # Destroy
   # =========================================================================
-
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this post?'
       $http.delete("/api/v1/posts/#{id}"
