@@ -32,43 +32,32 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
       post:
         message: $scope.post.message
    
-        # Success
       , (response) ->
         $location.path "/posts"
-   
-        # Error
-      , (response) ->
+      , (error) ->
     )
 
   # =========================================================================
   # Update
   # =========================================================================
   $scope.update = ->
-    $http.put("/api/v1/posts/#{$scope.post.id}",
-      post:
+    Post.update
+      id: $scope.post.id
+    , post:
         message: $scope.post.message
-
-    # success
-    ).then ((response) ->
+    , (reponse)->
       $location.path "/posts"
-
-    # failure
-    ), (error) ->
+    , (error)->
+      console.log error
 
   # =========================================================================
   # Destroy
   # =========================================================================
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this post?'
-      $http.delete("/api/v1/posts/#{id}"
-
-      # success
-      ).then ((response) ->
-        $http.get("/api/v1/posts").then ((response) ->
-          $scope.posts = response.data
-        ), (error) ->
-
-      # failure
-      ), (error) ->
-
-  return false
+      Post.delete
+        id: id
+      , (response)->
+        $scope.posts = Post.query()
+      , (error)->
+        console.log error
