@@ -7,4 +7,5 @@
 #= require_tree ./config
 #= require_tree ./app/resources
 #= require_tree ./app/controllers
+#= require_tree ./app/directives
 #= require_self

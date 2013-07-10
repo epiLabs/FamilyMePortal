@@ -1,4 +1,4 @@
-app.controller "PostsController", ($scope, $http, $location, $state, $stateParams, Post) ->
+app.controller "PostsController", ($rootScope, $scope, $http, $location, $state, $stateParams, Post) ->
 
   # =========================================================================
   # Initialize
@@ -7,6 +7,8 @@ app.controller "PostsController", ($scope, $http, $location, $state, $stateParam
   $scope.post = {}
 
   if $state.current.name == 'posts'
+    $scope.fetchUsers()
+
     Post.query(
       {}
       , (response) ->

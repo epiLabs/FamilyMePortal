@@ -1,9 +1,3 @@
-<ul>
-  <li ng-repeat="post in posts">
-    Message: {{post.message}} <br/>
-    <a ng-show="canEdit(post.user_id)" href="/posts/{{post.id}}/edit">Edit</a>
-    <a ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)">Delete</a>
-  </li>
-</ul>
-
 <a href="/posts/new">Add new post</a>
+
+<post ng-repeat="post in posts" />
