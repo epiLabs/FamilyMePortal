@@ -74,7 +74,7 @@ post = @family.posts.new(message: "Coucou les copains!")
 post.author = @charles
 post.save
 
-post = @family.posts.new(message: "Ma maman s'appelle Gisele")
+post = @family.posts.new(message: "Salut !")
 post.author = @jose
 post.save
 
