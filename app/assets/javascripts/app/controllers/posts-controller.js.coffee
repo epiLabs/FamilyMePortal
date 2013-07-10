@@ -6,9 +6,9 @@ app.controller "PostsController", ($rootScope, $scope, $http, $location, $state,
   $scope.posts = {}
   $scope.post = {}
 
-  if $state.current.name == 'posts'
-    $scope.fetchUsers()
+  $scope.fetchUsers()
 
+  if $state.current.name == 'posts'
     Post.query(
       {}
       , (response) ->
