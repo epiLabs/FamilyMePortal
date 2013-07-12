@@ -1,0 +1,16 @@
+aside {
+  
+  &.sidemenu {
+    display: inline-block;
+    border: 1px solid red;
+  }
+
+  ul {
+    list-style: none;
+
+  }
+}
+
+section.webapp {
+  display: inline-block;
+}

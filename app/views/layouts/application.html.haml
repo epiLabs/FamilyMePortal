@@ -17,8 +17,7 @@
         .container
           = render 'layouts/navigation'
     #main.container-fluid{:role => "main"}
-      .container-fluid
-        = render 'layouts/messages'
+      = render 'layouts/messages'
 
-        = yield
+      = yield
   %footer
