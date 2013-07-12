@@ -1,4 +1,4 @@
-app.controller "PostsController", ($rootScope, $scope, $http, $location, $state, $stateParams, Post) ->
+app.controller "PostsController", ($scope, $location, $state, $stateParams, Post) ->
 
   # =========================================================================
   # Initialize

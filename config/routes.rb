@@ -8,6 +8,9 @@ FamilyMe::Application.routes.draw do
   match '/posts' => 'families#show'
   match '/posts/*page' => 'families#show'
 
+  match '/todos' => 'families#show'
+  match '/todos/*page' => 'families#show'
+
   resource :family, only: [:show, :create, :update, :new]
   resources :users, only: [:index]
   resources :invitations, only: [:index, :new, :create] do
@@ -16,7 +19,6 @@ FamilyMe::Application.routes.draw do
       get 'reject'
     end
   end
-  resources :task_lists
 
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do

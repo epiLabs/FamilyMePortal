@@ -40,3 +40,12 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
         "@default":
           controller: "PostsController"
           templateUrl: "/assets/posts/edit.html.erb"
+
+    # Tasks lists
+    .state "todos",
+      parent: "default"
+      url: "/todos"
+      views:
+        "":
+          controller: "TodosController"
+          templateUrl: "/assets/todos/index.html.erb"

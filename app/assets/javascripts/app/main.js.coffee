@@ -4,5 +4,7 @@
   "ngResource",
  
   # ui-router
-  "ui.compat"
+  "ui.compat",
+
+  "customFilters"
 ])

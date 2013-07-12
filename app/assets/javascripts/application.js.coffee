@@ -5,6 +5,7 @@
 #= require angular-ui-router
 #= require app/main
 #= require_tree ./config
+#= require_tree ./app/filters
 #= require_tree ./app/resources
 #= require_tree ./app/controllers
 #= require_tree ./app/directives

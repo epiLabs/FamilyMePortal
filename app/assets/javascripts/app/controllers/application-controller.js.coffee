@@ -1,5 +1,3 @@
-
-
 app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
   @user_id = $('#main-application').data('current-user-id')
 
@@ -12,6 +10,12 @@ app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
     for user in $rootScope.users
       if user.id == user_id
         return user
+
+  $scope.username = (user_id)->
+    $scope.getUser(user_id).display_name
+  $scope.avatarUrl = (user_id)->
+    $scope.getUser(user_id).avatar_url
+
 
   $scope.fetchUsers = =>
     unless $rootScope.users

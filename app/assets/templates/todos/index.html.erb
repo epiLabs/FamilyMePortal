@@ -1,0 +1,2 @@
+<select ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
+<todolist ng-repeat="todolist in todolists | orderBy:'-id' | displayTodoByStatus:search.tasks.status" />

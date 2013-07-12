@@ -14,9 +14,3 @@ app.directive 'post', ($rootScope) ->
       <a ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)">&times</a>
     </div>
   '
-
-  link: (scope, iElement, iAttrs) ->
-    scope.username = (user_id)->
-      scope.getUser(user_id).display_name
-    scope.avatarUrl = (user_id)->
-      scope.getUser(user_id).avatar_url
