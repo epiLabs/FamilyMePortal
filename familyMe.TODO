@@ -1,0 +1,18 @@
+Webapp:
+  ☐ create the task list page
+    ✔ List all the tasks lists with their status @done (13-07-15 17:12)
+    ✔ When I click on a task list I should see the tasks in it @done (13-07-15 17:12)
+    ☐ And I should be able to edit it or create/edit new tasks
+    ✔ I can create a new task @done (13-07-15 17:12)
+    ☐ I can create a new task list
+    ☐ Handle errors
+    ☐ I can delete a task(_list)?
+ ☐ Create the positions page
+   ☐ All members last positions
+   ☐ All positions of a given member
+ ☐ Create the Event page
+   ☐ Use a calendar system
+   ☐ Create / edit / delete an event
+☐ Improve the wall page
+  ☐ Edit/delete/create without switching page
+
