@@ -12,9 +12,14 @@ app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
         return user
 
   $rootScope.username = (user_id)->
-    $rootScope.getUser(user_id).display_name
+    user = $rootScope.getUser(user_id)
+
+    return user.display_name if user
+
   $rootScope.avatarUrl = (user_id)->
     $rootScope.getUser(user_id).avatar_url
+  $rootScope.getUsers = ()->
+    $rootScope.users
 
 
   $scope.fetchUsers = =>
