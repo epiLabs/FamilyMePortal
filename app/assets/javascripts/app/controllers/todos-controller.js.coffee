@@ -14,4 +14,3 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
       , (error) ->
         $log.error error
     )
-

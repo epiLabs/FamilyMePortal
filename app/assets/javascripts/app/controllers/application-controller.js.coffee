@@ -1,20 +1,20 @@
 app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
   @user_id = $('#main-application').data('current-user-id')
 
-  $scope.canEdit = (user_id)=>  
+  $rootScope.canEdit = (user_id)=>  
     @user_id == user_id
-  $scope.canDelete = (user_id)=>    
+  $rootScope.canDelete = (user_id)=>    
     @user_id == user_id
 
-  $scope.getUser = (user_id)=>
+  $rootScope.getUser = (user_id)=>
     for user in $rootScope.users
       if user.id == user_id
         return user
 
-  $scope.username = (user_id)->
-    $scope.getUser(user_id).display_name
-  $scope.avatarUrl = (user_id)->
-    $scope.getUser(user_id).avatar_url
+  $rootScope.username = (user_id)->
+    $rootScope.getUser(user_id).display_name
+  $rootScope.avatarUrl = (user_id)->
+    $rootScope.getUser(user_id).avatar_url
 
 
   $scope.fetchUsers = =>
