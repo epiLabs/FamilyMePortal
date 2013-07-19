@@ -1,9 +1,8 @@
 app.controller "TasksController", ($rootScope, $scope, Task)->
-  $scope.tasks = {}
+  $scope.tasks = []
   $scope.newTaskTitle = ''
   $scope.isAddingNewTask = false
   $scope.users = $rootScope.getUsers()
-
 
   $scope.hasTasks = ->
     return true if $scope.todolist.tasks.total_tasks_count > 0

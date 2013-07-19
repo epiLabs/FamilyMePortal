@@ -1,5 +1,6 @@
 #= require jquery
 #= require hamlcoffee
+#= require bootstrap
 #= require angular
 #= require angular-resource
 #= require angular-ui-router
