@@ -2,11 +2,13 @@ Webapp:
   ☐ create the task list page
     ✔ List all the tasks lists with their status @done (13-07-15 17:12)
     ✔ When I click on a task list I should see the tasks in it @done (13-07-15 17:12)
-    ☐ And I should be able to edit it or create/edit new tasks
+    ✔ And I should be able to edit it or create/edit new tasks @done (13-07-19 16:31)
     ✔ I can create a new task @done (13-07-15 17:12)
-    ☐ I can create a new task list
-    ☐ Handle errors
-    ☐ I can delete a task(_list)?
+    ✔ I can create a new task list @done (13-07-19 17:06)
+    ☐ Handle errors @notImportantYet
+    ✔ I can delete a task_list @done (13-07-19 17:06)
+    ☐ I can delete a task
+    ☐ I have a nice layout
  ☐ Create the positions page
    ☐ All members last positions
    ☐ All positions of a given member

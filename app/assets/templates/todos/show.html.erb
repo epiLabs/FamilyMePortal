@@ -1,0 +1,19 @@
+<h3>Title: {{task_list.title}} ({{task_list.tasks.finished_tasks_count}} / {{task_list.tasks.total_tasks_count}})</h3>
+<p>
+  Description : {{task_list.description}}
+  Created by {{username(task_list.user_id)}}
+  Status: {{task_list.tasks.status}}
+</p>
+<div>
+  <button ng-hide="isAddingNewTask" ng-click="showNewTaskForm()">Create new task</button>
+  <form ng-show="isAddingNewTask">
+    <div ng-show="error">{{error}}</div>
+    <input type="text" placeholder="Title" ng-model="newTaskTitle" required="true" />
+    <select ng-model="newTaskAssignedUserId" ng-options="o.id as o.display_name for o in users"></select>
+    <button ng-click="create()">Submit</button>
+  </form>
+  <li ng-repeat="task in tasks">
+    <todo task_list='task_list' task="task" />
+  </li>
+</div>
+   

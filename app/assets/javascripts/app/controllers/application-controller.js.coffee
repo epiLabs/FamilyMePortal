@@ -12,6 +12,8 @@ app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
         return user
 
   $rootScope.username = (user_id)->
+    return unless user_id?
+    
     user = $rootScope.getUser(user_id)
 
     return user.display_name if user

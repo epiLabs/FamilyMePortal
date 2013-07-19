@@ -25,7 +25,7 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
           controller: "PostsController"
           templateUrl: "/assets/posts/index.html.erb"
 
-    .state "new",
+    .state "posts.new",
       parent: "posts"
       url: "/new"
       views:
@@ -33,7 +33,7 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
           controller: "PostsController"
           templateUrl: "/assets/posts/new.html.erb"
 
-    .state "edit",
+    .state "posts.edit",
       parent: "posts"
       url: "/:id/edit"
       views:
@@ -49,3 +49,24 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
         "":
           controller: "TodosController"
           templateUrl: "/assets/todos/index.html.erb"
+    .state "todos.new",
+      parent: "todos"
+      url: "/new"
+      views:
+        "@default":
+          controller: "TodosController"
+          templateUrl: "/assets/todos/new.html.erb"
+    .state "todos.edit",
+      parent: "todos"
+      url: "/:id/edit"
+      views:
+        "@default":
+          controller: "TodosController"
+          templateUrl: "/assets/todos/edit.html.erb"
+    .state "todos.show",
+      parent: "todos"
+      url: "/:id"
+      views:
+        "@default":
+          controller: "TodolistDetailController"
+          templateUrl: "/assets/todos/show.html.erb"

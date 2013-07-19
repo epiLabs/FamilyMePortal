@@ -16,7 +16,7 @@ app.controller "PostsController", ($scope, $location, $state, $stateParams, Post
       , (error) ->
     )
 
-  if $state.current.name == 'edit'
+  if $state.current.name == 'posts.edit'
     Post.get(
       id: $stateParams['id']
 

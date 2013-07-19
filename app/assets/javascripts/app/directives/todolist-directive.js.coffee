@@ -1,27 +1,30 @@
-app.controller "TasklistsController", ($rootScope, $scope, Task, Todo)->
+app.controller "TodolistDetailController", ($rootScope, $scope, $state, $stateParams, Task, Todo) ->
+  $scope.fetchUsers()
+  $scope.task_list = {}
   $scope.tasks = []
-  $scope.isAddingNewTask = false
-  $scope.users = $rootScope.getUsers()
-  $scope.username = $rootScope.username
+
+  $scope.resetValues = ->
+    $scope.newTaskTitle = ''
+    $scope.newTaskAssignedUserId = null
+    $scope.isAddingNewTask = false
 
   $rootScope.refresh = ->
     Todo.get(
-      id: $scope.tasklist.id
+      id: $stateParams['id']
       , (response) ->
-        $scope.tasklist = response
+        $scope.task_list = response
         $scope.fetchTasks()
     )
 
   $scope.hasTasks = ->
-    return true if $scope.tasklist.tasks.total_tasks_count > 0
+    return true if $scope.task_list.tasks && $scope.task_list.tasks.total_tasks_count > 0
 
   $scope.fetchTasks = ->
     if $scope.hasTasks()
       Task.query(
-        task_list_id: $scope.tasklist.id
+        task_list_id: $scope.task_list.id
         , (response) ->
           $scope.tasks = response
-        , (error) ->
       )
 
   $scope.showNewTaskForm = ->
@@ -31,7 +34,7 @@ app.controller "TasklistsController", ($rootScope, $scope, Task, Todo)->
 
   $scope.create = ->
     Task.save(
-      task_list_id: $scope.tasklist.id
+      task_list_id: $scope.task_list.id
       ,
       task:
         title: $scope.newTaskTitle
@@ -39,47 +42,18 @@ app.controller "TasklistsController", ($rootScope, $scope, Task, Todo)->
    
       , (response) ->
         $scope.tasks.push response
-        $scope.newTaskTitle = ''
-        $scope.newTaskAssignedUserId = null
-        $scope.isAddingNewTask = false
+        $scope.resetValues()
+        $scope.refresh()
 
       , (errRes) ->
         $scope.error = errRes.data.error
     )
 
-app.directive 'todolist', ($rootScope) ->
-  restrict: 'E'
-  scope: {
-    'tasklist': '='
-  }
-  replace: true
-  controller: 'TasklistsController'
-  template: '
-    <div class="tasklist">
-      <h3>Title: {{tasklist.title}} ({{tasklist.tasks.finished_tasks_count}} / {{tasklist.tasks.total_tasks_count}})</h3>
-      <p>Description : {{tasklist.description}}</p>
-      
-      Created by {{username(tasklist.user_id)}}
-      Status: {{tasklist.tasks.status}}
+  $scope.resetValues()
+  $scope.refresh()
 
 
-      <button ng-hide="isAddingNewTask" ng-click="showNewTaskForm()">Create new task</button>
-      <form ng-show="isAddingNewTask">
-        <div ng-show="error">{{error}}</div>
-        <input type="text" placeholder="Title" ng-model="newTaskTitle" required="true" ng-minlength="4" />
-        <select ng-model="newTaskAssignedUserId" ng-options="o.id as o.display_name for o in users"></select>
-        <button ng-click="create()">Submit</button>
-      </form>
-      <div ng-show="hasTasks()">
-        <a ng-click="fetchTasks()">Show</a>
-        <li ng-repeat="task in tasks">
-          <todo task="task" tasklist="tasklist"/>
-        </li>
-      </div>
-    </div>
-  '
-
-app.controller "TaskController", ($rootScope, $scope, Task, Todo)->
+app.controller "TaskController", ($rootScope, $scope, Task, Todo, $stateParams)->
   $scope.users = $rootScope.getUsers()
   $scope.username = $rootScope.username
 
@@ -91,7 +65,7 @@ app.controller "TaskController", ($rootScope, $scope, Task, Todo)->
   $scope.update = ->
     $scope.error = ''
     Task.update(
-      task_list_id: $scope.tasklist.id
+      task_list_id: $stateParams['id']
       id: $scope.task.id
       ,
       task:
@@ -113,7 +87,7 @@ app.controller "TaskController", ($rootScope, $scope, Task, Todo)->
 
   $scope.toggleStatus = ->
     Task.finish(
-      task_list_id: $scope.tasklist.id
+      task_list_id: $stateParams['id']
       id: $scope.task.id
       ,
       cancel: $scope.task.finished
@@ -127,7 +101,7 @@ app.controller "TaskController", ($rootScope, $scope, Task, Todo)->
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this task?'
       Task.delete(
-        task_list_id: $scope.tasklist.id
+        task_list_id: $stateParams['id']
         id: $scope.task.id
       , (response)->
         $rootScope.refresh()
@@ -138,7 +112,6 @@ app.directive 'todo', ($rootScope) ->
   restrict: 'E'
   scope: {
     'task': '='
-    'tasklist': '='
   }
   replace: true
   controller: 'TaskController'
