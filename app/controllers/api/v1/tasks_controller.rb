@@ -42,7 +42,7 @@ class Api::V1::TasksController < ApiController
 
   def finish
     @task = @task_list.tasks.find(params[:id])
-    @task.finish! params[:cancel]
+    @task.finish! (params[:cancel] ? params[:cancel].to_bool : false)
 
     render action: :show
   end
