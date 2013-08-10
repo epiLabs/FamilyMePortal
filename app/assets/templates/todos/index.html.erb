@@ -1,4 +1,5 @@
 <select ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
+<a href="/todos/new">Add new todo</a>
 <div ng-repeat="task_list in task_lists | orderBy:'-id' | displayTodoByStatus:search.tasks.status" >
   <h3>Title: {{task_list.title}} ({{task_list.tasks.finished_tasks_count}} / {{task_list.tasks.total_tasks_count}})</h3>
   <div class="pull-right">
