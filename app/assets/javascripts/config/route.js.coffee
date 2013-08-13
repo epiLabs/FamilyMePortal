@@ -70,3 +70,13 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
         "@default":
           controller: "TodolistDetailController"
           templateUrl: "/assets/todos/show.html.erb"
+
+    # Positions
+    .state "positions",
+      parent: "default"
+      url: "/positions"
+      views:
+        "":
+          controller: "PositionsController"
+          templateUrl: "/assets/positions/index.html.erb"
+
