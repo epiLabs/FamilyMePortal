@@ -1,5 +1,4 @@
-#= require jquery
-#= require jquery_ujs
+#= require jquery/jquery
 #= require bootstrap
 #= require jquery-backstretch/jquery.backstretch
 

@@ -5,8 +5,6 @@ gem 'pg'
 gem 'mysql2'
 gem 'thin'
 
-gem 'jquery-rails'
-
 # Authentication
 gem 'devise'
 

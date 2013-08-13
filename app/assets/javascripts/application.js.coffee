@@ -1,4 +1,4 @@
-#= require jquery
+#= require jquery/jquery
 #= require hamlcoffee
 #= require bootstrap
 #= require angular/angular

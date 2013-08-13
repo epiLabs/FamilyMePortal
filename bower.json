@@ -1,4 +1,13 @@
 {
   "name": "familyMePortal",
-  "version": "0.1.5"
+  "version": "0.1.5",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples",
+    "sample"
+  ]
 }
