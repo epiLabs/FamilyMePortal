@@ -6,5 +6,8 @@
   # ui-router
   "ui.compat",
 
+  # ui-map
+  'ui.map',
+
   "customFilters"
 ])

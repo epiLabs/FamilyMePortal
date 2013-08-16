@@ -1,3 +1,5 @@
 <a ng-click="checkoutPosition()">Checkout position</a>
 
-<div id="map-canvas" />
+<section id="map" ng-controller="MapController">
+  <div ui-map="myMap" ui-options="mapOptions" class="map-canvas" ></div>
+</section>
