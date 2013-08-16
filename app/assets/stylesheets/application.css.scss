@@ -64,10 +64,3 @@ body {
   background-color: transparent;
   border: none;
 }
-
-// Theres an issue with imgs in google map because of a reset.css
-#google_map {
-  img {
-    max-width: inherit;
-  }
-}

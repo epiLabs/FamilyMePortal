@@ -14,3 +14,12 @@ aside {
 section.webapp {
   display: inline-block;
 }
+
+#map-canvas {
+  height: 100%;
+
+  // Theres an issue with imgs in google map because of a reset.css
+  img {
+    max-width: inherit;
+  }
+}

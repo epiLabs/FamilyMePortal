@@ -11,6 +11,9 @@ FamilyMe::Application.routes.draw do
   match '/todos' => 'families#show'
   match '/todos/*page' => 'families#show'
 
+  match '/positions' => 'families#show'
+  match '/positions/*page' => 'families#show'
+
   resource :family, only: [:show, :create, :update, :new]
   resources :users, only: [:index]
   resources :invitations, only: [:index, :new, :create] do

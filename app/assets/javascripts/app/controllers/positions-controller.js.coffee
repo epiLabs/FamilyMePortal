@@ -2,5 +2,4 @@ app.controller "PositionsController", ($scope, $location, $state, $stateParams, 
 
   $scope.positions = {}
 
-  $scope.fetchUsers()
-
+  # $scope.fetchUsers()

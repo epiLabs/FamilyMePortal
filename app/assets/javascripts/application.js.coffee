@@ -4,6 +4,7 @@
 #= require angular/angular
 #= require angular-resource/angular-resource
 #= require angular-ui-router/release/angular-ui-router
+#= require angular-ui-map/src/map
 #= require app/main
 #= require_tree ./config
 #= require_tree ./app/filters
