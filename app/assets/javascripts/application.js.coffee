@@ -15,7 +15,7 @@
 #= require_self
 
 window.onGoogleReady = ->
-  angular.bootstrap(document.getElementById("map"), ['familyMe']);
+  angular.bootstrap(document.getElementsByTagName('html'), ['familyMe']);
 
 window.onload = ->
   script = document.createElement('script');

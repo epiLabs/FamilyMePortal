@@ -1,4 +1,6 @@
 <a ng-click="checkoutPosition()">Checkout position</a>
+<a href="/positions" ng-click="refreshMarkers('all')">Your positions</a>
+<a href="/positions/latest" ng-click="refreshMarkers('latest')">Latest position of all members</a>
 
 <section id="map" ng-controller="MapController">
   <div ui-map="myMap" ui-options="mapOptions" class="map-canvas" ></div>
