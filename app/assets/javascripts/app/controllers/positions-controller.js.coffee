@@ -35,14 +35,31 @@ app.controller "MapController", ($scope, $location, $state) ->
       if $scope.myMarkers
         for marker in $scope.myMarkers
           marker.setMap(null)
+      $scope.myMarkers = []
+
+      bounds = new google.maps.LatLngBounds();
+      infowindow = new google.maps.InfoWindow content: 'Waiting...'
 
       # Set the markers
-      $scope.myMarkers = []
       for position in $scope.positions.models
-        $scope.myMarkers.push(new google.maps.Marker
+        marker = new google.maps.Marker
           map: $scope.myMap,
-          position: new google.maps.LatLng(position.latitude, position.longitude)
-        )
+          position: new google.maps.LatLng position.latitude, position.longitude
+          title: "#{$scope.username(position.user_id)} on #{position.created_at}"
+          icon: $scope.avatarUrl(position.user_id)
+          custom: position
+
+        $scope.myMarkers.push marker
+        bounds.extend(marker.position)
+
+      for marker in $scope.myMarkers
+        google.maps.event.addListener marker, 'click', ->
+          infowindow.setContent "<p>#{$scope.username(@custom.user_id)}</p>
+          Position checked out the #{@custom.created_at}"
+          infowindow.open($scope.myMap, @ )
+
+      # Auto-center the map
+      map.fitBounds(bounds)
     )
 
     $scope.$emit('refreshMarkers')
@@ -51,7 +68,7 @@ app.controller "MapController", ($scope, $location, $state) ->
 
   $scope.mapOptions ||= {
     center: new google.maps.LatLng(0, 0),
-    zoom: 3,
+    zoom: 4,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
 
