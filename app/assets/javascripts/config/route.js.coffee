@@ -82,6 +82,4 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
     .state "positions.latest",
       parent: "positions"
       url: "/latest"
-      #   "@default":
-      #     controller: "PositionsController"
-      #     templateUrl: "/assets/positions/index.html.erb"
+

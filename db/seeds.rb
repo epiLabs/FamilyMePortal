@@ -50,7 +50,7 @@ password = 'toto42'
 @dimitri.positions << Position.create(latitude: 53.332536, longitude: -6.279081)
 
 @jose.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-@jose.positions << Position.create(latitude: 48.811322, longitude: 2.362779)
+@jose.positions << Position.create(latitude: 48.811322, longitude: 2.362779) # Fratelos
 
 @julien.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
 @julien.positions << Position.create(latitude: 33.783428, longitude: -118.115129) # Long beach

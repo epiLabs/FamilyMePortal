@@ -1,6 +1,10 @@
 class Api::V1::PositionsController < ApiController
   def index
-    @positions = current_user.positions
+    if params[:user_id]
+      @positions = current_user.family.users.find(params[:user_id]).positions
+    else
+      @positions = current_user.positions
+    end
   end
 
   def latest

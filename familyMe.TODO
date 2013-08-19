@@ -10,8 +10,8 @@ Webapp:
     ✔ I can delete a task @done (13-08-13 12:17)
     ☐ I have a nice layout
 ☐ Create the positions page
-   ☐ All members last positions
-   ☐ All positions of a given member
+   ✔ All members last positions @done (13-08-19 14:33)
+   ✔ All positions of a given member @done (13-08-19 15:03)
 ☐ Create the Event page
    ☐ Use a calendar system
    ☐ Create / edit / delete an event

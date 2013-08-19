@@ -1,6 +1,11 @@
 <a ng-click="checkoutPosition()">Checkout position</a>
-<a href="/positions" ng-click="refreshMarkers('all')">Your positions</a>
+<a href="/positions" ng-click="refreshMarkers('all')">All positions</a>
 <a href="/positions/latest" ng-click="refreshMarkers('latest')">Latest position of all members</a>
+
+<div ng-show='filter'>
+  Filter
+  <select ng-model="selectedUser" ng-options="o.id as o.display_name for o in users" ng-change="selectUser(selectedUser)"></select>
+</div>
 
 <section id="map" ng-controller="MapController">
   <div ui-map="myMap" ui-options="mapOptions" class="map-canvas" ></div>

@@ -2,9 +2,14 @@ app.controller "PositionsController", ($scope, $location, $state, $stateParams, 
 
   $scope.fetchUsers()
 
-  $scope.positions ||= {
-    models: []
-  }
+  $scope.selectedUser = $scope.currentUserId
+  $scope.selectedUser = parseInt($location.search().user_id) if $location.search().user_id
+
+  $scope.positions = models: []
+
+  $scope.selectUser = (param)->
+    $location.search(user_id: param)
+    $scope.refreshMarkers(param)
 
   $scope.refreshMarkers = (param)=>
     return if param == @currentParam
@@ -16,10 +21,10 @@ app.controller "PositionsController", ($scope, $location, $state, $stateParams, 
 
     if param == 'latest'
       Position.latest {}, callback
-    else if param == 'all'
-      Position.query {}, callback
+      $scope.filter = false
     else
-      console.log 'UNKNOWN PARAM ' + param
+      Position.query {user_id: $scope.selectedUser}, callback
+      $scope.filter = true
 
   if $state.current.name == 'positions.latest'
     $scope.refreshMarkers('latest')
@@ -54,8 +59,7 @@ app.controller "MapController", ($scope, $location, $state) ->
 
       for marker in $scope.myMarkers
         google.maps.event.addListener marker, 'click', ->
-          infowindow.setContent "<p>#{$scope.username(@custom.user_id)}</p>
-          Position checked out the #{@custom.created_at}"
+          infowindow.setContent "<p>#{$scope.username(@custom.user_id)}</p><i>Position checked out the #{@custom.created_at}<i>"
           infowindow.open($scope.myMap, @ )
 
       # Auto-center the map
