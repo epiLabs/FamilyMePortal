@@ -3,6 +3,16 @@ class Api::V1::PositionsController < ApiController
     @positions = current_user.positions
   end
 
+  def latest
+    @positions = []
+    current_user.family.users.each do |user|
+      position = user.positions.last
+      @positions << position if position.present?
+    end
+    
+    render :index
+  end
+
   def create
     @position = current_user.positions.new(params[:position])
 

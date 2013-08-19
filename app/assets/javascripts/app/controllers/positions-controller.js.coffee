@@ -2,12 +2,11 @@ app.controller "PositionsController", ($scope, $location, $state, $stateParams, 
 
   $scope.positions = {}
 
-  # $scope.fetchUsers()
-
+  $scope.fetchUsers()
 
 app.controller "MapController", ($scope, $location, $state, $stateParams, Position) ->
 
-  $scope.myMarkers = []
+  return unless google?
 
   $scope.fetchMarkers = ->
     Position.query(
@@ -15,14 +14,11 @@ app.controller "MapController", ($scope, $location, $state, $stateParams, Positi
       , (response) ->
         $scope.myMarkers = []
         for position in response
-          console.log position
           $scope.myMarkers.push(new google.maps.Marker
             map: $scope.myMap,
             position: new google.maps.LatLng(position.latitude, position.longitude)
           )
     )
-
-  return unless google?
 
   unregister = $scope.$watch('myMap', (map)->
     if (map)
@@ -31,7 +27,7 @@ app.controller "MapController", ($scope, $location, $state, $stateParams, Positi
   )
 
   $scope.mapOptions ||= {
-    center: new google.maps.LatLng(35.784, -78.670),
+    center: new google.maps.LatLng(0, 0),
     zoom: 3,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
