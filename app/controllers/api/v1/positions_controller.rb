@@ -17,13 +17,24 @@ class Api::V1::PositionsController < ApiController
     render :index
   end
 
+  # This method avoid checking out duplicates by checking the last position and returning
+  # it if the coords are identical
   def create
-    @position = current_user.positions.new(params[:position])
+    @position = current_user.positions.last
 
-    if @position.save
+    lat = params[:position][:latitude].to_f.round(3)
+    lng = params[:position][:longitude].to_f.round(3)
+
+    if @position && @position.latitude.round(3) == lat && @position.longitude.round(3) == lng
       render json: @position, status: 200
     else
-      render json: {error: @position.errors}, status: 400
+      @position = current_user.positions.new(params[:position])
+
+      if @position.save
+        render json: @position, status: 200
+      else
+        render json: {error: @position.errors}, status: 400
+      end
     end
   end
 end
