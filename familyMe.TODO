@@ -9,7 +9,7 @@ Webapp:
     ✔ I can delete a task_list @done (13-07-19 17:06)
     ✔ I can delete a task @done (13-08-13 12:17)
     ☐ I have a nice layout
-☐ Create the positions page
+✔ Create the positions page @done (13-08-20 15:36)
    ✔ All members last positions @done (13-08-19 14:33)
    ✔ All positions of a given member @done (13-08-19 15:03)
 ☐ Create the Event page
