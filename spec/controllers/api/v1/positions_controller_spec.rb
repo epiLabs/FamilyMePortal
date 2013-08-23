@@ -65,5 +65,34 @@ describe Api::V1::PositionsController do
         expect(response.status).to eq(400)
       end
     end
+
+    describe 'given a position (42.2315, -32.1124) already exists' do
+      before :each do
+        post :create, position: {latitude: 42.2315, longitude: -32.1124}
+        @original_position_id = JSON.parse(response.body)['id']
+      end
+
+      describe 'when checking out a position very close to the previous one' do
+        before :each do
+          post :create, position: {latitude: 42.2316, longitude: -32.11245}
+        end
+
+        it "doesn't create the position but returns the previous one" do
+          expect(response.status).to eq 200
+          expect(JSON.parse(response.body)['id']).to eq @original_position_id
+        end
+      end
+
+      describe 'when checking out a position far from the previous' do
+        before :each do
+          post :create, position: {latitude: 42.999, longitude: -32.421}
+        end
+
+        it "successfully creates the position" do
+          expect(response.status).to eq 200
+          expect(JSON.parse(response.body)['id']).not_to be @original_position_id
+        end        
+      end
+    end
   end
 end
