@@ -1,4 +1,5 @@
-#= require jquery/jquery
+#= require jquery
+#= require jquery_ujs
 #= require hamlcoffee
 #= require bootstrap
 #= require angular/angular

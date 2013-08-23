@@ -49,6 +49,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Needed for the method: :post to work
+gem 'jquery-rails'
 # We need this outstide of the asset group
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
 gem 'coffee-rails' 
