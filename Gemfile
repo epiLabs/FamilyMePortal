@@ -58,6 +58,6 @@ group :test do
   gem "sqlite3"
   gem 'poltergeist'
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  gem 'database_cleaner', "~> 1.0.1" # see https://github.com/gregbell/active_admin/issues/2388
   gem 'email_spec'
 end
