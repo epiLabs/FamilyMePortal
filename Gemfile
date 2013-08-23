@@ -40,7 +40,6 @@ group :assets do
   gem 'sass-rails'
   gem 'bootstrap-sass'
 
-  gem 'haml_coffee_assets'
   gem 'execjs'
   
   # # See https://github.com/sstephenson/execjs#readme for more supported runtimes

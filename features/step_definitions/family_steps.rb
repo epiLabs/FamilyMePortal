@@ -12,6 +12,10 @@ When /^I visit my family page$/ do
   visit family_path
 end
 
+When /^I'm on the dashboard of my family$/ do
+  visit dashboard_path
+end
+
 Then /^I should see a notice$/ do
   page.find("#flash_notice").should be_visible
 end

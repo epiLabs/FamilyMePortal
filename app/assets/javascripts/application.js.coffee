@@ -1,6 +1,5 @@
 #= require jquery
 #= require jquery_ujs
-#= require hamlcoffee
 #= require bootstrap
 #= require angular/angular
 #= require angular-resource/angular-resource
@@ -19,7 +18,10 @@ window.onGoogleReady = ->
   angular.bootstrap(document.getElementsByTagName('html'), ['familyMe']);
 
 window.onload = ->
-  script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAE_FKae6SYVvdyddYHWdwUPs-8mMJmqqs&sensor=false&callback=onGoogleReady';
-  document.body.appendChild(script);
+  if $('body').data('test-mode')?
+    angular.bootstrap(document.getElementsByTagName('html'), ['familyMe']);
+  else
+    script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAE_FKae6SYVvdyddYHWdwUPs-8mMJmqqs&sensor=false&callback=onGoogleReady';
+    document.body.appendChild(script);

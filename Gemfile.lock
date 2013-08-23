@@ -95,10 +95,6 @@ GEM
     gravtastic (3.2.6)
     haml (4.0.3)
       tilt
-    haml_coffee_assets (1.13.2)
-      coffee-script (>= 1.0.0)
-      sprockets (>= 2.0.3)
-      tilt (>= 1.3.3)
     hashie (2.0.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
@@ -242,7 +238,6 @@ DEPENDENCIES
   geocoder
   gravtastic
   haml
-  haml_coffee_assets
   jquery-rails
   json_builder
   mysql2

@@ -10,7 +10,7 @@ app.directive 'post', ($rootScope) ->
       
       {{username(post.user_id)}}
       Message: {{post.message}} <br/>
-      <a ng-show="canEdit(post.user_id)" href="/posts/{{post.id}}/edit">Edit</a>
-      <a ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)">&times</a>
+      <a class="edit-post"ng-show="canEdit(post.user_id)" href="/posts/{{post.id}}/edit">Edit</a>
+      <a class="delete-post" ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)">&times</a>
     </div>
   '
