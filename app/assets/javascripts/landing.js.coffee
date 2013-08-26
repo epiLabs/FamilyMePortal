@@ -1,6 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require bootstrap
+#= require bootstrap/dist/js/bootstrap
 #= require jquery-backstretch/jquery.backstretch
 
 $ ->

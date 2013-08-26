@@ -3,8 +3,8 @@
 - if user_signed_in?
   %ul.nav.pull-right
     .btn-group
-      %button.btn.btn-warning.btn-small.dropdown-toggle{'data-toggle' => "dropdown"}
-        %i.icon-wrench 
+      %button.btn.btn-warning.btn-sm.dropdown-toggle{'data-toggle' => "dropdown"}
+        %i.glyphicon.glyphicon-wrench 
       %ul.dropdown-menu
         %li= link_to 'Your account', edit_user_registration_path
         %li= link_to 'Members', users_path

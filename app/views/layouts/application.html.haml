@@ -1,5 +1,4 @@
 !!!
-/ %html{"ng-app" => "familyMe"}
 %html
   %head
     %meta{:charset => "utf-8"}
@@ -16,7 +15,7 @@
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
-    #main.container-fluid{:role => "main"}
+    #main.container{:role => "main"}
       = render 'layouts/messages'
 
       = yield

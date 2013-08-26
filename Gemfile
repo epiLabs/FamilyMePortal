@@ -38,14 +38,14 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'bootstrap-sass'
+  # gem 'bootstrap-sass'
 
   gem 'execjs'
   
   # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 # Needed for the method: :post to work
