@@ -3,8 +3,8 @@
 FactoryGirl.define do
   factory :position do
     trait :valid_coordinates do
-      latitude 42
-      longitude 55
+      sequence(:latitude) {|n| Random.rand(90) }
+      sequence(:longitude) {|n| Random.rand(180) }
     end
   end
 end

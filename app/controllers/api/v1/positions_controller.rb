@@ -25,7 +25,7 @@ class Api::V1::PositionsController < ApiController
 
     if last_position && last_position.latitude.round(3) == @position.latitude.round(3) && last_position.longitude.round(3) == @position.longitude.round(3)
       @position = last_position
-      @position.touch # Update the updated_at field
+      @position.touch :updated_at # Update the updated_at field
     end
 
     if @position.save
