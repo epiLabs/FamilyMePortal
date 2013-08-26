@@ -70,7 +70,10 @@ app.controller "MapController", ($scope, $location, $state) ->
       google.maps.event.addListener marker, 'click', ->
         infowindow.setContent "
           <img src='#{$scope.avatarUrl(@custom.user_id)}' class='avatar'/>
-          <p>#{$scope.username(@custom.user_id)}</p><i>The #{@custom.created_at}<i>
+          <p>#{$scope.username(@custom.user_id)}</p>
+          <i>
+            #{moment(@custom.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}
+          <i>
         "
         infowindow.open($scope.myMap, @ )
 
@@ -92,14 +95,14 @@ app.controller "MapController", ($scope, $location, $state) ->
 
         $scope.myMarkers.push marker
 
-        # Make the current location bouce
+        # Make the current location bounce
         if $scope.currentUserPosition && position.id == $scope.currentUserPosition.id
           marker.setAnimation(google.maps.Animation.BOUNCE)
 
       # Set infowindows
       $scope.setInfoWindows($scope.myMarkers)
 
-      # Auto-center the map
+      # Auto-center the map - 1) To the current user position, 2) To contain all the markers
       if $scope.boundToUserPosition
         $scope.fitBounds($scope.currentUserPosition, false)
         $scope.boundToUserPosition = false

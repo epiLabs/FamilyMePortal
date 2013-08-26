@@ -5,4 +5,5 @@ array @positions do |position|
   latitude position.latitude
   longitude position.longitude
   created_at position.created_at
+  updated_at position.updated_at
 end

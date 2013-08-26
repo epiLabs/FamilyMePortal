@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap
+#= require moment/moment
 #= require angular/angular
 #= require angular-resource/angular-resource
 #= require angular-ui-router/release/angular-ui-router
