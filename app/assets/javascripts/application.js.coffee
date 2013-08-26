@@ -16,11 +16,11 @@
 #= require_self
 
 window.onGoogleReady = ->
-  angular.bootstrap(document.getElementsByTagName('html'), ['familyMe']);
+  angular.bootstrap(document.getElementById('main'), ['familyMe']);
 
 window.onload = ->
   if $('body').data('test-mode')?
-    angular.bootstrap(document.getElementsByTagName('html'), ['familyMe']);
+    angular.bootstrap(document.getElementById('main'), ['familyMe']);
   else
     script = document.createElement('script');
     script.type = 'text/javascript';

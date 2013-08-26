@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require bootstrap/dist/css/bootstrap
  *= require webapp
  */
@@ -42,10 +41,10 @@ body {
   }
 }
 
-// Topbar stuffs
-
-.btn-group > .dropdown-menu {
-  left: -350%;
+.orange-caret
+{
+  border-top-color: $familyMe-orange-dark !important;
+  border-bottom-color: $familyMe-orange-dark !important;
 }
 
 // Application

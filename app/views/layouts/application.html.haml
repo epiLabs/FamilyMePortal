@@ -11,10 +11,8 @@
     = csrf_meta_tags
     = yield(:head)
   %body{"data-test-mode" => Rails.env.test?}
-    %header.navbar.navbar-inverse
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
+    %header= render 'layouts/navigation'
+
     #main.container{:role => "main"}
       = render 'layouts/messages'
 
