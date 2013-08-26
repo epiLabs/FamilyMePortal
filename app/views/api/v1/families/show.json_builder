@@ -1,15 +1,21 @@
-array @family.users do |user|
-  id user.id
-  avatar_url user.gravatar
-  first_name user.first_name
-  last_name user.last_name
-  nickname user.nickname
-  display_name user.display_name
-  last_sign_in user.last_sign_in_date_formated
-  
-  position user.positions.last do |position|
-    latitude position.try(:latitude)
-    longitude position.try(:longitude)
-    date position.try(:date)
-  end
+users_count @family.users.count
+task_lists do
+  total_count @family.total_task_lists_count
+  finished_count @family.finished_task_lists_count
+  empty_count @family.empty_task_lists_count
+  open_count @family.open_task_lists_count
+end
+events do
+  total_count @family.total_events_count
+  current_and_future_count @family.total_incoming_events_count
+end
+posts do
+  total_count @family.posts.count
+end
+
+invitations do
+  total_count @family.invitations.count
+  accepted @family.accepted_invitations_count
+  rejected @family.rejected_invitations_count
+  pending @family.pending_invitations_count
 end

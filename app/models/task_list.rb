@@ -28,9 +28,15 @@ class TaskList < ActiveRecord::Base
   def completed?
     finished_tasks_count == tasks_count
   end
+  def empty?
+    tasks.empty?
+  end
+  def open?
+    tasks_count > 0 && finished_tasks_count != tasks_count
+  end
 
   def status
-    if tasks.empty?
+    if empty?
       "empty"
     elsif completed?
       "completed"
