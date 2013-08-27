@@ -8,31 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap/dist/css/bootstrap
  *= require webapp
  */
 
 $familyMe-orange: rgb(209, 154, 37);
 $familyMe-orange-dark: #ff8000; 
 
-.clear {clear: both}
-
 body {
   color: white;
   background: url('/assets/classy_fabric.png') repeat left top; 
   font-family: 'quicksand', sans-serif;
-
-  a {
-    color: $familyMe-orange-dark;
-
-    &:hover {
-      color: $familyMe-orange;
-    }
-  }
-
-  h1, h2, h3 {
-    color: $familyMe-orange;
-  }
 
   label { font-weight: bold;}
 
@@ -60,7 +45,6 @@ body {
   left: 2px;
   text-align: center;
   background-color: #222222; // Kind of black used by navbar-inverse
-  // background-color: white;
 
   border: 0;
 

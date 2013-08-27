@@ -7,6 +7,14 @@
  * `.img-responsive` class.)
  */
 
+$familyMe-orange: rgb(209, 154, 37);
+$familyMe-orange-dark: #ff8000; 
+
+$link-color: $familyMe-orange-dark;
+$link-hover-color: $familyMe-orange;
+
+@import "twitter/bootstrap";
+
 // Dashboard stuffs
 .new-post {
   display: block;

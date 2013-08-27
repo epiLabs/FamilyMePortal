@@ -38,6 +38,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
+  gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only version with bootstrap3 for the moment
   # gem 'bootstrap-sass'
 
   gem 'execjs'
