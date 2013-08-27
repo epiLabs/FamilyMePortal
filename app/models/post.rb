@@ -9,8 +9,4 @@ class Post < ActiveRecord::Base
   validates :message, presence: true
 
   before_save { |post| post.message = post.message.strip }
-
-  def date_posted
-    created_at.strftime("%d %b %y %H:%M")
-  end
 end

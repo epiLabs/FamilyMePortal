@@ -7,6 +7,23 @@
  * `.img-responsive` class.)
  */
 
+// Dashboard stuffs
+.new-post {
+  display: block;
+  margin-bottom: 5px;
+}
+.post {
+  border: 0;
+  background-color: rgba(16, 16, 16, 0.45);
+
+  .metadata {
+    text-align: right;
+    margin: 0;
+    font-size: 0.8em;
+    color: #999999;
+  }
+}
+
 // .google-map-canvas,
 // .google-map-canvas * { .box-sizing(content-box); }
 
@@ -20,7 +37,5 @@ img { max-width: none; }
 
   img {
     max-width: inherit;
-
-    &.avatar { border-radius: 30px }
   }
 }

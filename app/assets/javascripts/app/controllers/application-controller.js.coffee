@@ -1,4 +1,6 @@
 app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
+  $scope.moment = moment
+
   $rootScope.currentUserId = @user_id = parseInt($('#main-application').data('current-user-id'))
 
   $rootScope.canEdit = (user_id)=>  

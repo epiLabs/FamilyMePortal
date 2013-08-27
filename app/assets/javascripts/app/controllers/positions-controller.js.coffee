@@ -9,7 +9,7 @@ app.controller "PositionsController", ($scope, $location, $state, $stateParams, 
 
   $scope.positions = models: []
 
-  if navigator.geolocation
+  if navigator.geolocation && $state.current.name != 'positions.latest'
     navigator.geolocation.getCurrentPosition (position)->
       Position.save(
         {}
@@ -69,7 +69,7 @@ app.controller "MapController", ($scope, $location, $state) ->
     for marker in elements
       google.maps.event.addListener marker, 'click', ->
         infowindow.setContent "
-          <img src='#{$scope.avatarUrl(@custom.user_id)}' class='avatar'/>
+          <img src='#{$scope.avatarUrl(@custom.user_id)}' class='img-circle'/>
           <p>#{$scope.username(@custom.user_id)}</p>
           <i>
             #{moment(@custom.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}

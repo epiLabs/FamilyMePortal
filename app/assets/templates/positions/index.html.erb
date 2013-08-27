@@ -1,11 +1,21 @@
-<a href="/positions" ng-click="refreshMarkers('all')">All positions</a>
-<a href="/positions/latest" ng-click="refreshMarkers('latest')">Latest position of all members</a>
+<div class="row">
+  <section id="map" ng-controller="MapController" class="col-md-9">
+    <div ui-map="myMap" ui-options="mapOptions" class="google-map-canvas" ></div>
+  </section>
 
-<div ng-show='filter'>
-  Filter
-  <select ng-model="selectedUser" ng-options="o.id as o.display_name for o in users" ng-change="selectUser(selectedUser)"></select>
+  <div class="col-md-3 container">
+    <h3>Filters</h3>
+
+    <div class="row">
+      <a href="/positions/latest" ng-click="refreshMarkers('latest')">Where is everyone?</a>
+    </div>
+
+    <div class="row">
+      <a class="col-md-6" href="/positions" ng-click="refreshMarkers('all')">List positions</a>
+      <div ng-show='filter'>
+        Filter
+        <select ng-model="selectedUser" ng-options="o.id as o.display_name for o in users" ng-change="selectUser(selectedUser)"></select>
+      </div>
+    </div>
+  </div>
 </div>
-
-<section id="map" ng-controller="MapController">
-  <div ui-map="myMap" ui-options="mapOptions" class="google-map-canvas" ></div>
-</section>

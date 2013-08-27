@@ -1,3 +1,22 @@
-<a href="/posts/new">Add new post</a>
+<div class="col-md-5">
+  <a href="/posts/new" class="new-post btn btn-warning">Add new post</a>
 
-<post ng-repeat="post in posts | orderBy:'-id'" />
+  <div ng-repeat="post in posts | orderBy:'-id'">
+
+    <div class="post media well well-sm">
+      <div class="avatar pull-left">
+        <img ng-src="{{avatarUrl(post.user_id)}}" class="media-object img-circle" />
+      </div>
+      
+      <div class="media-body">
+        <div class="pull-right">
+          <a class="edit-post glyphicon glyphicon-edit" ng-show="canEdit(post.user_id)" href="/posts/{{post.id}}/edit" title="Edit"></a>
+          <a class="delete-post glyphicon glyphicon-remove" ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)" title="Delete"></a>
+        </div>
+        <h5 class="media-heading">{{username(post.user_id)}} :</h5>
+        <p>{{post.message}}</p>
+        <p class="metadata">{{moment(post.created_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}
+      </div>
+    </div>
+  </div>
+</div>

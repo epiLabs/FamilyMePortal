@@ -1,6 +1,7 @@
 array @posts do |post|
   id post.id
   message post.message
-  date_posted post.date_posted
   user_id post.author_id
+  created_at post.created_at
+  updated_at post.updated_at
 end
