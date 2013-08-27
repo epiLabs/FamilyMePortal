@@ -21,8 +21,13 @@ body {
   color: white;
   background: url('/assets/classy_fabric.png') repeat left top; 
   font-family: 'quicksand', sans-serif;
+
   a {
-    font-weight: bold;
+    color: $familyMe-orange-dark;
+
+    &:hover {
+      color: $familyMe-orange;
+    }
   }
 
   h1, h2, h3 {
@@ -47,13 +52,21 @@ body {
   border-bottom-color: $familyMe-orange-dark !important;
 }
 
-// Application
+// Sidemenu
 
-#main-application {
-  h3 {
-    text-align: center;
+.navigation-menu {
+  position: absolute;
+  top: 54px;
+  left: 2px;
+  text-align: center;
+  background-color: #222222; // Kind of black used by navbar-inverse
+  // background-color: white;
+
+  border: 0;
+
+  a:hover {
+    background-color: transparent !important;
   }
-
 }
 
 // Simple form improvments

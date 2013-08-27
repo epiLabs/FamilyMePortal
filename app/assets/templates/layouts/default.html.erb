@@ -1,9 +1,28 @@
-<aside class='sidemenu col-md-2'>
-  <ul>
-    <li><a href="/posts">Wall</a></li>
-    <li><a href="/positions">Map</a></li>
-    <li><a href="/">Events</a></li>
-    <li><a href="/todos">Todos</a></li>
+<aside class="col-md-1 navigation-menu well">
+  <ul class="nav nav-pills nav-stacked">
+    <li>
+        <a class="btn-lg" href="/posts" data-toggle="tooltip" title="Dashboard">
+          <span class="glyphicon glyphicon-dashboard"></span>
+        </a>
+    </li>
+    <li>
+        <a class="btn-lg" href="/positions" data-toggle="tooltip" title="Map">
+          <span class="glyphicon glyphicon-map-marker"></span>
+        </a>
+    </li>
+    <li>
+        <a class="btn-lg" href="/" data-toggle="tooltip" title="Events">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </a>
+    </li>
+    <li>
+        <a class="btn-lg" href="/todos" data-toggle="tooltip" title="Tasks">
+          <span class="glyphicon glyphicon-tasks"></span>
+        </a>
+    </li>
   </ul>
 </aside>
-<section class="webapp col-md-10" ui-view=""></section>
+
+<section class="webapp col-md-10 col-md-offset-1">
+  <div ui-view=""></div>
+</section>

@@ -1,20 +1,3 @@
-aside {
-  
-  &.sidemenu {
-    display: inline-block;
-    border: 1px solid red;
-  }
-
-  ul {
-    list-style: none;
-
-  }
-}
-
-section.webapp {
-  display: inline-block;
-}
-
 /* Fix Google Maps canvas
  *
  * Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
