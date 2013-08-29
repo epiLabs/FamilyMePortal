@@ -1,6 +1,7 @@
 <a class="btn btn-warning" href="/todos/new">Create todolist</a>
 <label class="pull-right">
-  Filter <select ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
+  Filter
+  <select class="input-sm" ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
 </label>
 <div class="row task_lists_container">
   <div class='col-md-3' ng-repeat="task_list in task_lists | orderBy:'-created_at' | displayTodoByStatus:search.tasks.status" >

@@ -37,6 +37,14 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
       'panel-info'
   $scope.showTaskList = (id)->
     $location.path "/todos/" + id
+  $scope.handleFormError = (error)->
+    if error.title
+      $scope.customClass = "has-error"
+      unless $scope.$$phase
+        $scope.$apply()
+      console.log 'exists'
+    else
+      alert error
 
   $scope.create = ->
     $scope.task_list.title = $scope.task_list.title.trim()
@@ -48,7 +56,7 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
    
       , (response) ->
         $location.path "/todos"
-      , (error) ->
+      , (error) -> $scope.handleFormError(error.data.error)
     )
   $scope.update = ->
     Todo.update
@@ -58,8 +66,7 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
         description: $scope.task_list.description
     , (reponse)->
       $location.path "/todos"
-    , (error)->
-      console.log error
+    , (error)-> $scope.handleFormError(error.data.error)
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this Todo?'
       Todo.delete
