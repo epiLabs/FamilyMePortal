@@ -10,8 +10,8 @@
       
       <div class="media-body">
         <div class="pull-right">
-          <a class="edit-post glyphicon glyphicon-edit" ng-show="canEdit(post.user_id)" href="/posts/{{post.id}}/edit" title="Edit"></a>
-          <a class="delete-post glyphicon glyphicon-remove" ng-show="canDelete(post.user_id)" href="" ng-click="destroy(post.id)" title="Delete"></a>
+          <a class="edit-post glyphicon glyphicon-edit" ng-if="canEdit(post.user_id)" href="/posts/{{post.id}}/edit" title="Edit"></a>
+          <a class="delete-post glyphicon glyphicon-remove" ng-if="canDelete(post.user_id)" href="" ng-click="destroy(post.id)" title="Delete"></a>
         </div>
         <h5 class="media-heading">{{username(post.user_id)}} :</h5>
         <p>{{post.message}}</p>

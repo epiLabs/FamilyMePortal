@@ -13,6 +13,8 @@ $familyMe-orange-dark: #ff8000;
 $link-color: $familyMe-orange-dark;
 $link-hover-color: $familyMe-orange;
 
+$nice-black: rgba(16, 16, 16, 0.45);
+
 @import "twitter/bootstrap";
 
 // Dashboard stuffs
@@ -22,13 +24,46 @@ $link-hover-color: $familyMe-orange;
 }
 .post {
   border: 0;
-  background-color: rgba(16, 16, 16, 0.45);
+  background-color: $nice-black;
 
-  .metadata {
-    text-align: right;
-    margin: 0;
-    font-size: 0.8em;
-    color: #999999;
+}
+
+.metadata {
+  text-align: right;
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 20px;
+  color: #999999;
+
+  &.metadata-left {
+    text-align: left;
+  }
+}
+
+// Task list
+
+.task_lists_container {
+  margin-top: 20px;
+  .task_list {
+    cursor: pointer;
+
+    .panel-body {
+      color: #222222;
+
+      i {
+        color: $nice-black;
+      }
+    }
+
+    .panel-footer {
+      .actions {
+        display: none;
+      }
+    }
+
+    &:hover .panel-footer .actions {
+      display: inline-block;
+    }
   }
 }
 

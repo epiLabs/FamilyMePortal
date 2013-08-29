@@ -1,14 +1,30 @@
-<select ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
-<a href="/todos/new">Add new todo</a>
-<div ng-repeat="task_list in task_lists | orderBy:'-id' | displayTodoByStatus:search.tasks.status" >
-  <h3>Title: {{task_list.title}} ({{task_list.tasks.finished_tasks_count}} / {{task_list.tasks.total_tasks_count}})</h3>
-  <div class="pull-right">
-      <a href="/todos/{{task_list.id}}">Show</a>
-      <a href="/todos/{{task_list.id}}/edit">Edit</a>
-      <a ng-click="destroy(task_list.id)">Delete</a>
+<a class="btn btn-warning" href="/todos/new">Create todolist</a>
+<label class="pull-right">
+  Filter <select ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
+</label>
+<div class="row task_lists_container">
+  <div class='col-md-3' ng-repeat="task_list in task_lists | orderBy:'-created_at' | displayTodoByStatus:search.tasks.status" >
+    <div class="panel task_list" ng-class="getClass(task_list.tasks.status)" ng-click="showTaskList(task_list.id)">
+      <div class="panel-heading">
+        <div class="metadata pull-right">
+          {{task_list.tasks.finished_tasks_count}} / {{task_list.tasks.total_tasks_count}}
+        </div>
+        <h5 class="panel-title">{{task_list.title}}</h5>
+      </div>
+      <div class="panel-body">
+        {{task_list.description}}
+        <i ng-if="!task_list.description">No description</i>
+      </div>
+      <div class="panel-footer">
+        <div class="actions pull-right">
+          <a class="glyphicon glyphicon-edit" ng-click="$event.stopPropagation()" ng-href="/todos/{{task_list.id}}/edit" title="Edit" />
+          <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id);$event.stopPropagation()" title="Delete" />
+        </div>
+        <div class="metadata metadata-left">
+          By {{username(task_list.user_id)}} {{moment(task_list.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}
+        </div>
+        <div class="clearfix" />
+      </div>
+    </div>
   </div>
-  <p>Description : {{task_list.description}}</p>
-      
-  Created by {{username(task_list.user_id)}}
-  Status: {{task_list.tasks.status}}
 </div>

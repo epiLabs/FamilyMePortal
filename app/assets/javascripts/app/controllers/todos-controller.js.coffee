@@ -24,9 +24,20 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
       , (error) ->
     )
 
-    # =========================================================================
-  # Create
-  # =========================================================================
+  ###############
+  ### METHODS ###
+  ###############
+
+  $scope.getClass = (status)->
+    if status == "completed"
+      'panel-success'
+    else if status == "empty"
+      'panel-warning'
+    else
+      'panel-info'
+  $scope.showTaskList = (id)->
+    $location.path "/todos/" + id
+
   $scope.create = ->
     $scope.task_list.title = $scope.task_list.title.trim()
     Todo.save(
@@ -39,10 +50,6 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
         $location.path "/todos"
       , (error) ->
     )
-
-  # =========================================================================
-  # Update
-  # =========================================================================
   $scope.update = ->
     Todo.update
       id: $scope.task_list.id
@@ -53,10 +60,6 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
       $location.path "/todos"
     , (error)->
       console.log error
-
-  # =========================================================================
-  # Destroy
-  # =========================================================================
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this Todo?'
       Todo.delete
