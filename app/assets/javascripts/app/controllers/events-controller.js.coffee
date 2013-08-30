@@ -9,16 +9,17 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
 
     eventsArray = []
     for ev in $scope.events
-      eventsArray.push {title: ev.title, start: ev.start_date, end: ev.end_date}
+      eventsArray.push {title: ev.title, start: ev.start_date, end: ev.end_date, custom: ev}
 
-    console.log eventsArray
-    $('#calendar').fullCalendar(
+    $('#calendar').fullCalendar
       header:
         left: 'prev,next today',
         center: 'title',
         right: 'month,basicWeek,basicDay'
       events: eventsArray
-    )
+      eventClick: (element, event)->
+        $scope.$apply ->
+          $scope.event = element.custom
 
   $scope.fetchEvents = ->
     Event.query(

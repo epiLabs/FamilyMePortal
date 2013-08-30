@@ -1,1 +1,15 @@
+<div class="events-header">
+  Click on an event to see its informations
+
+  <div class="event-informations" ng-if="event.id">
+    <div class="event-description">
+      {{event.description}}
+      <i ng-if="!event.description">No description available</i>
+    </div>
+    <div class="event-duration">
+      Duration: {{moment(event.start_date).from(moment(event.end_date), true)}}
+    </div>
+  </div>
+</div>
+
 <div id='calendar'></div>
