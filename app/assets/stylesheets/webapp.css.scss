@@ -19,8 +19,7 @@ $nice-black: rgba(16, 16, 16, 0.45);
 
 // Dashboard stuffs
 .new-post {
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .post {
   border: 0;
@@ -42,17 +41,20 @@ $nice-black: rgba(16, 16, 16, 0.45);
 
 // Task list
 
+.panel-body {
+  color: #222222;
+}
+
 .task_lists_container {
   margin-top: 20px;
   .task_list {
-    cursor: pointer;
 
-    .panel-body {
-      color: #222222;
+    .panel-heading {
+      cursor: pointer;
+    }
 
-      i {
-        color: $nice-black;
-      }
+    .panel-body i {
+      color: $nice-black;
     }
 
     .panel-footer {
@@ -64,6 +66,34 @@ $nice-black: rgba(16, 16, 16, 0.45);
     &:hover .panel-footer .actions {
       display: inline-block;
     }
+  }
+}
+
+// Task list detail
+
+.task_list {
+  .panel-body {
+    .tasks_container {
+      border-top: 1px solid #F2F2F2;
+      padding-top: 20px;
+      margin: 20px auto;
+    }
+  }
+}
+
+.task {
+  line-height: 26px;
+
+  .toggle-task-status {
+    text-align: center;
+  }
+
+  .finished-task {
+    text-decoration: line-through;
+  }
+
+  .assigned_user {
+    font-weight: bold;
   }
 }
 

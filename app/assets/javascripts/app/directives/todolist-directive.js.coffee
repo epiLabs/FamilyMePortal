@@ -3,6 +3,19 @@ app.controller "TodolistDetailController", ($rootScope, $scope, $state, $statePa
   $scope.task_list = {}
   $scope.tasks = []
 
+  $scope.getPanelClass = (status)->
+    count = completed = 0
+
+    for task in $scope.tasks
+      if task.finished
+        completed++
+      count++
+
+    if count
+      if count == completed then 'panel-success' else 'panel-info'
+    else
+      'panel-warning'
+
   $scope.resetValues = ->
     $scope.newTaskTitle = ''
     $scope.newTaskAssignedUserId = null
@@ -90,10 +103,11 @@ app.controller "TaskController", ($rootScope, $scope, Task, Todo, $stateParams)-
       task_list_id: $stateParams['id']
       id: $scope.task.id
       ,
-      cancel: $scope.task.finished
+      cancel: !$scope.task.finished
 
       , (response) ->
         $scope.task.finished = response.finished
+        $rootScope.refresh()
       , (errRes) ->
         alert 'something strange happened'
     )
@@ -116,18 +130,7 @@ app.directive 'todo', ($rootScope) ->
   replace: true
   controller: 'TaskController'
   template: '
-    <div>
-      <div ng-hide="isEditing">
-        <a ng-click="toggleStatus()">Toggle</a>
-        {{task.title}}
-        <div ng-show="task.user_id">
-          ==> {{username(task.user_id)}} is assigned
-        </div>
-        <div ng-show="task.finished">Finished</div>
-        <div ng-hide="task.finished">Not finished yet</div>
-        <a ng-click="editMode()">EDIT</a>
-        <a ng-click="destroy()">DELETE</a>
-      </div>
+    <div class="task">
       <form ng-show="isEditing">
         <div ng-show="error">{{error}}</div>
         <input type="text" placeholder="Title" ng-model="task.title" required="true" />
@@ -135,5 +138,24 @@ app.directive 'todo', ($rootScope) ->
         <button ng-click="update()">Submit</button>
         <button ng-click="cancelEditing()">Cancel</button>
       </form>
+      <div ng-hide="isEditing" class="row">
+        <div class="col-md-1 col-md-offset-1 toggle-task-status">
+          <input type="checkbox" ng-change="toggleStatus()" ng-model="task.finished" />
+        </div>
+
+        <div class="col-md-6" ng-class="task.finished ? \'finished-task\' : \'\'">
+          {{task.title}}
+        </div>
+        <div class="col-md-2" class="assigned_user">
+          <div ng-if="task.user_id">
+            {{username(task.user_id)}}
+          </div>
+        </div>
+
+        <div class="col-md-1 actions">
+          <a class="edit-task glyphicon glyphicon-edit" href="" ng-click="editMode()" title="Edit"></a>
+          <a class="delete-task glyphicon glyphicon-remove" href="" ng-click="destroy()" title="Delete"></a>
+        </div>
+      </div>
     </div>
   '

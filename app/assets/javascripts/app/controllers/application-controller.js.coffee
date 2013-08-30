@@ -42,7 +42,6 @@ app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
 
       return deferred.promise
 
-
   # Display the tooltips on sidemenu
   $("a[data-toggle=tooltip]").tooltip({placement: 'right'})
 

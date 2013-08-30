@@ -5,8 +5,8 @@
 </label>
 <div class="row task_lists_container">
   <div class='col-md-3' ng-repeat="task_list in task_lists | orderBy:'-created_at' | displayTodoByStatus:search.tasks.status" >
-    <div class="panel task_list" ng-class="getClass(task_list.tasks.status)" ng-click="showTaskList(task_list.id)">
-      <div class="panel-heading">
+    <div class="panel task_list" ng-class="getPanelClass(task_list.tasks.status)">
+      <div class="panel-heading" ng-click="showTaskList(task_list.id)">
         <div class="metadata pull-right">
           {{task_list.tasks.finished_tasks_count}} / {{task_list.tasks.total_tasks_count}}
         </div>
@@ -18,8 +18,8 @@
       </div>
       <div class="panel-footer">
         <div class="actions pull-right">
-          <a class="glyphicon glyphicon-edit" ng-click="$event.stopPropagation()" ng-href="/todos/{{task_list.id}}/edit" title="Edit" />
-          <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id);$event.stopPropagation()" title="Delete" />
+          <a class="glyphicon glyphicon-edit" ng-href="/todos/{{task_list.id}}/edit" title="Edit" />
+          <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id)" title="Delete" />
         </div>
         <div class="metadata metadata-left">
           By {{username(task_list.user_id)}} {{moment(task_list.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}

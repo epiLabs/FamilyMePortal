@@ -28,7 +28,7 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
   ### METHODS ###
   ###############
 
-  $scope.getClass = (status)->
+  $scope.getPanelClass = (status)->
     if status == "completed"
       'panel-success'
     else if status == "empty"
