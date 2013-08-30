@@ -19,14 +19,21 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Create task</h4>
+              <h4 class="modal-title">Task</h4>
             </div>
             <div class="modal-body">
-              <form>
+              <form role="form">
                 <div ng-show="error">{{error}}</div>
                 <input type="hidden" value="task.id" />
-                <input type="text" placeholder="Title" ng-model="task.title" required="true" />
-                <select ng-model="task.user_id" ng-options="o.id as o.display_name for o in users"></select>
+
+                <div class="form-group">
+                  <label for="taskTitle">title</label>
+                  <input type="text" placeholder="Required" ng-model="task.title" required="true" id="taskTitle"/>
+                </div>
+                <div class="form-group">
+                  <label for="taskUserId">Assigned user</label>
+                  <select ng-model="task.user_id" ng-options="o.id as o.display_name for o in users" id="taskUserId"></select>
+                </div>
               </form>
             </div>
             <div class="modal-footer">

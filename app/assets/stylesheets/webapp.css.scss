@@ -25,6 +25,14 @@ $nice-black: rgba(16, 16, 16, 0.45);
   border: 0;
   background-color: $nice-black;
 
+  .actions {
+    display: none;
+  }
+
+
+  &:hover .actions {
+    display: inline-block;
+  }
 }
 
 .metadata {
@@ -94,6 +102,14 @@ $nice-black: rgba(16, 16, 16, 0.45);
 
   .assigned_user {
     font-weight: bold;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  &:hover .actions {
+    display: inline-block;
   }
 }
 
