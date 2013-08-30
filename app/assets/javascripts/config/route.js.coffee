@@ -83,3 +83,12 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
       parent: "positions"
       url: "/latest"
 
+    # Events
+    .state "events",
+      parent: "default"
+      url: '/events'
+      views:
+        "":
+          controller: "EventsController"
+          templateUrl: "/assets/events/index.html.erb"
+

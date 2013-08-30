@@ -9,5 +9,8 @@
     "tests",
     "examples",
     "sample"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.2.0-rc.1"
+  }
 }

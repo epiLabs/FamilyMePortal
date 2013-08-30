@@ -49,7 +49,7 @@ group :assets do
   gem 'uglifier'
 end
 
-# Needed for the method: :post to work
+# Needed in gemfile for usj adaptator
 gem 'jquery-rails'
 # We need this outstide of the asset group
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
