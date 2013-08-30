@@ -12,13 +12,30 @@
     </div>
     <div class="tasks_container">
       <todo ng-repeat="task in tasks" task="task" />
-      <button ng-if="!isAddingNewTask" ng-click="showNewTaskForm()">Create new task</button>
-      <form ng-if="isAddingNewTask">
-        <div ng-show="error">{{error}}</div>
-        <input type="text" placeholder="Title" ng-model="newTaskTitle" required="true" />
-        <select ng-model="newTaskAssignedUserId" ng-options="o.id as o.display_name for o in users"></select>
-        <button ng-click="create()">Submit</button>
-      </form>
+
+      <button type="button" class="btn btn-success col-md-6 col-md-offset-3" data-toggle="modal" data-target="#myModal" ng-click="resetTaskForm()">Add task</button>
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Create task</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div ng-show="error">{{error}}</div>
+                <input type="hidden" value="task.id" />
+                <input type="text" placeholder="Title" ng-model="task.title" required="true" />
+                <select ng-model="task.user_id" ng-options="o.id as o.display_name for o in users"></select>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" ng-click="saveTask()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
