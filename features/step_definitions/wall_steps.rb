@@ -22,6 +22,7 @@ Then /^I shouldn't see a post containing "(.*?)"$/ do |arg1|
 end
 
 When /^I click on the cross to delete my post$/ do
+  page.execute_script("$('.post .actions').css('display', 'inline-block')")
   page.first('.delete-post').click
 end
 
