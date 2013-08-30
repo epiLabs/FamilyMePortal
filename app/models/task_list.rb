@@ -8,7 +8,7 @@ class TaskList < ActiveRecord::Base
   validates :family_id, presence: true
   validates :title,
     presence: true,
-    format: {with: /\A\w[\w\s]{2,}\w\z/, message: "Bad format"} # 4 characters at least
+    format: {with: /\A\S.{2,}\S\z/, message: "Bad format"} # 4 characters at least
 
   before_validation :trim_title_and_description
 
