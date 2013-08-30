@@ -3,10 +3,10 @@
   # ngResource
   "ngResource",
  
-  # ui-router
+  # Router
   "ui.compat",
 
-  # ui-map
+  # Map
   'ui.map',
 
   "customFilters"

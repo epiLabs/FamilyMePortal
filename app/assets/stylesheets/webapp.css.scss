@@ -1,12 +1,3 @@
-/* Fix Google Maps canvas
- *
- * Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
- * global `box-sizing` changes. You may optionally need to reset the `max-width`
- * on images in case you've applied that anywhere else. (That shouldn't be as
- * necessary with Bootstrap 3 though as that behavior is relegated to the
- * `.img-responsive` class.)
- */
-
 $familyMe-orange: rgb(209, 154, 37);
 $familyMe-orange-dark: #ff8000; 
 
@@ -110,6 +101,14 @@ $nice-black: rgba(16, 16, 16, 0.45);
 
   &:hover .actions {
     display: inline-block;
+  }
+}
+
+// Events stuffs
+
+#calendar {
+  table {
+    // background-color: transparent;
   }
 }
 
