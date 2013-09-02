@@ -91,4 +91,18 @@ app.config ($stateProvider, $urlRouterProvider, $rootScopeProvider) ->
         "":
           controller: "EventsController"
           templateUrl: "/assets/events/index.html.erb"
+    .state "events.edit",
+      parent: "events"
+      url: '/:id/edit'
+      views:
+        "@default":
+          controller: "EventsController"
+          templateUrl: "/assets/events/edit.html.erb"
+    .state "events.new",
+      parent: "events"
+      url: '/new'
+      views:
+        "@default":
+          controller: "EventsController"
+          templateUrl: "/assets/events/new.html.erb"
 
