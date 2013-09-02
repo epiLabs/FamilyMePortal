@@ -4,12 +4,11 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
 
   $scope.fetchUsers()
 
-
   $scope.refreshCalendar = ->
 
     eventsArray = []
     for ev in $scope.events
-      eventsArray.push {title: ev.title, start: ev.start_date, end: ev.end_date, custom: ev}
+      eventsArray.push {title: ev.title, start: ev.start_date, end: ev.end_date, description: ev.description, custom: ev}
 
     $('#calendar').fullCalendar
       header:
@@ -17,9 +16,23 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
         center: 'title',
         right: 'month,basicWeek,basicDay'
       events: eventsArray
-      eventClick: (element, event)->
-        $scope.$apply ->
-          $scope.event = element.custom
+      eventAfterRender: (event, element)->
+        description = event.custom.description || "<i>No description available</i>"
+        $(element).popover(
+          title: event.title
+          placement: 'bottom'
+          trigger: 'click'
+          html: true
+          content: "
+            <div class='event-description'>#{description}</div>
+            <div class='event-duration'>
+              Duration: #{moment(event.start).from(moment(event.end), true)}
+            </div>
+            <div class='actions'>
+              <a class='edit-event'>Edit</a>
+            </div>
+          "
+        )
 
   $scope.fetchEvents = ->
     Event.query(
@@ -28,6 +41,5 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
         $scope.events = response
         $scope.refreshCalendar()
     )
-
 
   $scope.fetchEvents()

@@ -110,6 +110,13 @@ $nice-black: rgba(16, 16, 16, 0.45);
   table {
     // background-color: transparent;
   }
+
+  .popover {
+    z-index: 4000;
+    min-width: 300px;
+    color: black;
+
+  }
 }
 
 // .google-map-canvas,

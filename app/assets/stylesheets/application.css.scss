@@ -49,7 +49,7 @@ body {
 
   border: 0;
 
-  a:hover {
+  a:hover, a:focus {
     background-color: transparent !important;
   }
 }
