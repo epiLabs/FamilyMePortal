@@ -87,6 +87,6 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
       Event.delete
         id: id
       , (response)->
-        $scope.fetchEvents()
+        $location.path "/events"
       , (error)->
         alert JSON.stringify(error.data.error)
