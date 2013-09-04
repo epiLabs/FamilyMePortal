@@ -37,8 +37,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
-  gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only version with bootstrap3 for the moment
   # gem 'bootstrap-sass'
 
   gem 'execjs'
@@ -46,8 +44,11 @@ group :assets do
   # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier'
 end
+
+gem 'uglifier'
+gem 'sass-rails'
+gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only version with bootstrap3 for the moment
 
 # Needed in gemfile for usj adaptator
 gem 'jquery-rails'

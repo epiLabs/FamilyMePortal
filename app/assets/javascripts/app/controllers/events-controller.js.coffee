@@ -27,7 +27,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
           content: "
             <div class='event-description'>#{description}</div>
             <div class='event-duration'>
-              Duration: #{moment(event.start).from(moment(event.end), true)}
+              Duration: #{moment(event.custom.start_date).from(moment(event.custom.end_date), true)}
             </div>
             <div class='actions'>
               <a class='edit-event' href='events/#{event.custom.id}/edit'>Edit</a>
