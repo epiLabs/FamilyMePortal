@@ -3,11 +3,9 @@ array @events do |event|
   title event.title
   description event.description
   family_id event.family_id
-  user event.user do |user|
-    id user.id
-    avatar_url user.gravatar
-    display_name user.display_name
-  end
+  user_id event.user_id
   start_date event.start_date
   end_date event.end_date
+  created_at event.created_at
+  updated_at event.updated_at
 end

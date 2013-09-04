@@ -23,8 +23,6 @@ Given /^I'm logged out$/ do
   @user = nil
 
   within 'header' do
-    page.find('button[data-toggle=dropdown]').click
-
     click_link 'Logout'
   end
 end

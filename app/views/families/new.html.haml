@@ -8,14 +8,14 @@
       .invitation
         %p.invitation-description
           .pull-right
-            .btn.btn-success.btn-small= link_to 'Accept', accept_invitation_path(invitation)
-            .btn.btn-danger.btn-small= link_to 'Reject', reject_invitation_path(invitation)
+            .btn.btn-success.btn-sm= link_to 'Accept', accept_invitation_path(invitation)
+            .btn.btn-danger.btn-sm= link_to 'Reject', reject_invitation_path(invitation)
           = image_tag invitation.user.gravatar, title: "#{invitation.user.first_name} #{invitation.user.last_name}"
           You were invited by
           = "#{invitation.user.first_name} #{invitation.user.last_name}"
           to join his family.
-      .clear
+      .clearfix
   - else
     %p You should create a family or wait to be invited into one!
 
-.btn.btn-primary.btn-large= link_to "Create your family now", family_path, method: :post
+  = button_to "Create your family now", family_path, method: :post, class: "btn btn-primary btn-lg"

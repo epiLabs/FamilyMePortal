@@ -17,3 +17,5 @@ rerun.txt
 pickle-email-*.html
 .project
 database.yml
+vendor/assets/components/jquery
+public/assets

@@ -3,12 +3,12 @@ class TaskList < ActiveRecord::Base
 
   belongs_to :family
   belongs_to :author, class_name: "User", :foreign_key => 'author_id'
-  has_many :tasks, dependent: :destroy
+  has_many :tasks, dependent: :destroy, :order => 'created_at'
 
   validates :family_id, presence: true
   validates :title,
     presence: true,
-    format: {with: /\A\w[\w\s]{2,}\w\z/, message: "Bad format"} # 4 characters at least
+    format: {with: /\A\S.{2,}\S\z/, message: "Bad format"} # 4 characters at least
 
   before_validation :trim_title_and_description
 
@@ -28,9 +28,15 @@ class TaskList < ActiveRecord::Base
   def completed?
     finished_tasks_count == tasks_count
   end
+  def empty?
+    tasks.empty?
+  end
+  def open?
+    tasks_count > 0 && finished_tasks_count != tasks_count
+  end
 
   def status
-    if tasks.empty?
+    if empty?
       "empty"
     elsif completed?
       "completed"

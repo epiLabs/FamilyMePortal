@@ -67,4 +67,14 @@ class Invitation < ActiveRecord::Base
       raise "THIS IS NOT SUPOSED TO HAPPEN"
     end
   end
+
+  def self.accepted
+    where(status: 'accepted')
+  end
+  def self.rejected
+    where(status: 'rejected')
+  end
+  def self.pending
+    where(status: 'pending')
+  end
 end

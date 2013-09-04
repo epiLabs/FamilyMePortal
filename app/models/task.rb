@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
   validates :title,
     presence: true,
     :uniqueness => {:scope => :task_list_id, message: 'Task already exists'},
-    format: {with: /\A\w[\w\s]{2,}\w\z/, message: "Bad format"} # 4 characters at least
+    format: {with: /\A\S.{2,}\S\z/, message: "Bad format (At least 4 characters)"} # 4 characters at least
 
   before_validation :trim_title
 

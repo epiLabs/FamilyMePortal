@@ -3,8 +3,5 @@ array @tasks do |task|
   task_list_id task.task_list.id
   title task.title
   finished task.finished
-  assigned_user task.user do |user|
-    id user.try(:id)
-    display_name user.try(:display_name)
-  end
+  user_id task.user_id
 end

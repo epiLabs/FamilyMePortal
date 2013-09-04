@@ -2,14 +2,9 @@ id @task_list.id
 title @task_list.title
 description @task_list.description
 family_id @task_list.family_id
-author @task_list.author do |user|
-  id user.id
-  avatar_url user.gravatar
-  first_name user.first_name
-  last_name user.last_name
-  nickname user.nickname
-  display_name user.display_name
-end
+user_id @task_list.author_id
+created_at @task_list.created_at
+updated_at @task_list.updated_at
 tasks do
   total_tasks_count @task_list.tasks_count
   finished_tasks_count @task_list.finished_tasks_count

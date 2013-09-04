@@ -42,6 +42,6 @@ Then /^I should have received an authentication token$/ do
   ActiveSupport::JSON.decode(last_response.body)["auth_token"].should be_present
 end
 
-When /^I'm on the page of family through the api$/ do
-  visit "/api/#{@api_version}/family.json?auth_token=#{@auth_token}"
+When /^I'm on the users index through the API$/ do
+  visit "/api/#{@api_version}/users.json?auth_token=#{@auth_token}"
 end

@@ -1,34 +1,29 @@
 When /^I create a new post "(.*?)"$/ do |message|
-  within '#display-wall' do
-    click_button 'Compose message'
+  click_link 'Add new post'
 
-    page.find('#new-post-modal').should be_visible
+  fill_in 'Message', with: message
 
-    fill_in 'message', with: message
-    click_button 'Post'
-  end
+  click_button 'Save'
 end
 
 Then /^I should a post containing "(.*?)"$/ do |message|
-  within ".posts-list" do
+  sleep 0.1
+  page.current_path.should eq '/posts'
+
+  within ".webapp" do
     page.should have_content(message)
   end
 end
+
 Then /^I shouldn't see a post containing "(.*?)"$/ do |arg1|
-  within ".posts-list" do
+  within ".webapp" do
     page.should_not have_content(message)
   end
 end
 
 When /^I click on the cross to delete my post$/ do
-  # TODO : Had an issue with page.first('.delete-post').click
-  # so I used the following.
-  # Try to fix it on the future and use driver instead of JS
-  page.execute_script <<-JS
-    $('.delete-post').first().click()
-  JS
-
-  page.should_not have_selector('.delete-post', visible: false)
+  page.execute_script("$('.post .actions').css('display', 'inline-block')")
+  page.first('.delete-post').click
 end
 
 Then /^there should be (\d+) posts?$/ do |nb|
@@ -58,7 +53,5 @@ Then /^I should see one hidden cross within the post$/ do
 end
 
 Then /^I shouldn't see any cross on the post$/ do
-  within '.posts-list' do
-    page.should have_no_selector('.delete-post')
-  end
+  page.first('.delete-post').should be_nil
 end

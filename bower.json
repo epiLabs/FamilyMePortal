@@ -1,0 +1,16 @@
+{
+  "name": "familyMePortal",
+  "version": "0.1.5",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples",
+    "sample"
+  ],
+  "resolutions": {
+    "angular": "1.2.0-rc.1"
+  }
+}

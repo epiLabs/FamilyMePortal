@@ -10,33 +10,32 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    #home.row-fluid
-      .span12
-        .span3.offset2.logo= image_tag('landing/logo.png')
-        .span5.pitch
-          %h1 FamilyMe
-          %p
-            %i Family Management has never been so easy !
-          %p
-            Features include:
-            %ul
-              %li Calendar
-              %li Messages
-              %li Geolocalisation
-              %li And many others
-            Plus, It's
-            %b free
-            !
-          %p Look below for a full list of our features.
-        .row.clear &nbsp;
-        .row-fluid.join-buttons
-          = link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-large span3 offset2'
-          = link_to 'Sign in', new_user_session_path, class: 'btn btn-success btn-large span3 offset2'
-    #features.row-fluid
+    #home.row
+      .col-md-2.col-md-offset-3.logo= image_tag('landing/logo.png')
+      .col-md-3.pitch
+        %h1 FamilyMe
+        %p
+          %i Family Management has never been so easy !
+        %p
+          Features include:
+          %ul
+            %li Calendar
+            %li Messages
+            %li Geolocalisation
+            %li And many others
+          Plus, It's
+          %b free
+          !
+        %p Look below for a full list of our features.
+      .clear &nbsp;
+      .join-buttons
+        = link_to 'Sign up', new_user_registration_path, class: 'btn btn-default btn-lg btn-primary'
+        = link_to 'Sign in', new_user_session_path, class: 'btn btn-default btn-lg btn-success second'
+    #features.container
       %h1 Features
-      .row.clear &nbsp;
-      .container.row-fluid
-        .span6
+      .clear &nbsp;
+      .row
+        .col-md-6
           %h2 Invite your family
           %p
             FamilyMe is the home management tool you need. Get your free FamilyMe account, register your close relatives and see how easy scheduling and managing you home can be. It's free of charge, available on your computer, smartphone and tablet, and easy to use. Our hope is to make your life easier, so if you ever need a feature that is not available yet, do not hesitate to ask for it on Twitter, Facebook, or by e-mail; the FamilyMe team will be more than happy to consider adding it for you. Try it, you'll love it.
@@ -45,7 +44,7 @@
       .container.row-fluid
         .span6
           .pull-right= image_tag 'landing/geolocalisation.png'
-        .span6
+        .col-md-6
           %h2 Geolocalisation
           %p
             Want to know if your dauther is at here dancing class? Or who is close to the market for shopping? FamilyMe lets you know where your family members are. Use the smartphone application and get the information in a blink of an eye.
@@ -58,12 +57,12 @@
           %p
             Scheduling will never be a hard task again! Create and retreive events on your family's calendar so you never miss an important event. Setup every family member's activities and access it wherever you go. Also, easily synchronize your family's calendar with most commonly used tools such as Google Calendar or iCalendar MacOS application to avoid dispersing information.
 
-        .span6= image_tag 'landing/calendar.png'
-      .row.clear &nbsp;
-      .container.row-fluid
-        .span6
+        .col-md-6= image_tag 'landing/calendar.png'
+      .clear &nbsp;
+      .row
+        .col-md-6
           .pull-right= image_tag 'landing/todo.png'
-        .span6
+        .col-md-6
           %h2 Task lists
           %p
             Tired of asking your children to do the dishes? Need someone to do some shopping for tonight's meal? Want to get everyone involved in the daily housework? Just create a task using our service, assign someone and forget about it. They will receive a notification on their mobile phone to remind them, and they will let you know as soon as it's done!
@@ -76,9 +75,11 @@
     #app-links
       Available soon in the AppStore & Android Market
     .footer
-      .row-fluid
-        %span.span4 ©FamilyMe
-        %span.span4 FamilyMe is part of the Epitech Innovating Projects
-        %span.span4
+      .row
+        %span.col-md-4 ©FamilyMe
+        %span.col-md-4
+          FamilyMe is part of the
+          = link_to 'Epitech Innovative Projects', 'http://eip.epitech.eu/2014/familyme/'
+        %span.col-md-4
           = link_to image_tag('landing/twitter_icon.png'), "http://twitter.com/familymeeip", class: 'btn button', target: 'blank'
           = link_to image_tag('landing/facebook_icon.png'), "http://facebook.com/", class: 'btn button', target: 'blank'

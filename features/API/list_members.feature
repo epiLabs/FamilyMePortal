@@ -14,7 +14,7 @@ Feature: I can list the members of my family
   Scenario: I list the members of my family
     Given I'm a registered user "jose@free.fr" who's part of this family
     And I sign in through the api
-    When I'm on the page of family through the api
+    When I'm on the users index through the API
     Then I should see "pink_lady"
     And I should see "razzor64"
     And I should see "mastah42"
@@ -22,5 +22,5 @@ Feature: I can list the members of my family
   Scenario: I receive an error if I'm not part of a family
     Given a registered user "not_in_a_family@free.fr"
     And I sign in through the api
-    When I'm on the page of family through the api
+    When I'm on the users index through the API
     Then the page response code should be 404

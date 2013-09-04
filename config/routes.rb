@@ -5,6 +5,18 @@ FamilyMe::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
+  match '/posts' => 'families#show', :as => :dashboard
+  match '/posts/*page' => 'families#show'
+
+  match '/todos' => 'families#show'
+  match '/todos/*page' => 'families#show'
+
+  match '/positions' => 'families#show'
+  match '/positions/*page' => 'families#show'
+
+  match '/events' => 'families#show'
+  match '/events/*page' => 'families#show'
+
   resource :family, only: [:show, :create, :update, :new]
   resources :users, only: [:index]
   resources :invitations, only: [:index, :new, :create] do
@@ -13,13 +25,17 @@ FamilyMe::Application.routes.draw do
       get 'reject'
     end
   end
-  resources :task_lists
 
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
       resource :family, only: :show
-      resources :positions, only: [:create, :index]
-      resources :posts, only: [:create, :destroy, :index]
+      resources :users, only: :index
+      resources :positions, only: [:create, :index] do
+        collection do
+          get 'latest'
+        end
+      end
+      resources :posts, only: [:create, :destroy, :index, :show, :update]
 
       resources :invitations, only: [:create, :index] do
         collection do

@@ -7,18 +7,14 @@
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAE_FKae6SYVvdyddYHWdwUPs-8mMJmqqs&sensor=false"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
-  %body
-    %header.navbar.navbar-inverse
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
-    #main.container-fluid{:role => "main"}
-      .container-fluid
-        = render 'layouts/messages'
+  %body{"data-test-mode" => Rails.env.test?}
+    %header= render 'layouts/navigation'
 
-        = yield
+    #main.container{:role => "main"}
+      = render 'layouts/messages'
+
+      = yield
   %footer

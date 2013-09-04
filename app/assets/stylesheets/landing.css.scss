@@ -1,38 +1,28 @@
-@import "bootstrap";
+@import "twitter/bootstrap";
 
 $familyMe-orange: rgb(209, 154, 37);
 $familyMe-orange-dark: #ff8000; 
 
 body {  
   font-family: 'quicksand', sans-serif;
-  a {
-    font-weight: bold;
-  }
-}
-
-.join-buttons {
-  margin: 10px auto;
 }
 
 #home {
-  font-size: 1.2em;
   margin-bottom: 10%;
   margin-top: 20%;
-
-  .sign-up-container {
-    text-align: center;
-    margin-top: 30px;
-  }
 
   background-color: rgb(27, 27, 27);
   background-image: linear-gradient(rgb(34, 34, 34), rgb(17, 17, 17));
   background-repeat: repeat-x;
-  // background-color: $familyMe-orange;
-  opacity: 0.95;
-  color: $familyMe-orange;
-  // border-radius: 25px;
+  opacity: 0.98;
+  color: white;
 
   padding-top: 10px;
+
+  .clear {
+    padding: 0px;
+    border-bottom: 1px solid $familyMe-orange-dark;
+  }
 }
 
 .clear {
@@ -42,12 +32,25 @@ body {
   margin: auto;
 }
 
-.container {
+.join-buttons {
+  padding: 10px 0px 5px;
+  text-align: center;
+
+  a {
+    width: 120px;
+    &.second { margin-left: 70px; }
+  }
+}
+
+#features {
+  max-width: 100%;
+  width: 100%;
+
   h2 {
     margin-top: 50px;
     margin-bottom: 30px;
   }
-  .span6 {
+ .col-md-6 {
     padding: 20px;
   }
 }
@@ -89,10 +92,14 @@ body {
 .footer {
   color: white;
   font-weight: bold;
-  padding: 20px;
+  padding: 10px;
   background-color: #343b41;
   text-align: center;
   border-top: 5px solid #4d5a63;
+
+  span {
+    line-height: 39px;
+  }
 
   .btn {
     display: inline-block;

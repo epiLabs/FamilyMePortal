@@ -1,0 +1,136 @@
+$familyMe-orange: rgb(209, 154, 37);
+$familyMe-orange-dark: #ff8000; 
+
+$link-color: $familyMe-orange-dark;
+$link-hover-color: $familyMe-orange;
+
+$nice-black: rgba(16, 16, 16, 0.45);
+
+@import "twitter/bootstrap";
+
+// Dashboard stuffs
+.new-post {
+  margin-bottom: 10px;
+}
+.post {
+  border: 0;
+  background-color: $nice-black;
+
+  .actions {
+    display: none;
+  }
+
+
+  &:hover .actions {
+    display: inline-block;
+  }
+}
+
+.metadata {
+  text-align: right;
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 20px;
+  color: #999999;
+
+  &.metadata-left {
+    text-align: left;
+  }
+}
+
+// Task list
+
+.panel-body {
+  color: #222222;
+}
+
+.task_lists_container {
+  margin-top: 20px;
+  .task_list {
+
+    .panel-heading {
+      cursor: pointer;
+    }
+
+    .panel-body i {
+      color: $nice-black;
+    }
+
+    .panel-footer {
+      .actions {
+        display: none;
+      }
+    }
+
+    &:hover .panel-footer .actions {
+      display: inline-block;
+    }
+  }
+}
+
+// Task list detail
+
+.task_list {
+  .panel-body {
+    .tasks_container {
+      border-top: 1px solid #F2F2F2;
+      padding-top: 20px;
+      margin: 20px auto;
+    }
+  }
+}
+
+.task {
+  line-height: 26px;
+
+  .toggle-task-status {
+    text-align: center;
+  }
+
+  .finished-task {
+    text-decoration: line-through;
+  }
+
+  .assigned_user {
+    font-weight: bold;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  &:hover .actions {
+    display: inline-block;
+  }
+}
+
+// Events stuffs
+
+#calendar {
+  table {
+    // background-color: transparent;
+  }
+
+  .popover {
+    z-index: 4000;
+    min-width: 300px;
+    color: black;
+
+  }
+}
+
+// .google-map-canvas,
+// .google-map-canvas * { .box-sizing(content-box); }
+
+/* Optional responsive image override */
+img { max-width: none; }
+
+.google-map-canvas {
+  color: black;
+  width: 100%;
+  height: 700px;
+
+  img {
+    max-width: inherit;
+  }
+}

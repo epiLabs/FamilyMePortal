@@ -63,5 +63,7 @@ module FamilyMe
 
     # TODO: Drop this when we switch to rails 4, see https://devcenter.heroku.com/articles/rails-asset-pipeline#troubleshooting
     config.assets.initialize_on_precompile = false
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

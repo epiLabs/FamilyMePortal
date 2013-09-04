@@ -12,6 +12,10 @@ When /^I visit my family page$/ do
   visit family_path
 end
 
+When /^I'm on the dashboard of my family$/ do
+  visit dashboard_path
+end
+
 Then /^I should see a notice$/ do
   page.find("#flash_notice").should be_visible
 end
@@ -24,14 +28,14 @@ Then /^I should see an error$/ do
   page.find("#flash_error").should be_visible
 end
 
-Then /^I should be on the new family page$/ do
-  current_url.should == family_url
+Then /^I should be on the dashboard page$/ do
+  current_path.should == dashboard_path
 end
 
 Given /^I'm part of a family$/ do
   visit family_path
   
-  step "I follow \"Create your family now\""
+  step "I press \"Create your family now\""
 
   @family = Family.last
 end

@@ -1,0 +1,45 @@
+<input type="hidden" ng-model="event.id" />
+
+<div class="form-group {{customClass}}">
+  <label for="title" class="col-lg-2 control-label">
+    Title <abbr title="required">*</abbr>
+  </label>
+  <div class="col-lg-10">
+    <input placeholder="Title" type="text" ng-model="event.title" class="form-control" id="title"/>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="description" class="col-lg-2 control-label">
+    Description
+  </label>
+  <div class="col-lg-10">
+    <textarea placeholder="Optionnal description" class="form-control" rows="6" ng-model="event.description" id="description"></textarea>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="start-date" class="col-lg-2 control-label">
+    Start Date
+  </label>
+  <div class="col-lg-10">
+    <date-time-picker ng-model="event.start_date"></date-time-picker>    
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="end-date" class="col-lg-2 control-label">
+    End Date
+  </label>
+  <div class="col-lg-10">
+    <date-time-picker ng-model="event.end_date"></date-time-picker>    
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-lg-offset-2 col-lg-10">
+    <a href="/events" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-warning">Save</button> 
+    <a ng-click="destroy(event.id)" class="btn btn-danger pull-right" ng-if="event.id">Delete</a>
+  </div>
+</div>

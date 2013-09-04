@@ -1,14 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', "~> 3.2.14"
 gem 'pg'
 gem 'mysql2'
 gem 'thin'
-
-gem 'jquery-rails'
-gem 'backbone-on-rails'
-
-gem 'backstretch-rails' # For the landing page
 
 # Authentication
 gem 'devise'
@@ -43,17 +38,19 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'bootstrap-sass'
+  gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only version with bootstrap3 for the moment
+  # gem 'bootstrap-sass'
 
-  gem 'haml_coffee_assets'
   gem 'execjs'
   
   # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
+# Needed in gemfile for usj adaptator
+gem 'jquery-rails'
 # We need this outstide of the asset group
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
 gem 'coffee-rails' 
@@ -63,6 +60,6 @@ group :test do
   gem "sqlite3"
   gem 'poltergeist'
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  gem 'database_cleaner', "~> 1.0.1" # see https://github.com/gregbell/active_admin/issues/2388
   gem 'email_spec'
 end

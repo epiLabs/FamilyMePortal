@@ -8,32 +8,18 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require backbone-forms-bootstrap
- *= require wall
- *= require events
- *= require positions
- *= require tasks
+ *= require fullcalendar/fullcalendar
+ *= require bootstrap-datetimepicker-master/css/datetimepicker
+ *= require webapp
  */
-
-@import "bootstrap";
 
 $familyMe-orange: rgb(209, 154, 37);
 $familyMe-orange-dark: #ff8000; 
-
-.clear {clear: both}
 
 body {
   color: white;
   background: url('/assets/classy_fabric.png') repeat left top; 
   font-family: 'quicksand', sans-serif;
-  a {
-    font-weight: bold;
-  }
-
-  h1, h2, h3 {
-    color: $familyMe-orange;
-  }
 
   label { font-weight: bold;}
 
@@ -47,19 +33,26 @@ body {
   }
 }
 
-// Topbar stuffs
-
-.btn-group > .dropdown-menu {
-  left: -350%;
+.orange-caret
+{
+  border-top-color: $familyMe-orange-dark !important;
+  border-bottom-color: $familyMe-orange-dark !important;
 }
 
-// Application
+// Sidemenu
 
-#main-application {
-  h3 {
-    text-align: center;
+.navigation-menu {
+  position: absolute;
+  top: 54px;
+  left: 2px;
+  text-align: center;
+  background-color: #222222; // Kind of black used by navbar-inverse
+
+  border: 0;
+
+  a:hover, a:focus {
+    background-color: transparent !important;
   }
-
 }
 
 // Simple form improvments
@@ -67,11 +60,4 @@ body {
 .form-actions {
   background-color: transparent;
   border: none;
-}
-
-// Theres an issue with imgs in google map because of a reset.css
-#google_map {
-  img {
-    max-width: inherit;
-  }
 }

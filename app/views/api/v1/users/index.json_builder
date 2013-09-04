@@ -1,0 +1,9 @@
+array @users do |user|
+  id user.id
+  avatar_url user.gravatar
+  first_name user.first_name
+  last_name user.last_name
+  nickname user.nickname
+  display_name user.display_name
+  last_sign_in user.last_sign_in_date_formated
+end
