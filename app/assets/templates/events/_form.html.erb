@@ -5,7 +5,7 @@
     Title <abbr title="required">*</abbr>
   </label>
   <div class="col-lg-10">
-    <input placeholder="Title of your task list" type="text" ng-model="event.title" class="form-control" id="title"/>
+    <input placeholder="Title" type="text" ng-model="event.title" class="form-control" id="title"/>
   </div>
 </div>
 
@@ -23,7 +23,7 @@
     Start Date
   </label>
   <div class="col-lg-10">
-    <input placeholder="date" class="form-control" ng-model="event.start_date" id="start-date"></textarea>
+    <date-time-picker ng-model="event.start_date"></date-time-picker>    
   </div>
 </div>
 
@@ -32,7 +32,7 @@
     End Date
   </label>
   <div class="col-lg-10">
-    <input placeholder="date" class="form-control" ng-model="event.end_date" id="end-date"></textarea>
+    <date-time-picker ng-model="event.end_date"></date-time-picker>    
   </div>
 </div>
 

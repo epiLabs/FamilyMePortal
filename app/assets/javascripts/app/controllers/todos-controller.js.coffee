@@ -42,7 +42,6 @@ app.controller "TodosController", ($scope, $location, $state, $stateParams, $log
       $scope.customClass = "has-error"
       unless $scope.$$phase
         $scope.$apply()
-      console.log 'exists'
     else
       alert error
 

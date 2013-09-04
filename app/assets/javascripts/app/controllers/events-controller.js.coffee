@@ -16,6 +16,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
         center: 'title',
         right: 'month,basicWeek,basicDay'
       events: eventsArray
+      ignoreTimezone: false
       eventAfterRender: (event, element)->
         description = event.custom.description || "<i>No description available</i>"
         $(element).popover(
@@ -47,6 +48,8 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
 
       , (response) ->
         $scope.event = response
+        $scope.event.start_date = moment(response.start_date, "YYYY-MM-DDTHH:mm:ssZ").format("YYYY/MM/DD HH:mm")
+        $scope.event.end_date = moment(response.end_date, "YYYY-MM-DDTHH:mm:ssZ").format("YYYY/MM/DD HH:mm")
       , (error) ->
     )
 
@@ -59,13 +62,13 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
       event:
         title: $scope.event.title
         description: $scope.event.description
-        start_date: $scope.event.start_date
-        end_date: $scope.event.end_date
+        start_date: moment($scope.event.start_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
+        end_date: moment($scope.event.end_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
    
       , (response) ->
         $location.path "/events"
       , (error)->
-        $scope.error = error
+        alert JSON.stringify(error.data.error)
     )
   $scope.update = ->
     Event.update
@@ -73,12 +76,12 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
     , event:
         title: $scope.event.title
         description: $scope.event.description
-        start_date: $scope.event.start_date
-        end_date: $scope.event.end_date
-    , (reponse)->
+        start_date: moment($scope.event.start_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
+        end_date: moment($scope.event.end_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
+    , (response)->
       $location.path "/events"
     , (error)->
-      console.log error
+      alert JSON.stringify(error.data.error)
   $scope.destroy = (id) ->
     if confirm 'Are you sure that you want to delete this event?'
       Event.delete
@@ -86,4 +89,4 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
       , (response)->
         $scope.fetchEvents()
       , (error)->
-        console.log error
+        alert JSON.stringify(error.data.error)

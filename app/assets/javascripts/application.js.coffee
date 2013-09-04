@@ -8,6 +8,7 @@
 #= require angular-ui-utils/modules/event/event
 #= require angular-ui-map/src/map
 #= require fullcalendar/fullcalendar
+#= require bootstrap-datetimepicker-master/js/bootstrap-datetimepicker
 #= require app/main
 #= require_tree ./config
 #= require_tree ./app/filters
