@@ -19,3 +19,10 @@ pickle-email-*.html
 database.yml
 vendor/assets/components/jquery
 public/assets
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
