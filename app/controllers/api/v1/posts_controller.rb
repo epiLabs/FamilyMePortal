@@ -4,7 +4,9 @@ class Api::V1::PostsController < ApiController
   end
 
   def destroy
-    respond_with current_user.posts.find(params[:id]).destroy
+    current_user.posts.find(params[:id]).destroy
+
+    render nothing: true, head: :no_content
   end
 
   def create
