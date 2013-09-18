@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with resource do |format|
         format.html
         format.json do
-          render json: {error: resource.errors}
+          render json: {error: resource.errors}, status: :bad_request
         end
       end
     end
