@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :end_date, presence: true
   validates :title,
     presence: true,
-    format: {with: /\A\w[\w\s]+\w\z/, message: "Bad format"} # 2 characters at least
+    format: {with: /\A\w.{2,}+\w\z/, message: "Bad format"} # 2 characters at least
 
   before_validation :trim_title_and_description
 

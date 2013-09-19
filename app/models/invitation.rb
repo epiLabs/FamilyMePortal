@@ -59,7 +59,7 @@ class Invitation < ActiveRecord::Base
     case status
     when 'pending'
       'warning'
-    when 'declined'
+    when 'rejected'
       'error'
     when 'accepted'
       'success'

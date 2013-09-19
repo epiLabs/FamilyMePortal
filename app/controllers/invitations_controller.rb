@@ -10,9 +10,9 @@ class InvitationsController < ApplicationController
     invitation = Invitation.find(params[:id])
     
     if invitation.accept! current_user
-      redirect_to family_path, notice: "You are now in a family!"
+      redirect_to root_path, notice: "You are now in a family!"
     else
-      redirect_to root_path, error: "An error has happened"
+      redirect_to root_path, error: "An error has occured"
     end
   end
 
