@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# encoding: utf-8
 
 password = 'toto42'
 
@@ -38,9 +32,15 @@ password = 'toto42'
 @younes.save!
 
 @nicolas = User.new(nickname: 'berhau_n', first_name: 'Nicolas', last_name: 'Berhault', email: 'gurki.epitech@gmail.com', password: password, password_confirmation: password)
-@nicolas.family = @family
 @nicolas.last_sign_in_at = 1.minute.ago
 @nicolas.save!
+
+# --- Invite Nicolas
+@invitation = Invitation.new(email: @nicolas.email)
+@invitation.user = @dimitri
+@invitation.family = @family
+@invitation.save!
+@invitation.accept! @nicolas
 
 # Add some positions
 
@@ -66,11 +66,11 @@ password = 'toto42'
 
 # Add some messages
 
-post = @family.posts.new(message: "Pensez a commit sur develop hein!")
+post = @family.posts.new(message: "Le grand jour c'est bientôt")
 post.author = @dimitri
 post.save
 
-post = @family.posts.new(message: "Coucou les copains!")
+post = @family.posts.new(message: "iOS 7 est vraiment bien fait")
 post.author = @charles
 post.save
 
@@ -78,39 +78,77 @@ post = @family.posts.new(message: "Salut !")
 post.author = @jose
 post.save
 
-post = @family.posts.new(message: "Le nouveau Game of Thrones dechire")
+post = @family.posts.new(message: "Le nouveau Game of Thrones déchire!")
 post.author = @julien
 post.save
 
-post = @family.posts.new(message: "Je pars en charter")
+post = @family.posts.new(message: "José il faudrait aller à carrefour")
 post.author = @younes
 post.save
 
 # Add some events
 
 now = Time.now
-past_event = Event.new(title: 'Past event', start_date: (now - 2.days), end_date: (now - 2.days))
+past_event = Event.new(title: 'Travailler sur le projet', start_date: (now - 2.days), end_date: (now - 2.days + 2.hours))
 past_event.family = @family
 past_event.user = @dimitri
 past_event.save!
 
-current_event = Event.new(title: 'Current event', start_date: (now - 1.hour), end_date: (now + 1.hour))
+current_event = Event.new(title: 'Faire la présentation', start_date: (now + 5.hour), end_date: (now + 6.hour))
 current_event.family = @family
 current_event.user = @dimitri
 current_event.save!
 
-future_event = Event.new(title: 'Future event', start_date: (now + 1.hours), end_date: (now + 3.hours))
+future_event = Event.new(title: 'Kernel Programming', start_date: (now + 20.hours), end_date: (now + 21.hours))
 future_event.family = @family
 future_event.user = @dimitri
 future_event.save!
 
 # Add some Tasks
 
-@backEnd = TaskList.new(title: "Dev backend", description: "Diverses Taches sur le back")
-@backEnd.family = @family
-@backEnd.author = @dimitri
-@backEnd.save!
+@backEnd1 = TaskList.new(title: "Faire les courses")
+@backEnd1.family = @family
+@backEnd1.author = @dimitri
+@backEnd1.save!
 
-@backEnd.tasks.create!(title: "Create design", user: @julien)
-@backEnd.tasks.create!(title: "Refactor tests", user: @younes)
-@backEnd.tasks.create!(title: "Improve API", user: @dimitri)
+@backEnd1.tasks.create!(title: "Acheter du lait", user: @julien, finished: true)
+@backEnd1.tasks.create!(title: "Chercher le pain", user: @younes, finished: true)
+@backEnd1.tasks.create!(title: "Aller chez le boucher", user: @dimitri, finished: true)
+
+# ---
+
+@backEnd2 = TaskList.new(title: "Presentation EIP", description: "Presentation finale Tek4")
+@backEnd2.family = @family
+@backEnd2.author = @dimitri
+@backEnd2.save!
+
+@backEnd2.tasks.create!(title: "Introduction", user: @julien, finished: true)
+@backEnd2.tasks.create!(title: "Présentation features", finished: true)
+@backEnd2.tasks.create!(title: "Architecture Technique", user: @dimitri, finished: true)
+@backEnd2.tasks.create!(title: "Demo")
+@backEnd2.tasks.create!(title: "Difficultés rencontrées", user: @jose)
+@backEnd2.tasks.create!(title: "Conclusion")
+
+# ---
+
+@backEnd3 = TaskList.new(title: "Préparation Forum", description: "A définir")
+@backEnd3.family = @family
+@backEnd3.author = @dimitri
+@backEnd3.save!
+
+# Add two invitations
+
+@invitation1 = Invitation.new(email: "francois@gmail.com")
+@invitation1.user = @charles
+@invitation1.family = @family
+@invitation1.save!
+
+# ---
+
+@invitation2 = Invitation.new(email: "don_t_invite_me@gmail.com")
+@invitation2.user = @jose
+@invitation2.status = "rejected"
+@invitation2.family = @family
+@invitation2.save!
+
+
