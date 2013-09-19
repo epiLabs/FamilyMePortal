@@ -67,3 +67,9 @@ body {
     color: white;
   }
 }
+
+
+// Fix until simple_form gets bootstrap 3
+.control-group, .form-actions {
+  margin: 10px 0;
+}
