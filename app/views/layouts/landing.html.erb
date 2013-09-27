@@ -12,16 +12,17 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link href="fonts.css" rel="stylesheet">
-    
-    <!-- <link rel="shortcut icon" href="brand-id.ico"> -->
-    <link rel="icon" type="image/png" href="brand-id.png" />
+
+    <%= stylesheet_link_tag "landing", :media => "all" %>
+    <%= csrf_meta_tags %>
+
   </head>
   <body>
     <div id="content">
-      
+
       <header id="main-nav" class="fixed">
         <div class="grid clearfix">
-          <img class="brand-id left" src="brand-id.png" height="35px" width="35px"/>
+          <%= image_tag("landing/brand-id.png", :class => "brand-id left", :size => "35x35") %>
           <h3 class="brand"> FAMILYME </h3>
           <ul class="navi">
             <li> <h4><a href="#features">FEATURES</a></h4> </li>
@@ -30,22 +31,22 @@
           <button type="button" class="btn gray-bg button">SIGN IN</button>
         </div>
       </header>
-      
+
       <section id="mission" class="orange-bg">
         <div id="purpose" class="grid clearfix">
           <div class="macintosh"></div>
           <div class="wrapper right">
             <h1> A tool for your family. </h1>
             <h5> FamilyMe est un Epitech Innovating Project (EIP) devellopez pour votre famille. </h5>
-            
+
             <form id="form">
                 <input type="email" placeholder="Get Started NOW !" required="">
             </form>
-            
+
           </div>
         </div>
       </section>
-      
+
       <section id="features" class="pale-bg">
         <div class="grid">
           <ul class="navi">
@@ -66,14 +67,14 @@
               <h4><a href="#archi">List & Task</a></h4>
             </li>
           </ul>
-          
+
           <div class="h-wrap">
             <h1> We have every tool your family needs. </h1>
             <h5> Make your household a better place by sharing and collaborating 100% privately. </h5>
           </div>
         </div>
       </section>
-      
+
       <section id="eip" class="blue-bg">
         <div></div>
         <div class="grid clearfix">
@@ -82,15 +83,15 @@
           <h1 class="right"> <strong> { E.I.P } </strong> </h1>
         </div>
       </section>
-      
+
       <footer id="footer">
         <div class="grid clearfix">
           <h1> PROUDLY MADE ON A MAC  </h1>
           </br />
-          <img class="brand-id" src="brand-id.png" height="65px" width="65px"/>
+          <%= image_tag("landing/brand-id.png", :class => "brand-id", :size => "65x65") %>
         </div>
       </footer>
-      
+
     </div> <!-- /content -->
   </body>
 </html>
