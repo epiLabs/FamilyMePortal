@@ -1,3 +1,5 @@
+= link_to "Export calendrier", icalendar_events_path(ical_token: current_user.get_ical_token, protocol: 'webcal', format: :ics)
+
 .family-members-list
   %table.table.table-bordered.table-hover
     %tr

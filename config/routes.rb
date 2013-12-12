@@ -17,6 +17,8 @@ FamilyMe::Application.routes.draw do
   match '/events' => 'families#show'
   match '/events/*page' => 'families#show'
 
+  match '/icalendar' => 'families#icalendar', as: 'icalendar_events'
+
   resource :family, only: [:show, :create, :update, :new]
   resources :users, only: [:index]
   resources :invitations, only: [:index, :new, :create] do

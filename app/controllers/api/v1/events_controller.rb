@@ -9,7 +9,7 @@ class Api::V1::EventsController < ApiController
   def create
     @event = current_user.family.events.new(params[:event])
     @event.user = current_user
-    
+
     if @event.save
       render action: :show
     else

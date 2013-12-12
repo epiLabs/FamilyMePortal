@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :positions, dependent: :destroy
   has_many :posts, :foreign_key => 'author_id'
-  
+
   has_many :tasks, dependent: :nullify
   has_many :task_lists, :foreign_key => 'author_id', dependent: :nullify
   has_many :assigned_tasks, class_name: 'Task'
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   end
 
   def invitations
-    Invitation.where(email: email, status: 'pending') 
+    Invitation.where(email: email, status: 'pending')
   end
 
   def display_name
@@ -88,5 +88,13 @@ class User < ActiveRecord::Base
     else
       'Unknown user name'
     end
+  end
+
+  def get_ical_token
+    unless ical_token.present?
+      self.ical_token = SecureRandom.urlsafe_base64
+      save
+    end
+    ical_token
   end
 end

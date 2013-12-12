@@ -21,6 +21,8 @@ gem 'omniauth-facebook'
 
 gem 'forgery'
 
+gem 'icalendar'
+
 gem 'factory_girl_rails'
 
 group :development do
@@ -40,7 +42,7 @@ group :assets do
   # gem 'bootstrap-sass'
 
   gem 'execjs'
-  
+
   # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -54,7 +56,7 @@ gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only
 gem 'jquery-rails'
 # We need this outstide of the asset group
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
-gem 'coffee-rails' 
+gem 'coffee-rails'
 gem 'haml'
 
 group :test do

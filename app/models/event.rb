@@ -29,4 +29,15 @@ class Event < ActiveRecord::Base
   def self.currents_and_futures(from = Time.now)
     where('end_date > ? OR start_date > ?', from, from)
   end
+
+  def to_ics
+    event = Icalendar::Event.new
+
+    event.dtstart = start_date.to_time
+    event.dtend = end_date.to_time
+    event.summary = title
+    event.description = description
+    p event
+    event
+  end
 end

@@ -1,4 +1,7 @@
+require 'icalendar'
+
 class FamiliesController < ApplicationController
+  include Icalendar
   before_filter :ensure_user_is_authenticated, except: [:landing]
 
   def show
@@ -31,5 +34,23 @@ class FamiliesController < ApplicationController
   end
 
   def new
+  end
+
+  def icalendar
+    events = current_user.family.events
+
+    if params[:ical_token] != current_user.get_ical_token
+      redirect_to root_path, alert: "You are not allowed to do this"
+      return
+    end
+
+    cal = Calendar.new
+
+    events.each do |event|
+      cal.add_event(event.to_ics)
+    end
+
+    cal.publish
+    render text: cal.to_ical, layout: false
   end
 end
