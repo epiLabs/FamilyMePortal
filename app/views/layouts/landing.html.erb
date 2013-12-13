@@ -28,7 +28,7 @@
             <li> <h4><a href="#features">FEATURES</a></h4> </li>
             <li> <h4><a href="#archi">ARCHITECTURE</a></h4> </li>
           </ul>
-          <button type="button" class="btn gray-bg button">SIGN IN</button>
+          <%= button_to "SIGN IN", new_user_session_path, :class => "btn gray-bg button", :method => :get %>
         </div>
       </header>
 
