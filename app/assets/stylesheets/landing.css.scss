@@ -1,5 +1,6 @@
 @import "twitter/bootstrap";
 @import "fonts.css";
+@require "entypo";
 
 /*
 ** resets
@@ -194,6 +195,7 @@ header, section {
 
 #main-nav ul li, #features ul li {
     margin-left: 2em;
+    font-size: 50px !important;
     display: inline-block;
 }
 
@@ -286,7 +288,7 @@ header, section {
 #features ul {
     display: block;
     margin: 0px auto 0 auto;
-    width: 900px;
+    width: 1000px;
 }
 
 #features ul li { margin-left: 10em; }

@@ -22,6 +22,7 @@ gem 'omniauth-facebook'
 gem 'forgery'
 
 gem 'factory_girl_rails'
+gem 'entypo-rails'
 
 group :development do
   gem "better_errors"
@@ -54,7 +55,7 @@ gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails' # Only
 gem 'jquery-rails'
 # We need this outstide of the asset group
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
-gem 'coffee-rails' 
+gem 'coffee-rails'
 gem 'haml'
 
 group :test do
