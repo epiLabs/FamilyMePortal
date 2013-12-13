@@ -1,32 +1,38 @@
 FamilyMe::Application.routes.draw do
-  devise_for :users, :controllers => {
-    :sessions => 'sessions',
-    :registrations => 'registrations',
-    :omniauth_callbacks => "users/omniauth_callbacks"
-  }
 
-  match '/posts' => 'families#show', :as => :dashboard
-  match '/posts/*page' => 'families#show'
+  scope "(:locale)", locale: /en|fr/ do
+    devise_for :users, :controllers => {
+      :sessions => 'sessions',
+      :registrations => 'registrations',
+      :omniauth_callbacks => "users/omniauth_callbacks"
+    }
 
-  match '/todos' => 'families#show'
-  match '/todos/*page' => 'families#show'
+    match '/icalendar' => 'families#icalendar', as: 'icalendar_events'
 
-  match '/positions' => 'families#show'
-  match '/positions/*page' => 'families#show'
-
-  match '/events' => 'families#show'
-  match '/events/*page' => 'families#show'
-
-  match '/icalendar' => 'families#icalendar', as: 'icalendar_events'
-
-  resource :family, only: [:show, :create, :update, :new]
-  resources :users, only: [:index]
-  resources :invitations, only: [:index, :new, :create] do
-    member do
-      get 'accept'
-      get 'reject'
+    resource :family, only: [:show, :create, :update, :new]
+    resources :users, only: [:index]
+    resources :invitations, only: [:index, :new, :create] do
+      member do
+        get 'accept'
+        get 'reject'
+      end
     end
+
+    root :to => 'families#landing'
   end
+
+  match '/posts' => 'families#show', :as => :dashboard, disable_redirect: true
+  match '/posts/*page' => 'families#show', disable_redirect: true
+
+  match '/todos' => 'families#show', disable_redirect: true
+  match '/todos/*page' => 'families#show', disable_redirect: true
+
+  match '/positions' => 'families#show', disable_redirect: true
+  match '/positions/*page' => 'families#show', disable_redirect: true
+
+  match '/events' => 'families#show', disable_redirect: true
+  match '/events/*page' => 'families#show', disable_redirect: true
+
 
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
@@ -113,7 +119,6 @@ FamilyMe::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'families#landing'
 
   # See how all your routes lay out with "rake routes"
 

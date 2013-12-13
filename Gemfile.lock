@@ -73,6 +73,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
+    devise-i18n (0.10.0)
     diff-lcs (1.2.4)
     email_spec (1.5.0)
       launchy (~> 2.1)
@@ -100,6 +101,7 @@ GEM
       tilt
     hashie (2.0.5)
     hike (1.2.3)
+    http_accept_language (2.0.0)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.5)
@@ -170,6 +172,9 @@ GEM
       activesupport (= 3.2.14)
       bundler (~> 1.0)
       railties (= 3.2.14)
+    rails-i18n (3.0.0)
+      i18n (~> 0.5)
+      rails (>= 3.0.0, < 4.0.0)
     railties (3.2.14)
       actionpack (= 3.2.14)
       activesupport (= 3.2.14)
@@ -235,6 +240,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner (~> 1.0.1)
   devise
+  devise-i18n
   email_spec
   entypo-rails
   execjs
@@ -243,6 +249,7 @@ DEPENDENCIES
   geocoder
   gravtastic
   haml
+  http_accept_language
   icalendar
   jquery-rails
   json_builder
@@ -254,6 +261,7 @@ DEPENDENCIES
   pry
   pry-rails
   rails (~> 3.2.14)
+  rails-i18n (~> 3.0.0)
   rspec-rails
   sass-rails
   simple_form
