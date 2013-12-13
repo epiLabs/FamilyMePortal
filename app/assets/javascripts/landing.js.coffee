@@ -1,5 +1,5 @@
 #= require jquery
 #= require jquery-backstretch/jquery.backstretch
 
-$ ->
-   $.backstretch("assets/landing/bg.jpg");  
+# $ ->
+#    $.backstretch("assets/landing/bg.jpg");

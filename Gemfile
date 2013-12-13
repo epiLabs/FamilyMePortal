@@ -24,6 +24,7 @@ gem 'forgery'
 gem 'icalendar'
 
 gem 'factory_girl_rails'
+gem 'entypo-rails'
 
 group :development do
   gem "better_errors"
