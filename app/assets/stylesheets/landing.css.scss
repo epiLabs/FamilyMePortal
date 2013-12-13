@@ -1,7 +1,7 @@
 
-@import "twitter/bootstrap";
 @import "fonts.css";
 @import "entypo";
+@import "twitter/bootstrap";
 
 /*
 ** resets
@@ -239,6 +239,11 @@ header, section {
     font-weight: 300;
     font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
 }
+#mission .wrapper a {
+    display: inline-block;
+    margin-left: 150px;
+}
+
 
 #mission .wrapper input {
     height: 44px;
@@ -264,11 +269,11 @@ header, section {
 
 #mission .macintosh {
     background: url('/assets/landing/macbookpro.png') no-repeat;
-    background-size: 896px 600px;
+    background-size: 807px 540px;
     position: absolute;
-    height: 600px;
-    width: 896px;
-    margin: 0 0 0 -100px;
+    height: 540px;
+    width: 807px;
+    margin: 0 0 0 -120px;
     bottom: 0;
 
 }

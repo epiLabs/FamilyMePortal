@@ -15,7 +15,7 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.generate_new_including_user current_user
 
-    redirect_to action: :show
+    redirect_to dashboard_path
   end
 
   def update
@@ -24,7 +24,7 @@ class FamiliesController < ApplicationController
   def landing
     if current_user
       if current_user.family
-       redirect_to action: :show
+       render :show
       else
        render :new
      end

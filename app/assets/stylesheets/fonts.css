@@ -327,13 +327,13 @@
 
 /*
 	Copyright (C) 2013 Hoefler & Frere-Jones
-	
+
 	This software is the property of Hoefler & Frere-Jones (H&FJ).
 	Your right to access and use this software is subject to the
 	applicable License Agreement, or Terms of Service, that exists
 	between you and H&FJ. If no such agreement exists, you may not
 	access or use this software for any purpose.
-	
+
 	This software may only be hosted at the locations specified in
 	the applicable License Agreement or Terms of Service, and only
 	for the purposes expressly set forth therein.  You may not copy,
@@ -354,10 +354,6 @@
 @font-face{font-family:'Droid Sans';src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-webfont-5344fa2038d0a7703f165db4c92a5b53.eot);src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-webfont.eot?#iefix) format("embedded-opentype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-webfont-9bd73bceb6c60ffc887b54e226f51d8e.woff) format("woff"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-webfont-53a2124ad8f803c2466ebe3193cecf76.ttf) format("truetype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-webfont.svg#droid_sansregular) format("svg");font-weight:normal;font-style:normal}
 
 @font-face{font-family:'Droid Sans';src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-bold-webfont-ab00a0ec581e89815d47366d4f18d006.eot);src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-bold-webfont.eot?#iefix) format("embedded-opentype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-bold-webfont-713eb0388296c3a5b2ae5c47413bc70e.woff) format("woff"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-bold-webfont-06624d52d08610b0a01a5c4466699528.ttf) format("truetype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/droidsans-bold-webfont.svg#droid_sansbold) format("svg");font-weight:bold;font-style:normal}
-
-@font-face{font-family:'nexa_boldregular';src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_bold-webfont-cad594a9b99614d210ddf66caa27a9ad.eot);src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_bold-webfont.eot?#iefix) format("embedded-opentype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_bold-webfont-eff796aacc8e9f5c265ce750253ec55c.woff) format("woff"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_bold-webfont-be3656048b84339a53e5f3c900084242.ttf) format("truetype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_bold-webfont.svg#nexa_boldregular) format("svg");font-weight:normal;font-style:normal}
-
-@font-face{font-family:'nexa_lightregular';src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_light-webfont-c4a74d6d70474f33c576020260cd8cd2.eot);src:url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_light-webfont.eot?#iefix) format("embedded-opentype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_light-webfont-f48734b093946e4d90149095045c470c.woff) format("woff"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_light-webfont-7249bc17c8fa37a61e821fd6c99d5d0f.ttf) format("truetype"),url(https://d3eqlk8ng106m4.cloudfront.net/assets/nexa_light-webfont.svg#nexa_lightregular) format("svg");font-weight:normal;font-style:normal}
 
 /* SEPARATE */
 
