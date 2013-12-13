@@ -1,6 +1,7 @@
+
 @import "twitter/bootstrap";
 @import "fonts.css";
-@require "entypo";
+@import "entypo";
 
 /*
 ** resets
@@ -291,7 +292,7 @@ header, section {
     width: 1000px;
 }
 
-#features ul li { margin-left: 10em; }
+#features ul li { margin-left: 1em; }
 #features ul li:first-child { margin-left: 0; }
 #features ul li a {
     font-family: 'Gotham Rounded A', 'Gotham Rounded B';

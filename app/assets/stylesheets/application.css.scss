@@ -11,14 +11,15 @@
  *= require fullcalendar/fullcalendar
  *= require bootstrap-datetimepicker-master/css/datetimepicker
  *= require webapp
+ *= require entypo
  */
 
 $familyMe-orange: rgb(209, 154, 37);
-$familyMe-orange-dark: #ff8000; 
+$familyMe-orange-dark: #ff8000;
 
 body {
   color: white;
-  background: url('/assets/classy_fabric.png') repeat left top; 
+  background: url('/assets/classy_fabric.png') repeat left top;
   font-family: 'quicksand', sans-serif;
 
   label { font-weight: bold;}
