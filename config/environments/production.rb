@@ -47,6 +47,7 @@ FamilyMe::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( landing.js landing.css )
+  config.assets.precompile += %w(  .eot .woff .ttf )
 
   # Keeps the method signature in production to avoid errors due to method signature change
   config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
