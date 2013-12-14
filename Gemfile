@@ -10,6 +10,7 @@ gem 'thin'
 # Authentication
 gem 'devise'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem "simple_form"
 

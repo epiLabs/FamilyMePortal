@@ -74,6 +74,7 @@ GEM
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
     devise-i18n (0.10.0)
+    devise-i18n-views (0.2.8)
     diff-lcs (1.2.4)
     email_spec (1.5.0)
       launchy (~> 2.1)
@@ -241,6 +242,7 @@ DEPENDENCIES
   database_cleaner (~> 1.0.1)
   devise
   devise-i18n
+  devise-i18n-views
   email_spec
   entypo-rails
   execjs
