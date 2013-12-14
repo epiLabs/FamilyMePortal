@@ -3,6 +3,7 @@ require 'icalendar'
 class FamiliesController < ApplicationController
   include Icalendar
   before_filter :ensure_user_is_authenticated, except: [:landing]
+  before_filter :detect_locale
 
   def show
     @family = current_user.family
@@ -24,7 +25,7 @@ class FamiliesController < ApplicationController
   def landing
     if current_user
       if current_user.family
-       render :show
+       redirect_to dashboard_path
       else
        render :new
      end

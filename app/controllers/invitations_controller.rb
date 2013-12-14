@@ -1,6 +1,7 @@
 class InvitationsController < ApplicationController
   before_filter :ensure_user_is_authenticated
   before_filter :ensure_user_is_in_a_family, except: [:accept, :reject]
+  before_filter :detect_locale
 
   def index
     @invitations = current_user.family.invitations
@@ -8,7 +9,7 @@ class InvitationsController < ApplicationController
 
   def accept
     invitation = Invitation.find(params[:id])
-    
+
     if invitation.accept! current_user
       redirect_to root_path, notice: "You are now in a family!"
     else
@@ -18,7 +19,7 @@ class InvitationsController < ApplicationController
 
   def reject
     invitation = Invitation.find(params[:id])
-    
+
     if invitation.reject! current_user
       flash[:notice] = "You have rejected an invitation"
     else

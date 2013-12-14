@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :detect_locale
 
   def after_sign_in_path_for(user)
     dashboard_path
@@ -27,7 +26,7 @@ class ApplicationController < ActionController::Base
   def detect_locale
     if params[:locale].present?
       I18n.locale = params[:locale]
-    elsif params[:format] != 'json'
+    elsif
       if request.method == "GET"
         new_locale = http_accept_language.compatible_language_from(I18n.available_locales)
         new_locale = I18n.default_locale.to_s unless new_locale
