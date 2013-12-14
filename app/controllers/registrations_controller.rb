@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :detect_locale
+
   def create
     build_resource(sign_up_params)
 

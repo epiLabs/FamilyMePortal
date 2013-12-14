@@ -1,8 +1,8 @@
-%h2 Resend confirmation instructions
+%h2= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions')
 = simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
   = f.error_notification
   .form-inputs
     = f.input :email, :required => true
   .form-actions
-    = f.button :submit, "Resend confirmation instructions"
+    = f.button :submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions')
 = render "users/shared/links"

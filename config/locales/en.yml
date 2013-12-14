@@ -2,4 +2,20 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  sign_in: Sign in
+  sign_up: Sign up
+  homepage:
+    header:
+      title_1: FEATURES
+    call_to_action:
+      title: A tool for your family
+      description: FamilyMe is an Epitech Innovating Project
+    feature_1: Social
+    feature_2: Calendar
+    feature_3: Localize
+    feature_4: Task lists
+    subtitle: We have every tool your family needs
+    subtitle_2: Make your household a better place by sharing and collaborating 100% privately
+    eip: |
+      The Epitech Innovative Project is a important step in development of the student at Epitech.
+      It’s allow the student to grow and learn to become a real professional

@@ -1,12 +1,16 @@
 source 'https://rubygems.org'
 
 gem 'rails', "~> 3.2.14"
+gem 'rails-i18n', '~> 3.0.0'
+
 gem 'pg'
 gem 'mysql2'
 gem 'thin'
 
 # Authentication
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem "simple_form"
 
@@ -59,6 +63,8 @@ gem 'jquery-rails'
 # see http://stackoverflow.com/questions/7464900/what-needs-to-be-configured-for-heroku-to-handle-templates-based-on-coffeescript
 gem 'coffee-rails'
 gem 'haml'
+
+gem 'http_accept_language'
 
 group :test do
   gem "sqlite3"

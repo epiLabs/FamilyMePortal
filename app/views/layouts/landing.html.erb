@@ -1,86 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>familyMe | A tool for your family.</title>
+<head>
+  <title>familyMe</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="familyMe Team">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="familyMe Team">
 
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    
-    <%= stylesheet_link_tag "landing", :media => "all" %>
-    <%= csrf_meta_tags %>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-  </head>
-  <body>
-    <div id="content">
+  <%= stylesheet_link_tag "landing", :media => "all" %>
+  <%= csrf_meta_tags %>
 
-      <header id="main-nav" class="fixed">
-        <div class="grid clearfix">
-          <%= image_tag("landing/brand-id.png", :class => "brand-id left", :size => "35x35") %>
-          <h3 class="brand"> FAMILYME </h3>
-          <ul class="navi">
-            <li> <h4><a href="#features">FEATURES</a></h4> </li>
-            <li> <h4><a href="#archi">ARCHITECTURE</a></h4> </li>
-          </ul>
-          <%= button_to "SIGN IN", new_user_session_path, :class => "btn gray-bg button", :method => :get %>
-        </div>
-      </header>
+</head>
+<body>
+  <div id="content">
 
-      <section id="mission" class="orange-bg">
-        <div id="purpose" class="grid clearfix">
-          <div class="macintosh"></div>
-          <div class="wrapper right">
-            <h1> A tool for your family. </h1>
-            <h5> FamilyMe est un Epitech Innovating Project (EIP) devellopez pour votre famille. </h5>
+    <header id="main-nav" class="fixed">
+      <div class="grid clearfix">
+        <%= image_tag("landing/brand-id.png", :class => "brand-id left", :size => "35x35") %>
+        <h3 class="brand"> FAMILYME </h3>
+        <ul class="navi">
+          <li> <h4><a href="#features"><%= t('homepage.header.title_1') %></a></h4> </li>
+        </ul>
+        <%= link_to t('sign_in'), new_user_session_path, :class => "btn gray-bg button" %>
+      </div>
+    </header>
 
-            <form id="form">
-                <input type="email" placeholder="Get Started NOW !" required="">
-            </form>
+    <section id="mission" class="orange-bg">
+      <div id="purpose" class="grid clearfix">
+        <div class="macintosh"></div>
+        <div class="wrapper right">
+          <h1><%= t('homepage.call_to_action.title') %></h1>
+          <h5><%= t('homepage.call_to_action.description') %> </h5>
 
+          <div>
+            <a class="btn btn-default btn-lg btn-success" href="/users/sign_up"><%= t('sign_up') %></a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="features" class="pale-bg">
-        <div class="grid">
-          <ul class="navi">
-            <li>
-              <span class="entypo-social twitter icon-social-twitter" style="font-size: 50px"></span>
-              <h4><a href="#features">Social</a></h4>
-            </li>
-            <li>
-              <span class="entypo calendar icon-calendar" style="font-size: 50px"></span>
-              <h4><a href="#archi">Calendar</a></h4>
-            </li>
-            <li>
-              <span class="entypo location icon-location" style="font-size: 50px"></span>
-              <h4><a href="#archi">Localize</a></h4>
-            </li>
-            <li>
-              <span class="entypo numbered-list icon-numbered-list" style="font-size: 50px"></span>
-              <h4><a href="#archi">List & Task</a></h4>
-            </li>
-          </ul>
+    <section id="features" class="pale-bg">
+      <div class="grid">
+        <ul class="navi">
+          <li>
+            <span class="entypo-social twitter icon-social-twitter" style="font-size: 50px"></span>
+            <h4><a href="#features"><%= t('homepage.feature_1') %></a></h4>
+          </li>
+          <li>
+            <span class="entypo calendar icon-calendar" style="font-size: 50px"></span>
+            <h4><a href="#archi"><%= t('homepage.feature_2') %></a></h4>
+          </li>
+          <li>
+            <span class="entypo location icon-location" style="font-size: 50px"></span>
+            <h4><a href="#archi"><%= t('homepage.feature_3') %></a></h4>
+          </li>
+          <li>
+            <span class="entypo numbered-list icon-numbered-list" style="font-size: 50px"></span>
+            <h4><a href="#archi"><%= t('homepage.feature_4') %></a></h4>
+          </li>
+        </ul>
 
-          <div class="h-wrap">
-            <h1> We have every tool your family needs. </h1>
-            <h5> Make your household a better place by sharing and collaborating 100% privately. </h5>
-          </div>
+        <div class="h-wrap">
+          <h1><%= t('homepage.subtitle') %></h1>
+          <h5><%= t('homepage.subtitle_2') %></h5>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="eip" class="blue-bg">
-        <div></div>
-        <div class="grid clearfix">
-          <p class="left">The Epitech Innovative Project is a important step in development of the student at Epitech.
-            It’s allow the student to grow and learn to become a <strong>real professional</strong>.</p>
-          <h1 class="right"> <strong> { E.I.P } </strong> </h1>
-        </div>
-      </section>
+    <section id="eip" class="blue-bg">
+      <div></div>
+      <div class="grid clearfix">
+        <p class="left">
+          <%= t('homepage.eip') %>
+        </p>
+        <h1 class="right"> <strong> { E.I.P } </strong> </h1>
+      </div>
+    </section>
 
       <footer id="footer">
         <div class="grid clearfix">
@@ -92,6 +91,6 @@
         </div>
       </footer>
 
-    </div> <!-- /content -->
-  </body>
+  </div> <!-- /content -->
+</body>
 </html>

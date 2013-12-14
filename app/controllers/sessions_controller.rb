@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  before_filter :detect_locale
+
   def create
     @resource = warden.authenticate!(:scope => resource_name, :recall => "sessions#new")
     set_flash_message(:notice, :signed_in) if is_navigational_format?

@@ -1,0 +1,21 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  sign_in: Se connecter
+  sign_up: S'inscrire
+  homepage:
+    header:
+      title_1: Fonctionnalités
+    call_to_action:
+      title: Un outil pour votre famille
+      description: FamilyMe est un Epitech Innovating Project
+    feature_1: Social
+    feature_2: Calendrier
+    feature_3: Localisation
+    feature_4: Listes de tâches
+    subtitle: Nous avons tous les outils dont votre famille a besoin
+    subtitle_2: Faites de votre foyer un lieu de partage et de collaboration 100% privé
+    eip: |
+      L'Epitech Innovative Project est un pas important dans la vie d'un étudiant Epitech.
+      Il permet à celui-ci de grandir et d'apprendre à devenir un vrai professionel
