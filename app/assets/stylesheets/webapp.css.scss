@@ -1,5 +1,5 @@
 $familyMe-orange: rgb(209, 154, 37);
-$familyMe-orange-dark: #ff8000; 
+$familyMe-orange-dark: #ff8000;
 
 $link-color: $familyMe-orange-dark;
 $link-hover-color: $familyMe-orange;
@@ -8,6 +8,9 @@ $nice-black: rgba(16, 16, 16, 0.45);
 
 @import "twitter/bootstrap";
 
+.alert {
+  margin-left: 70px;
+}
 // Dashboard stuffs
 .new-post {
   margin-bottom: 10px;
@@ -116,6 +119,17 @@ $nice-black: rgba(16, 16, 16, 0.45);
     min-width: 300px;
     color: black;
 
+  }
+}
+
+header {
+  .languages {
+    a {
+      &.selected {
+        font-weight: bold;
+        color: white;
+      }
+    }
   }
 }
 

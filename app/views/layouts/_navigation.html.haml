@@ -1,6 +1,9 @@
 .navbar.navbar-inverse
   .navbar-header
     = link_to "FamilyMe", dashboard_path(locale: I18n.locale), :class => 'navbar-brand'
+  %ul.nav.navbar-nav.languages
+    %li= link_to 'English', url_for(locale: 'en'), class: "#{'selected' if I18n.locale.to_s == 'en'}"
+    %li= link_to 'Français', url_for(locale: 'fr'), class: "#{'selected' if I18n.locale.to_s == 'fr'}"
 
   - if user_signed_in?
     %ul.nav.navbar-nav.navbar-right

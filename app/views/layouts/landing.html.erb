@@ -82,7 +82,11 @@
     </section>
 
       <footer id="footer">
-        <div class="grid clearfix">
+        <div class="languages">
+          <%= link_to 'English', url_for(locale: 'en'), class: "#{'selected' if I18n.locale.to_s == 'en'}" %>
+          <%= link_to 'Français', url_for(locale: 'fr'), class: "#{'selected' if I18n.locale.to_s == 'fr'}" %>
+        </div>
+        <div class="grid clearfix logos">
           <%= image_tag("landing/logo_eip.png", :size => "127x65") %>
           <%= image_tag("landing/brand-id.png", :class => "brand-id", :size => "65x65") %>
           <%= image_tag("landing/logo_epitech.png", :size => "179x65") %>

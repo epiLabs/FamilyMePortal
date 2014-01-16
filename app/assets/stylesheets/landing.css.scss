@@ -383,10 +383,25 @@ section#eip>div:first-child {
 
 footer {
     width: 100%;
-    background: #222;
+    background: #000;
+    opacity: 0.8;
     color: rgba(255, 255, 255, 0.45);
-    padding: 6em 0;
+    padding: 20px 0;
     text-align: center;
+
+    .languages {
+        margin-bottom: 30px;
+
+        a {
+            margin: auto 20px;
+        }
+        a.selected {
+            font-weight: bold;
+        }
+    }
+    .logos {
+        text-align: right;
+    }
 }
 
 footer h1 {
