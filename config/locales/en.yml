@@ -19,3 +19,17 @@ en:
     eip: |
       The Epitech Innovative Project is a important step in development of the student at Epitech.
       It’s allow the student to grow and learn to become a real professional
+  webapp:
+    title_1: Family
+    title_2: Your account
+    title_3: Invitations
+    title_4: List
+    title_5: New
+    title_6: Logout
+  activerecord:
+    attributes:
+      user:
+        last_sign_in_at: Last seen
+  export_calendar: Export your calendar
+  sent_by: Sent by
+  invite_someone: Invite someone

@@ -1,13 +1,13 @@
-= link_to "Export calendrier", icalendar_events_path(ical_token: current_user.get_ical_token, protocol: 'webcal', format: :ics)
-
+= link_to t('export_calendar'), icalendar_events_path(ical_token: current_user.get_ical_token, protocol: 'webcal', format: :ics)
+.clear{style: 'margin-bottom:20px;'}
 .family-members-list
   %table.table.table-bordered.table-hover
     %tr
       %th Avatar
-      %th email
-      %th first name
-      %th last name
-      %th Last seen
+      %th Email
+      %th= t('activerecord.attributes.user.first_name')
+      %th= t('activerecord.attributes.user.last_name')
+      %th= t('activerecord.attributes.user.last_sign_in_at')
 
     - @users.each do |user|
       %tr
@@ -15,4 +15,4 @@
         %td= user.email
         %td= user.first_name
         %td= user.last_name
-        %td= user.last_sign_in_at
+        %td= I18n.l user.last_sign_in_at, format: :short

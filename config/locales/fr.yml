@@ -19,3 +19,22 @@ fr:
     eip: |
       L'Epitech Innovative Project est un pas important dans la vie d'un étudiant Epitech.
       Il permet à celui-ci de grandir et d'apprendre à devenir un vrai professionel
+  webapp:
+    title_1: Votre Famille
+    title_2: Paramètres
+    title_3: Invitations
+    title_4: Lister
+    title_5: Créer
+    title_6: Se déconnecter
+  export_calendar: Exporter votre calendrier
+  activerecord:
+    attributes:
+      user:
+        first_name: Prénom
+        last_name: Nom
+        nickname: Pseudo
+        password: Mot de passe
+        password_confirmation: Confirmer votre mot de passe
+        last_sign_in_at: Dernière visite
+  sent_by: Envoyé par
+  invite_someone: Inviter quelqu'un
