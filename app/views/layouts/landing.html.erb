@@ -93,6 +93,42 @@
       </div>
     </section>
 
+    <section id="features" class="gray-bg" style="padding-top: 100px">
+      <div class="grid" style="max-width:none">
+        <ul id="members" class="navi" style="width: auto">
+          <li>
+            <%= image_tag("landing/circla_c.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#features">Charles Circlaeys</a></h4>
+          </li>
+          <li>
+            <%= image_tag("landing/jorge_d.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#archi">Dimitri Jorge</a></h4>
+          </li>
+          <li>
+            <%= image_tag("landing/di-mar_j.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#archi">Julien Di Marco</a></h4>
+          </li>
+          <li>
+            <%= image_tag("landing/rodrig_d.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#archi">Jose Rodrigues</a></h4>
+          </li>
+          <li>
+            <%= image_tag("landing/berhau_n.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#archi">Nicolas Berhault</a></h4>
+          </li>
+          <li>
+            <%= image_tag("landing/serraj_y.jpg", :class => "circular center", :size => "100x100") %>
+            <h4><a href="#archi">Younes Seraj</a></h4>
+          </li>
+        </ul>
+        <br /><br />
+        <div class="h-wrap">
+          <h1><%= t('homepage.members1') %></h1>
+          <h5><%= t('homepage.members2') %></h5>
+        </div>
+      </div>
+    </section>
+
       <footer id="footer">
         <div class="languages">
           <%= link_to 'English', url_for(locale: 'en'), class: "#{'selected' if I18n.locale.to_s == 'en'}" %>
