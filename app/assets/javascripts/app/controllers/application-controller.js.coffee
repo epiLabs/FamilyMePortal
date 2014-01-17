@@ -1,11 +1,16 @@
-app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
+app.controller "ApplicationController", ($location, $scope, $rootScope, $q, User) ->
+  locale = $location.search()['locale']
+  locale = 'en' unless (locale == 'fr')
+
+  moment.lang locale
+
   $scope.moment = moment
 
   $rootScope.currentUserId = @user_id = parseInt($('#main-application').data('current-user-id'))
 
-  $rootScope.canEdit = (user_id)=>  
+  $rootScope.canEdit = (user_id)=>
     @user_id == user_id
-  $rootScope.canDelete = (user_id)=>    
+  $rootScope.canDelete = (user_id)=>
     @user_id == user_id
 
   $rootScope.getUser = (user_id)=>
@@ -15,7 +20,7 @@ app.controller "ApplicationController", ($scope, $rootScope, $q, User) ->
 
   $rootScope.username = (user_id)->
     return unless user_id?
-    
+
     user = $rootScope.getUser(user_id)
 
     return user.display_name if user

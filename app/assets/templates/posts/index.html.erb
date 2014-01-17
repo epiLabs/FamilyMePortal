@@ -7,7 +7,7 @@
       <div class="avatar pull-left">
         <img ng-src="{{avatarUrl(post.user_id)}}" class="media-object img-circle" />
       </div>
-      
+
       <div class="media-body">
         <div class="pull-right actions">
           <a class="edit-post glyphicon glyphicon-edit" ng-if="canEdit(post.user_id)" href="/posts/{{post.id}}/edit" title="Edit"></a>

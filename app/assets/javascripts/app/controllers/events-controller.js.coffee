@@ -64,7 +64,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
         description: $scope.event.description
         start_date: moment($scope.event.start_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
         end_date: moment($scope.event.end_date, "YYYY/MM/DD HH:mm").format("YYYY-MM-DDTHH:mm:ssZ")
-   
+
       , (response) ->
         $location.path "/events"
       , (error)->

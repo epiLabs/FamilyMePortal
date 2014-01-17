@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require twitter/bootstrap
 #= require moment/moment
+#= require moment/lang/fr
 #= require angular/angular
 #= require angular-resource/angular-resource
 #= require angular-ui-router/release/angular-ui-router
