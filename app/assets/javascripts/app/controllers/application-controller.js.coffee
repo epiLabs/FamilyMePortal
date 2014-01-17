@@ -1,7 +1,9 @@
-app.controller "ApplicationController", ($location, $scope, $rootScope, $q, User) ->
+app.controller "ApplicationController", ($translate, $location, $scope, $rootScope, $q, User) ->
   locale = $location.search()['locale']
   locale = 'en' unless (locale == 'fr')
 
+
+  $translate.uses(locale);
   moment.lang locale
 
   $scope.moment = moment

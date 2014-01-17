@@ -8,18 +8,18 @@
   <div class="panel-body">
     <div class="container">
       {{task_list.description}}
-      <i ng-if="!task_list.description">No description</i>
+      <i ng-if="!task_list.description">{{'NO_DESCRIPTION'|translate}}</i>
     </div>
     <div class="tasks_container">
       <todo ng-repeat="task in tasks" task="task" />
 
-      <button type="button" class="btn btn-success col-md-6 col-md-offset-3" data-toggle="modal" data-target="#myModal" ng-click="resetTaskForm()">Add task</button>
+      <button type="button" class="btn btn-success col-md-6 col-md-offset-3" data-toggle="modal" data-target="#myModal" ng-click="resetTaskForm()">{{'ADD_TASK'|translate}}</button>
       <div class="modal fade" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Task</h4>
+              <h4 class="modal-title">{{'TASK'|translate}}</h4>
             </div>
             <div class="modal-body">
               <form role="form">
@@ -27,18 +27,18 @@
                 <input type="hidden" value="task.id" />
 
                 <div class="form-group">
-                  <label for="taskTitle">title</label>
-                  <input type="text" placeholder="Required" ng-model="task.title" required="true" id="taskTitle"/>
+                  <label for="taskTitle">{{'TITLE'|translate}}</label>
+                  <input type="text" placeholder="{{'REQUIRED'|translate}}" ng-model="task.title" required="true" id="taskTitle"/>
                 </div>
                 <div class="form-group">
-                  <label for="taskUserId">Assigned user</label>
+                  <label for="taskUserId">{{'ASSIGNED_USER'|translate}}</label>
                   <select ng-model="task.user_id" ng-options="o.id as o.display_name for o in users" id="taskUserId"></select>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" ng-click="saveTask()">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{{'CLOSE'|translate}}</button>
+              <button type="button" class="btn btn-primary" ng-click="saveTask()">{{'SAVE'|translate}}</button>
             </div>
           </div>
         </div>

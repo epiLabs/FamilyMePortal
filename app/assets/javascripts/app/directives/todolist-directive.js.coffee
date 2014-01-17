@@ -78,7 +78,7 @@ app.controller "TodolistDetailController", ($rootScope, $scope, $state, $statePa
     )
   )
 
-app.controller "TaskController", ($rootScope, $scope)->
+app.controller "TaskController", ($rootScope, $scope, $translate)->
   $scope.users = $rootScope.getUsers()
   $scope.username = $rootScope.username
 
@@ -89,7 +89,7 @@ app.controller "TaskController", ($rootScope, $scope)->
     $scope.$emit('toggleTaskStatus', task)
 
   $scope.destroy = (id) ->
-    if confirm 'Are you sure that you want to delete this task?'
+    if confirm $translate('ARE_YOU_SURE')
       $scope.$emit('destroyTask', id)
 
 app.directive 'todo', ($rootScope) ->
@@ -116,8 +116,8 @@ app.directive 'todo', ($rootScope) ->
         </div>
 
         <div class="col-md-1 actions">
-          <a class="edit-task glyphicon glyphicon-edit" href="" ng-click="editMode(task)" data-toggle="modal" data-target="#myModal" title="Edit"></a>
-          <a class="delete-task glyphicon glyphicon-remove" href="" ng-click="destroy(task.id)" title="Delete"></a>
+          <a class="edit-task glyphicon glyphicon-edit" href="" ng-click="editMode(task)" data-toggle="modal" data-target="#myModal" title="{{\'EDIT\'|translate}}"></a>
+          <a class="delete-task glyphicon glyphicon-remove" href="" ng-click="destroy(task.id)" title="{{\'DELETE\'|translate}}"></a>
         </div>
       </div>
     </div>

@@ -4,16 +4,16 @@
   </section>
 
   <div class="col-md-3 container">
-    <h3>Filters</h3>
+    <h3>{{ 'FILTERS' | translate }}</h3>
 
     <div class="row">
-      <a href="/positions/latest" ng-click="refreshMarkers('latest')">Where is everyone?</a>
+      <a href="/positions/latest" ng-click="refreshMarkers('latest')">{{ 'WHERE_IS_EVERYONE' | translate }}</a>
     </div>
 
     <div class="row">
-      <a class="col-md-6" href="/positions" ng-click="refreshMarkers('all')">List positions</a>
+      <a class="col-md-6" href="/positions" ng-click="refreshMarkers('all')">{{'DUDE_POSITION' | translate}}</a>
       <div ng-show='filter'>
-        Filter
+        {{ 'FILTER' | translate }}
         <select ng-model="selectedUser" ng-options="o.id as o.display_name for o in users" ng-change="selectUser(selectedUser)"></select>
       </div>
     </div>

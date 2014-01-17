@@ -148,3 +148,8 @@ img { max-width: none; }
     max-width: inherit;
   }
 }
+
+textarea.message {
+  resize: none;
+  min-height: 200px;
+}

@@ -1,5 +1,5 @@
 When /^I create a new post "(.*?)"$/ do |message|
-  click_link 'Add new post'
+  page.find('.new-post').click
 
   fill_in 'Message', with: message
 

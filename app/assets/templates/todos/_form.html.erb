@@ -2,10 +2,10 @@
 
 <div class="form-group {{customClass}}">
   <label for="title" class="col-lg-2 control-label">
-    Title <abbr title="required">*</abbr>
+    {{ 'TITLE' | translate }} <abbr title="required">*</abbr>
   </label>
   <div class="col-lg-10">
-    <input placeholder="Title of your task list" type="text" ng-model="task_list.title" class="form-control" id="title"/>
+    <input placeholder="{{'TASK_LIST_TITLE'|translate}}" type="text" ng-model="task_list.title" class="form-control" id="title"/>
   </div>
 </div>
 
@@ -14,13 +14,13 @@
     Description
   </label>
   <div class="col-lg-10">
-    <textarea placeholder="Optionnal description" class="form-control" rows="6" ng-model="task_list.description" id="description"></textarea>
+    <textarea placeholder="{{'OPTIONNAL'|translate}}" class="form-control" rows="6" ng-model="task_list.description" id="description"></textarea>
   </div>
 </div>
 
 <div class="form-group">
   <div class="col-lg-offset-2 col-lg-10">
-    <a href="/todos" class="btn btn-danger">Cancel</a>
-    <button type="submit" class="btn btn-warning">Save</button> 
+    <a href="/todos" class="btn btn-danger">{{ 'CANCEL' | translate }}</a>
+    <button type="submit" class="btn btn-warning">{{ 'SAVE' | translate }}</button>
   </div>
 </div>

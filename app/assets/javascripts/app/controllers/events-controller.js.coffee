@@ -30,7 +30,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
               Duration: #{moment(event.custom.start_date).from(moment(event.custom.end_date), true)}
             </div>
             <div class='actions'>
-              <a class='edit-event' href='events/#{event.custom.id}/edit'>Edit</a>
+              <a class='edit-event' href='events/#{event.custom.id}/edit'>{{'EDIT'|translate}}</a>
             </div>
           "
         )

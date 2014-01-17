@@ -1,7 +1,7 @@
-<a class="btn btn-warning" href="/todos/new">Create todolist</a>
+<a class="btn btn-warning" href="/todos/new">{{'CREATE_A_TODOLIST'|translate}}</a>
 <label class="pull-right">
-  Filter
-  <select class="input-sm" ng-model='search.tasks.status' ng-options='obj for obj in ["all", "empty", "open", "completed"]'></select>
+  {{ 'FILTER' | translate }}
+  <select class="input-sm" ng-model='search.tasks.status' ng-options='(obj|translate) for obj in ["all", "empty", "open", "completed"]'></select>
 </label>
 <div class="row task_lists_container">
   <div class='col-md-3' ng-repeat="task_list in task_lists | orderBy:'-created_at' | displayTodoByStatus:search.tasks.status" >
@@ -14,12 +14,12 @@
       </div>
       <div class="panel-body">
         {{task_list.description}}
-        <i ng-if="!task_list.description">No description</i>
+        <i ng-if="!task_list.description">{{'NO_DESCRIPTION'|translate}}</i>
       </div>
       <div class="panel-footer">
         <div class="actions pull-right">
-          <a class="glyphicon glyphicon-edit" ng-href="/todos/{{task_list.id}}/edit" title="Edit" />
-          <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id)" title="Delete" />
+          <a class="glyphicon glyphicon-edit" ng-href="/todos/{{task_list.id}}/edit" title="{{'EDIT'|translate}}" />
+          <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id)" title="{{'DELETE'|translate}}" />
         </div>
         <div class="metadata metadata-left">
           By {{username(task_list.user_id)}} {{moment(task_list.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}
