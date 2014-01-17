@@ -24,6 +24,7 @@ app.config ($translateProvider) ->
     REQUIRED: 'Required'
     ASSIGNED_USER: 'Assigned user'
     DURATION: 'Duration'
+    BY: 'By'
 
   $translateProvider.translations "fr",
     CREATE_POST_LABEL: "Créer un nouveau message"
@@ -54,5 +55,6 @@ app.config ($translateProvider) ->
     REQUIRED: 'Requis'
     ASSIGNED_USER: 'Utilisateur assigné'
     DURATION: 'Durée'
+    BY: 'Par'
 
   $translateProvider.preferredLanguage "en"

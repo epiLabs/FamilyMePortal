@@ -22,7 +22,7 @@
           <a class="glyphicon glyphicon-remove" ng-click="destroy(task_list.id)" title="{{'DELETE'|translate}}" />
         </div>
         <div class="metadata metadata-left">
-          By {{username(task_list.user_id)}} {{moment(task_list.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}
+          {{'BY'|translate}} {{username(task_list.user_id)}} {{moment(task_list.updated_at, "YYYY-MM-DDTHH:mm:ssZ").fromNow()}}
         </div>
         <div class="clearfix" />
       </div>
