@@ -44,25 +44,25 @@ password = 'toto42'
 
 # Add some positions
 
-# @dimitri.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-# @dimitri.positions << Position.create(latitude: 53.424571, longitude: -6.243839)
-# @dimitri.positions << Position.create(latitude: 53.34471, longitude: -6.262379)
-# @dimitri.positions << Position.create(latitude: 53.332536, longitude: -6.279081)
+@dimitri.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@dimitri.positions << Position.create(latitude: 53.424571, longitude: -6.243839)
+@dimitri.positions << Position.create(latitude: 53.34471, longitude: -6.262379)
+@dimitri.positions << Position.create(latitude: 53.332536, longitude: -6.279081)
 
-# @jose.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-# @jose.positions << Position.create(latitude: 48.811322, longitude: 2.362779) # Fratelos
+@jose.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@jose.positions << Position.create(latitude: 48.811322, longitude: 2.362779) # Fratelos
 
-# @julien.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-# @julien.positions << Position.create(latitude: 33.783428, longitude: -118.115129) # Long beach
+@julien.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@julien.positions << Position.create(latitude: 33.783428, longitude: -118.115129) # Long beach
 
-# @charles.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-# @charles.positions << Position.create(latitude: 33.783428, longitude: -118.115129) # Long beach
-# @charles.positions << Position.create(latitude: 33.761845, longitude: -118.157787)
+@charles.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@charles.positions << Position.create(latitude: 33.783428, longitude: -118.115129) # Long beach
+@charles.positions << Position.create(latitude: 33.761845, longitude: -118.157787)
 
-# @younes.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@younes.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
 
-# @nicolas.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
-# @nicolas.positions << Position.create(latitude: 33.138521, longitude: -117.153397) # San marcos
+@nicolas.positions << Position.create(latitude: 48.81561, longitude: 2.363155) # Epitech
+@nicolas.positions << Position.create(latitude: 33.138521, longitude: -117.153397) # San marcos
 
 # Add some messages
 
