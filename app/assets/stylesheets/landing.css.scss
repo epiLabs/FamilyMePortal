@@ -123,6 +123,7 @@ header, section {
 
 .left { float: left; }
 .right { float: right; }
+.center { text-align: center; margin: auto; }
 
 .fixed {
     position: fixed;
@@ -239,9 +240,10 @@ header, section {
     font-weight: 300;
     font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
 }
+
 #mission .wrapper a {
     display: inline-block;
-    margin-left: 150px;
+    // margin-left: 150px;
 }
 
 
@@ -378,6 +380,48 @@ section#eip>div:first-child {
 }
 
 /*
+** twitter
+*/
+
+#twitter {
+    padding: 3em 0;
+    text-align: center;
+}
+
+#twitter .grid { max-width: 960px; }
+#twitter h1 { margin: 0; }
+#twitter .fancy { font-family: 'Sentinel SSm A', 'Sentinel SSm B'; }
+
+section#twitter>div:first-child {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+#twitter p {
+    width: 68%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin: 0px auto;
+    color: #1D5164;
+}
+
+#twitter h1 strong {
+    display: block;
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 0;
+    font-family: nexa_boldregular, Helvetica, arial, sans-serif;	font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+
+/*
 ** footer
 */
 
@@ -400,7 +444,7 @@ footer {
         }
     }
     .logos {
-        text-align: right;
+        text-align: center;
     }
 }
 
