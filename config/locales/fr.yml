@@ -35,6 +35,7 @@ fr:
         nickname: Pseudo
         password: Mot de passe
         password_confirmation: Confirmer votre mot de passe
+        current_password: Mot de passe actuel
         last_sign_in_at: Dernière visite
   sent_by: Envoyé par
   invite_someone: Inviter quelqu'un

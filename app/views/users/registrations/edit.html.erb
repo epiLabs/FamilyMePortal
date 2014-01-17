@@ -15,7 +15,7 @@
   <div><%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit t('.update', :default => "Update") %></div>
+  <div class='form-actions'><%= f.submit t('.update', :default => "Update"), class: "btn-success" %></div>
 <% end %>
 
 <h3><%= t('.cancel_my_account', :default => 'Cancel my account') %></h3>
