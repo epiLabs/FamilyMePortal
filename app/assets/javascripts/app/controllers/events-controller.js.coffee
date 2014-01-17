@@ -1,4 +1,4 @@
-app.controller 'EventsController', ($scope, $location, $state, $stateParams, Event) ->
+app.controller 'EventsController', ($translate, $scope, $location, $state, $stateParams, Event) ->
   $scope.events = {}
   $scope.event = {}
 
@@ -18,7 +18,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
       events: eventsArray
       ignoreTimezone: false
       eventAfterRender: (event, element)->
-        description = event.custom.description || "<i>No description available</i>"
+        description = event.custom.description || "<i>#{$translate('NO_DESCRIPTION')}</i>"
         $(element).popover(
           title: event.title
           placement: 'bottom'
@@ -27,10 +27,10 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
           content: "
             <div class='event-description'>#{description}</div>
             <div class='event-duration'>
-              Duration: #{moment(event.custom.start_date).from(moment(event.custom.end_date), true)}
+              #{$translate('DURATION')}: #{moment(event.custom.start_date).from(moment(event.custom.end_date), true)}
             </div>
             <div class='actions'>
-              <a class='edit-event' href='events/#{event.custom.id}/edit'>{{'EDIT'|translate}}</a>
+              <a class='edit-event' href='events/#{event.custom.id}/edit'>#{$translate('EDIT')}</a>
             </div>
           "
         )
@@ -83,7 +83,7 @@ app.controller 'EventsController', ($scope, $location, $state, $stateParams, Eve
     , (error)->
       alert JSON.stringify(error.data.error)
   $scope.destroy = (id) ->
-    if confirm 'Are you sure that you want to delete this event?'
+    if confirm $translate('ARE_YOU_SURE')
       Event.delete
         id: id
       , (response)->
