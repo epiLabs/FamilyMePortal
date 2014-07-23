@@ -6,32 +6,32 @@ password = 'toto42'
 
 # Create Members
 
-@dimitri = User.new(nickname: 'keny', first_name: 'Dimitri', last_name: 'Jorge', email: 'jorge.dimitri@gmail.com', password: password, password_confirmation: password)
+@dimitri = User.new(nickname: 'keny', first_name: 'Dimitri', last_name: 'Jorge', email: 'email_1@gmail.com', password: password, password_confirmation: password)
 @dimitri.family = @family
 @dimitri.last_sign_in_at = Time.now
 @dimitri.save!
 
-@jose = User.new(nickname: 'rodrig_d', first_name: 'Jose', last_name: 'Rodrigues', email: 'contact.jrodrigues@gmail.com', password: password, password_confirmation: password)
+@jose = User.new(nickname: 'rodrig_d', first_name: 'Jose', last_name: 'Rodrigues', email: 'email_2@gmail.com', password: password, password_confirmation: password)
 @jose.family = @family
 @jose.last_sign_in_at = 2.days.ago
 @jose.save!
 
-@julien = User.new(nickname: 'lifely', first_name: 'Julien', last_name: 'Di-marco', email: 'juliendimarco@gmail.com', password: password, password_confirmation: password)
+@julien = User.new(nickname: 'lifely', first_name: 'Julien', last_name: 'Di-marco', email: 'email_3@gmail.com', password: password, password_confirmation: password)
 @julien.family = @family
 @julien.last_sign_in_at = 2.hours.ago
 @julien.save!
 
-@charles = User.new(nickname: 'furyfeuille', first_name: 'Charles', last_name: 'Circlaeys', email: 'c.circlaeys@gmail.com', password: password, password_confirmation: password)
+@charles = User.new(nickname: 'furyfeuille', first_name: 'Charles', last_name: 'Circlaeys', email: 'email_4@gmail.com', password: password, password_confirmation: password)
 @charles.family = @family
 @charles.last_sign_in_at = 1.week.ago
 @charles.save!
 
-@younes = User.new(nickname: 'yoones', first_name: 'Younes', last_name: 'Serraj', email: 'younes.serraj@gmail.com', password: password, password_confirmation: password)
+@younes = User.new(nickname: 'yoones', first_name: 'Younes', last_name: 'Serraj', email: 'email_5@gmail.com', password: password, password_confirmation: password)
 @younes.family = @family
 @younes.last_sign_in_at = 1.year.ago
 @younes.save!
 
-@nicolas = User.new(nickname: 'berhau_n', first_name: 'Nicolas', last_name: 'Berhault', email: 'gurki.epitech@gmail.com', password: password, password_confirmation: password)
+@nicolas = User.new(nickname: 'berhau_n', first_name: 'Nicolas', last_name: 'Berhault', email: 'email_6@gmail.com', password: password, password_confirmation: password)
 @nicolas.last_sign_in_at = 1.minute.ago
 @nicolas.save!
 
