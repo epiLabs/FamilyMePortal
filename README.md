@@ -37,7 +37,7 @@ Improve this readme
 ```shell
 curl -X POST \
      -H "Accept: application/json" \
-     -d 'user[email]=jorge.dimitri@gmail.com&user[password]=toto42' \
+     -d 'user[email]=some_email@gmail.com&user[password]=toto42' \
     http://localhost:3000/users/sign_in
-{"response":"ok","id":1,"nickname":"dimitri.jorge","first_name":"Dimitri","last_name":"Jorge","email":"jorge.dimitri@gmail.com","auth_token":"sYpP3xEY6SvxxEeBZ8Ee"}
+{"response":"ok","id":1,"nickname":"dimitri.jorge","first_name":"Dimitri","last_name":"Jorge","email":"some_email@gmail.com","auth_token":"sYpP3xEY6SvxxEeBZ8Ee"}
 ```
